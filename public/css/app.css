@@ -1,0 +1,11 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('../fonts/Bahij_TheSansArabic-Bold.ttf');
+}
+
+*{
+    font-family: myFirstFont;
+}
+.alert-info, .bg-light-info{
+
+}
