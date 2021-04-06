@@ -34,6 +34,7 @@ class ModulesServiceProvider extends ServiceProvider
             // Moudle files structure
             $web = $currentDir . DIRECTORY_SEPARATOR .'Routes'. DIRECTORY_SEPARATOR . 'web.php';
             $api = $currentDir . DIRECTORY_SEPARATOR . 'Routes'. DIRECTORY_SEPARATOR . 'api.php';
+            $admin = $currentDir . DIRECTORY_SEPARATOR . 'Routes'. DIRECTORY_SEPARATOR . 'admin.php';
             $config = $currentDir . DIRECTORY_SEPARATOR . 'config.php';
             $views = $currentDir . DIRECTORY_SEPARATOR . 'Views';
             $lang = $currentDir . DIRECTORY_SEPARATOR . 'Lang';
@@ -57,7 +58,12 @@ class ModulesServiceProvider extends ServiceProvider
 
             //Register Module Web Routes
             if (file_exists($web)) {
-                $this->mapWebRoutes($this->namespace . '\\' . $module . '\Controllers', $web);
+                $this->mapWebRoutes($this->namespace . '\\' . $module . '\Controllers\Web', $web);
+            }
+
+            //Register Module Web Routes
+            if (file_exists($admin)) {
+                $this->mapWebRoutes($this->namespace . '\\' . $module . '\Controllers\Admin', $admin);
             }
 
             //Register Module Api Routes
