@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Component;
 use Illuminate\Database\Seeder;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +17,10 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call(UserSeeder::class);
+        $this->call(ProjectSeeder::class);
+        $this->call(SectionSeeder::class);
+        $this->call(ComponentSeeder::class);
+        $this->call(ComponentFieldSeeder::class);
 //        $this->call(ConfigSeeder::class);
     }
 }
