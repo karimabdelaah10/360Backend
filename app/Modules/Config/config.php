@@ -2,7 +2,7 @@
 return [
     'name' => 'Config Module',
     'description' => 'Config Modules',
-    'status' => true,
+    'status' => false,
     'autoload' => [
 
     ],

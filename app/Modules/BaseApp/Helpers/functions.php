@@ -316,7 +316,7 @@ if (! function_exists('profile_picture')) {
         if (!empty(auth()->user()) && !empty(auth()->user()->profile_picture)){
            return image(auth()->user()->profile_picture , 'large');
         }
-        return  url('/images/150.PNG');
+        return  url('assets/Admin/images/150.PNG');
 
 //        return  'https://via.placeholder.com/150';
     }

@@ -27,7 +27,7 @@
                             @yield('message-body')
                         </p>
                         <a class="btn btn-primary mb-1 btn-sm-block"
-                           href="/">
+                           href="/admin/">
                             {{trans('app.go home page')}}
                         </a>
                         @yield('image')

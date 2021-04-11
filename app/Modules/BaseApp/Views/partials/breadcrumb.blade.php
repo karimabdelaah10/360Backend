@@ -7,7 +7,7 @@
         <div class="breadcrumb-wrapper">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="{{App::make("url")->to('/')}}">{{ trans('app.home') }}</a>
+                    <a href="{{route('dashboard')}}">{{ trans('app.home') }}</a>
                 </li>
                 @if(@$breadcrumb)
                     @foreach ($breadcrumb as $key=>$value)

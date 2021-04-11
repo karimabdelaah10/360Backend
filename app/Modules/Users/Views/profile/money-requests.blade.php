@@ -52,6 +52,6 @@
     </div>
 @endsection
 @push('js')
-    <script src="/js/pages/jquery.twbsPagination.min.js"></script>
-    <script src="/js/pages/components-pagination.js"></script>
+    <script src="/assets/Adminjquery.twbsPagination.min.js"></script>
+    <script src="/assets/Admin/js/components-pagination.js "></script>
 @endpush
