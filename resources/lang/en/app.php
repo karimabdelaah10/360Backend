@@ -39,6 +39,7 @@ return [
 
 
     'Contactus Messages'=>'Contactus Messages',
+    'contact us page'=>'Contact Us',
 
     ''=>''
 ];

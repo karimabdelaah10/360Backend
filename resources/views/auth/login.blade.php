@@ -1,6 +1,6 @@
 @extends('BaseApp::layouts.auth')
 @push('css')
-    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="/assets/Admin/css/auth.css">
 @endpush
 @section('page-title')
     {{trans('auth.login')}}
@@ -19,8 +19,8 @@
             <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
                 <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
                     <img class="img-fluid"
-                         src="/images/login.png"
-                         alt="Login V2"/></div>
+                         src="/assets/Admin/images/login.png"
+                         alt="Login"/></div>
             </div>
             <!-- /Left Text-->
             <!-- Login-->
