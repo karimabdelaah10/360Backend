@@ -1,6 +1,6 @@
 @extends('BaseApp::layouts.auth')
 @push('css')
-    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="/assets/Admin/css/auth.css">
 @endpush
 @section('page-title')
     {{trans('auth.forget password')}}
@@ -55,8 +55,8 @@
                         <!-- Left Text-->
                         <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
                             <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
-                                <img class="img-fluid" src="/images/forgot-password-v2.png"
-                                     alt="Forgot password V2"/>
+                                <img class="img-fluid" src="/assets/Admin/images/forgot-password-v2.png"
+                                     alt="Forgot password"/>
                             </div>
                         </div>
                         <!-- /Left Text-->

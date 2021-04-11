@@ -1,7 +1,7 @@
 <?php
 Route::group([
     'middleware' => ['auth'],
-    'prefix'=>'admin/contact-messages'
+    'prefix'=>'contact-messages'
 ], function () {
 
     Route::get('/', 'ContactMessagesController@getIndex');
