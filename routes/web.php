@@ -22,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 //})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('project/{id}','backend\ProjectsController@index')->name('getProject');

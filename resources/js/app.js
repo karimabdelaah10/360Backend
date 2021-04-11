@@ -32,6 +32,26 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('toast-component', require('./components/ToastComponent.vue').default);
 Vue.component('search-component', require('./components/SearchComponent.vue').default);
 
+// frontend project components
+Vue.component('1image_l', require('./components/1image_l.vue').default);
+Vue.component('1image_m', require('./components/1image_m.vue').default);
+Vue.component('1image_r', require('./components/1image_r.vue').default);
+Vue.component('2image', require('./components/2image.vue').default);
+Vue.component('2image_space', require('./components/2image_space.vue').default);
+Vue.component('2paragraph_m', require('./components/2paragraph_m.vue').default);
+Vue.component('4image', require('./components/4image.vue').default);
+Vue.component('4image_space', require('./components/4image_space.vue').default);
+Vue.component('5image_space', require('./components/5image_space.vue').default);
+Vue.component('6image_space', require('./components/6image_space.vue').default);
+Vue.component('bg_paragraph_m', require('./components/bg_paragraph_m.vue').default);
+Vue.component('bg_title_m', require('./components/bg_title_m.vue').default);
+Vue.component('paragraph_l', require('./components/paragraph_l.vue').default);
+Vue.component('paragraph_r', require('./components/paragraph_r.vue').default);
+Vue.component('slider', require('./components/slider.vue').default);
+Vue.component('title_l_pragraph_r', require('./components/title_l_pragraph_r.vue').default);
+Vue.component('next-project', require('./components/NextProject').default);
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
