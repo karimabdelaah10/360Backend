@@ -9,6 +9,10 @@ class Project extends Model
 {
     use HasFactory;
     public function sections(){
-        return $this->hasMany(Section::class);
+        return $this->hasMany(Section::class)->orderBy('order');
+    }
+    public function sectionsWithComponents(){
+
+        return $this->hasManyThrough(Component::class,Section::class);
     }
 }

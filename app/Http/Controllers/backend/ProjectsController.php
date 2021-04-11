@@ -10,6 +10,11 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        return Project::with('sections')->get();
+
+
+
+//        $projects=Project::with('sections.components')->find(1);
+       return view('project');
+       //       return $projects;
     }
 }

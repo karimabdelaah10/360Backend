@@ -21,12 +21,13 @@ class SectionFactory extends Factory
      */
     public function definition()
     {
+        $project_ids=[1]; //get project id from data or hardCode it .
         return [
 
             'order' => $this->faker->unique()->randomElement([1,2,3,4,5]),
             'wrapperType' => $this->faker->randomElement(['lg','sm','mid']),
             'backgroundColor' => $this->faker->randomElement['black'],
-            'project_id' => $this->faker->randomElement([2]),
+            'project_id' => $this->faker->randomElement($project_ids),
 
         ];
     }
