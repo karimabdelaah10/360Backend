@@ -6,19 +6,13 @@ use App\Http\Controllers\Controller;
 
 class HomepageController extends Controller {
 
-    public $model;
     public $views;
-    public $module;
-
     public function __construct() {
-        $this->views = 'Dashboard';
-//        $this->title = trans('app.Slider');
-//        $this->model = $model;
-//        $this->rules = $model->rules;
+        $this->views = 'Homepage::Web.';
     }
 
     public function getIndex() {
-        return view($this->views . '::index');
+        return view($this->views . 'index');
     }
 
 }

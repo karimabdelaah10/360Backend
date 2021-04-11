@@ -61,9 +61,9 @@ class ModulesServiceProvider extends ServiceProvider
                 $this->mapWebRoutes($this->namespace . '\\' . $module . '\Controllers\Web', $web);
             }
 
-            //Register Module Web Routes
+            //Register Module Admin Routes
             if (file_exists($admin)) {
-                $this->mapWebRoutes($this->namespace . '\\' . $module . '\Controllers\Admin', $admin);
+                $this->mapAdminRoutes($this->namespace . '\\' . $module . '\Controllers\Admin', $admin);
             }
 
             //Register Module Api Routes
@@ -103,6 +103,10 @@ class ModulesServiceProvider extends ServiceProvider
     protected function mapWebRoutes($namespace, $path)
     {
         Route::middleware('web')->namespace($namespace)->group($path);
+    }
+    protected function mapAdminRoutes($namespace, $path)
+    {
+        Route::prefix('admin')->middleware('web')->namespace($namespace)->group($path);
     }
 
     protected function mapApiRoutes($namespace, $path)

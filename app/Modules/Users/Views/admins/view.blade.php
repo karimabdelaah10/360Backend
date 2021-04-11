@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <div class="card card-profile">
                         <img
-                            src="/images/banner/banner-{{rand(1,12)}}.jpg"
+                            src="/Admin/images/banner/banner-{{rand(1,12)}}.jpg"
                             class="img-fluid card-img-top"
                             alt="Profile Cover Photo"
                         />
