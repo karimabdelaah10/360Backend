@@ -26,21 +26,21 @@ mix.styles([
     'resources/css/ltr/dashboard-ecommerce.min.css',
     'resources/css/ltr/ext-component-toastr.min.css',
     'resources/css/ltr/style.css',
-], 'public/Admin/css/en_vendors.css');
+], 'public/assets/Admin/css/en_vendors.css');
 
 mix.styles([
     'resources/css/form-validation.css',
     'resources/css/page-auth.min.css'
-], 'public/Admin/css/auth.css');
+], 'public/assets/Admin/css/auth.css');
 
 
 
 
 
 
-mix.js('resources/js/app.js', 'public/Admin/js/vendors.js')
+mix.js('resources/js/app.js', 'public/assets/Admin/js/vendors.js')
     .vue()
-    .sass('resources/sass/app.scss', 'public/Admin/css/en_vendors.css');
+    .sass('resources/sass/app.scss', 'public/assets/Admin/css/en_vendors.css');
 
 
 mix.js([
@@ -49,4 +49,4 @@ mix.js([
         'resources/js/libs/front.min.js',
         'resources/js/libs/customizer.min.js'
     ],
-    'public/Admin/js/scripts.js');
+    'public/assets/Admin/js/scripts.js');

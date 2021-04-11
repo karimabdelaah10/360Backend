@@ -1,6 +1,6 @@
 {
-    "/js/vendors.js": "/js/vendors.js",
-    "/js/scripts.js": "/js/scripts.js",
-    "/css/en_vendors.css": "/css/en_vendors.css",
-    "/css/auth.css": "/css/auth.css"
+    "/assets/Admin/js/vendors.js": "/assets/Admin/js/vendors.js",
+    "/assets/Admin/js/scripts.js": "/assets/Admin/js/scripts.js",
+    "/assets/Admin/css/en_vendors.css": "/assets/Admin/css/en_vendors.css",
+    "/assets/Admin/css/auth.css": "/assets/Admin/css/auth.css"
 }

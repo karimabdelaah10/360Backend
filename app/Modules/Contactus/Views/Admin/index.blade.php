@@ -83,11 +83,11 @@
     </div>
 @endsection
 @push('js')
-    <script src="/js/pages/components-popovers.min.js"></script>
+    <script src="/assets/Admin/js/pages/components-popovers.min.js"></script>
 
-    <script src="/js/pages/jquery.bootpag.min.js"></script>
-    <script src="/js/pages/jquery.twbsPagination.min.js"></script>
+    <script src="/assets/Admin/js/pages/jquery.bootpag.min.js"></script>
+    <script src="/assets/Admin/js/pages/jquery.twbsPagination.min.js"></script>
 
-    <script src="/js/pages/components-pagination.js"></script>
+    <script src="/assets/Admin/js/pages/components-pagination.js "></script>
 
 @endpush

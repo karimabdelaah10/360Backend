@@ -17570,7 +17570,7 @@ var index = {
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// Promise = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/vendors": 0
+/******/ 			"/assets/Admin/js/vendors": 0
 /******/ 		};
 /******/ 		
 /******/ 		var deferredModules = [
