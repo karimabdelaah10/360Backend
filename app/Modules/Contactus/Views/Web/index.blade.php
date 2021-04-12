@@ -1,12 +1,8 @@
-@extends('BaseApp::layouts.web')
+@extends('BaseApp::layouts.web-contact')
 @section('page-title')
     {{$page_title}}
 @endsection
 @section('content')
-    <form action="/contactus" method="post">
-        <input type="text" name="sss">
-        <button type="submit">sssssssssssssssss</button>
-    </form>
     <!-- Section -->
     <div class="section">
 
@@ -18,6 +14,9 @@
 
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
+                    @if(session()->has('success'))
+                        <div class="caption has-animation skew-up">{{session()->get('success')}}</div>
+                    @endif
                     <div class="caption has-animation skew-up">CONTACT US</div>
                     <h1 class="big-title has-animation skew-up">Stay <br>in touch.</h1>
                 </div>
@@ -89,16 +88,32 @@
             <div class="c-col-12">
 
                 <!-- Contact Form -->
-{{--                <div class="c-form">--}}
+                <div class="c-form">
 
-                    <form method="post">
+                    <form method="POST">
+                        @csrf
 
                         <!-- Form Field -->
                         <div class="field-wrap">
                             <label>
                                 Name
                             </label>
-                            <input placeholder="Who are you?" type="text" required autocomplete="off"/>
+                            <input
+                                required
+                                name="name"
+                                placeholder="Who are you?"
+                                type="text"
+                                autocomplete="off"/>
+                                <div >
+                                    <ul>
+                                        @forelse($errors->get('name') as $message)
+                                            <li>
+                                                <span class="text-danger"> {{$message}}</span>
+                                            </li>
+                                        @empty
+                                        @endforelse
+                                    </ul>
+                                </div>
                         </div>
                         <!--/ Form Field -->
 
@@ -107,16 +122,46 @@
                             <label>
                                 E-mail
                             </label>
-                            <input placeholder="You'll not see any ads" type="email" required autocomplete="off"/>
+                            <input
+                                required
+                                name="email"
+                                placeholder="You'll not see any ads"
+                                type="email"
+                                autocomplete="off"/>
+                            <div >
+                                <ul>
+                                    @forelse($errors->get('email') as $message)
+                                        <li>
+                                            <span class="text-danger"> {{$message}}</span>
+                                        </li>
+                                    @empty
+                                    @endforelse
+                                </ul>
+                            </div>
                         </div>
                         <!--/ Form Field -->
 
                         <!-- Form Field -->
                         <div class="field-wrap">
                             <label>
-                                Phone
+                                Mobile Number
                             </label>
-                            <input placeholder="Promise we'll not disturb" type="text" required autocomplete="off"/>
+                            <input
+                                required
+                                name="mobile_number"
+                                placeholder="Promise we'll not disturb"
+                                type="text"
+                                autocomplete="off"/>
+                            <div >
+                                <ul>
+                                    @forelse($errors->get('mobile_number') as $message)
+                                        <li>
+                                            <span class="text-danger"> {{$message}}</span>
+                                        </li>
+                                    @empty
+                                    @endforelse
+                                </ul>
+                            </div>
                         </div>
                         <!--/ Form Field-->
                         <!-- Form Field (Textarea)-->
@@ -124,15 +169,44 @@
                             <label>
                                 Your message
                             </label>
-                            <textarea rows="8" placeholder="Looking forward for your precious words.."></textarea>
+                            <textarea
+                                required
+                                name="message"
+                                rows="5"
+                                placeholder="Looking forward for your precious words.."
+                            ></textarea>
+                            <div >
+                                <ul>
+                                    @forelse($errors->get('message') as $message)
+                                        <li>
+                                            <span class="text-danger"> {{$message}}</span>
+                                        </li>
+                                    @empty
+                                    @endforelse
+                                </ul>
+                            </div>
                         </div>
                         <!--/ Form Field (Textarea)-->
-                        <button type="submit" >Submit</button>
 
                         <!-- Checkbox -->
                         <div class="privacy-wrap">
-                            <input type="checkbox"/>
+                            <input
+                                name="privacy"
+                                type="checkbox"
+                               required
+                            />
                             <span>Accept Privacy</span>
+
+                            <div >
+                                <ul>
+                                    @forelse($errors->get('privacy') as $message)
+                                        <li>
+                                            <span class="text-danger"> {{$message}}</span>
+                                        </li>
+                                    @empty
+                                    @endforelse
+                                </ul>
+                            </div>
                         </div>
                         <!--/ Checkbox -->
 
@@ -142,8 +216,10 @@
                         </div>
                         <!--/ Button -->
 
+
+
                     </form>
-{{--                </div>--}}
+                </div>
                 <!--/Contact Form -->
 
 

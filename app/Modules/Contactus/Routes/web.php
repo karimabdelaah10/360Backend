@@ -4,6 +4,6 @@ Route::group([
 ], function () {
 
     Route::get('/', 'ContactMessagesController@getIndex');
-    Route::post('', 'ContactMessagesController@postMessage');
+    Route::post('/', 'ContactMessagesController@postMessage');
 
 });

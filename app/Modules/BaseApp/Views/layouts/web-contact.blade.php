@@ -45,8 +45,6 @@
 <script src="/assets/Web/js/jquery-ui.js"></script>
 <script src="/assets/Web/js/plugins.js"></script>
 <script src="/assets/Web/js/scripts.js"></script>
-<script src="/assets/Web/js/jquery.smoothState.js"></script>
-<script src="/assets/Web/js/page-transitions.js"></script>
 @stack('web_js')
 </body>
 </html>
