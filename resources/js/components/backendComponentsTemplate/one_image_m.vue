@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: "1image-m"
+    name: "one_image-m"
 }
 </script>
 

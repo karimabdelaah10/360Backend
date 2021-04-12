@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: "4image_space"
+    name: "one_image-l"
 }
 </script>
 

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: "4image"
+    name: "two_image"
 }
 </script>
 
