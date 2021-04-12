@@ -99,7 +99,7 @@
 
 <script>
 export default {
-    name: "6image_space"
+    name: "six_image_space"
 }
 </script>
 

@@ -31,7 +31,7 @@
 
 <script>
 export default {
-    name: "2p_m"
+    name: "two_p_m"
 }
 </script>
 

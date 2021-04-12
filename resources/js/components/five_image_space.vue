@@ -94,7 +94,7 @@
 
 <script>
 export default {
-    name: "5image_space"
+    name: "five_image_space"
 }
 </script>
 

@@ -45,7 +45,7 @@
 
 <script>
 export default {
-name: "2image_space"
+name: "two_image_space"
 }
 </script>
 

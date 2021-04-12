@@ -28,7 +28,7 @@
 
 <script>
 export default {
-    name: "1image_r"
+    name: "one_image_r"
 }
 </script>
 

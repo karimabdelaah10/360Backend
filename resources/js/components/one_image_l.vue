@@ -30,7 +30,7 @@
 
 <script>
 export default {
-    name: "1image-l"
+    name: "one_image_l"
 }
 </script>
 

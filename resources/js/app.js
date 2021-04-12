@@ -33,16 +33,16 @@ Vue.component('toast-component', require('./components/ToastComponent.vue').defa
 Vue.component('search-component', require('./components/SearchComponent.vue').default);
 
 // frontend project components
-Vue.component('1image_l', require('./components/1image_l.vue').default);
-Vue.component('1image_m', require('./components/1image_m.vue').default);
-Vue.component('1image_r', require('./components/1image_r.vue').default);
-Vue.component('2image', require('./components/2image.vue').default);
-Vue.component('2image_space', require('./components/2image_space.vue').default);
-Vue.component('2paragraph_m', require('./components/2paragraph_m.vue').default);
-Vue.component('4image', require('./components/4image.vue').default);
-Vue.component('4image_space', require('./components/4image_space.vue').default);
-Vue.component('5image_space', require('./components/5image_space.vue').default);
-Vue.component('6image_space', require('./components/6image_space.vue').default);
+Vue.component('one_image_l', require('./components/one_image_l.vue').default);
+Vue.component('one_image_m', require('./components/one_image_m.vue').default);
+Vue.component('one_image_r', require('./components/one_image_r.vue').default);
+Vue.component('two_image', require('./components/two_image.vue').default);
+Vue.component('two_image_space', require('./components/two_image_space.vue').default);
+Vue.component('two_paragraph_m', require('./components/two_paragraph_m.vue').default);
+Vue.component('four_image', require('./components/four_image.vue').default);
+Vue.component('four_image_space', require('./components/four_image_space.vue').default);
+Vue.component('five_image_space', require('./components/five_image_space.vue').default);
+Vue.component('six_image_space', require('./components/six_image_space.vue').default);
 Vue.component('bg_paragraph_m', require('./components/bg_paragraph_m.vue').default);
 Vue.component('bg_title_m', require('./components/bg_title_m.vue').default);
 Vue.component('paragraph_l', require('./components/paragraph_l.vue').default);

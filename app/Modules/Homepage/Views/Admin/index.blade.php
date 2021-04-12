@@ -5,6 +5,8 @@
 @section('content')
 <div class="section-wrapper">
         <example-component></example-component>
+    <title_l_pragraph_r></title_l_pragraph_r>
+
 </div>
 @endsection
 @push('js')
