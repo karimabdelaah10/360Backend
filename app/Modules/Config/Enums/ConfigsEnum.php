@@ -7,14 +7,15 @@ use App\Modules\BaseApp\Enums\GeneralEnum;
 abstract class ConfigsEnum
 {
 
-    const FACEBOOK_URL = 'facebook_url',
-          YOUTUBE_URL='youtube_url',
+    const CONTACT_PAGE = 'contact_us_page',
+          CONTACT_PAGE_TITLE='contact_us_page_title',
+          CONTACT_PAGE_DESCRIPTION='contact_us_page_description',
+          TEXT='text',
+          NUMBER='number',
+          ADDRESS='address',
           EMAIL='email',
-          MOBILE_NUMBER='mobile_number',
-          WHATSAPP_NUMBER='whatsapp_number',
-          MESSENGER_URL='messenger_url',
-          AUTO_REGISTER='auto_register'
-    ;
+          MOBILE_NUMBER='mobile_number'
+;
     public static function conigsTitls()
     {
 //        return [GeneralEnum::PENDING, GeneralEnum::UNDER_REVIEW , GeneralEnum::TRANSFORMED];

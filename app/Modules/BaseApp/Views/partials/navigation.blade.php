@@ -31,7 +31,14 @@
                 </a>
             </li>
 
-{{--            <li class=" nav-item">--}}
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="/admin/configs/edit">
+                    <i data-feather="settings"></i>
+                    <span class="menu-title text-truncate" data-i18n="admins">{{trans('navigation.configs')}}</span>
+                </a>
+            </li>
+
+            {{--            <li class=" nav-item">--}}
 {{--                <a class="d-flex align-items-center" href="/projects">--}}
 {{--                    <i data-feather="grid"></i>--}}
 {{--                    <span class="menu-title text-truncate" data-i18n="Products">{{trans('navigation.projects')}}</span>--}}
@@ -64,12 +71,7 @@
 {{--                </a>--}}
 {{--            </li>--}}
 {{--
-{{--            <li class=" nav-item">--}}
-{{--                <a class="d-flex align-items-center" href="/configs/edit">--}}
-{{--                    <i data-feather="settings"></i>--}}
-{{--                    <span class="menu-title text-truncate" data-i18n="admins">{{trans('navigation.configs')}}</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
+{{--            --}}
         </ul>
     </div>
 </div>

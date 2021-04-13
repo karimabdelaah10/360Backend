@@ -38,6 +38,7 @@ return [
 
 
 
+    'Configs'=>'Main Configs',
     'Contactus Messages'=>'Contactus Messages',
     'contact us page'=>'Contact Us',
 

@@ -18,7 +18,11 @@
                         <div class="caption has-animation skew-up">{{session()->get('success')}}</div>
                     @endif
                     <div class="caption has-animation skew-up">CONTACT US</div>
-                    <h1 class="big-title has-animation skew-up">Stay <br>in touch.</h1>
+                    <h1 class="big-title has-animation skew-up ">
+                        <span style="text-transform: capitalize">{{$row['contact_us_page_title_first_word']}}</span>
+                    <br>
+                        {{$row['contact_us_page_title_last_chunk']}}
+                    </h1>
                 </div>
                 <!-- Text Wrapper -->
 
@@ -30,10 +34,8 @@
 
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
-                    <p data-delay="0.5" class="big-p has-animation lines-fade-up">
-                        Big picture this is a no-brainer we <br>need to crystallize a plan so turnaround <br>rate nor
-                        closer to the metal but organic growth, and on-brand but completeley fresh.
-
+                    <p data-delay="0.9" class="big-p has-animation skew-up">
+                        {{$rows['contact_us_page_description']}}
                     </p>
                 </div>
                 <!--/ Text Wrapper -->
@@ -47,8 +49,10 @@
 
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
-                    <div data-delay="0.7" class="caption has-animation skew-up">E-MAIL</div>
-                    <p data-delay="0.9" class="big-p has-animation skew-up"><a class="underline" href="#">hello@pethemes.com</a>
+                    <div data-delay="0.7"
+                         class="caption has-animation skew-up">E-MAIL</div>
+                    <p data-delay="0.9" class="big-p has-animation skew-up">
+                        <a class="underline" href="mailto:{{$rows['email']}}">{{$rows['email']}}</a>
                     </p>
                 </div>
                 <!--/ Text Wrapper -->
@@ -57,11 +61,14 @@
 
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
-                    <div data-delay="0.7" class="caption has-animation skew-up">ADDRESS</div>
-                    <p data-delay="0.9" class="big-p has-animation skew-up">32 Avenue of the Americas
-                        <br>New York, NY 10013
-                    </p>
-
+                    <div data-delay="0.5" class="caption has-animation skew-up">ADDRESS</div>
+                    <p data-delay="0.2" class="big-p has-animation skew-up">
+                        @forelse($row['address'] as $addres_part)
+                            {{$addres_part}}
+                            <br>
+                         @empty
+                        @endforelse
+                     </p>
                 </div>
                 <!--/ Text Wrapper -->
 
@@ -70,7 +77,9 @@
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
                     <div class="caption has-animation skew-up">PHONE</div>
-                    <p data-delay="0.2" class="big-p has-animation skew-up">+1 (125) 789 54 21</p>
+                    <p data-delay="0.2" class="big-p has-animation skew-up">
+                        {{$rows['mobile_number']}}
+                    </p>
                 </div>
                 <!--/ Text Wrapper -->
 

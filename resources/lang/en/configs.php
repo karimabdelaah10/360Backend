@@ -8,8 +8,9 @@ return [
     'youtube_url'=>'Youtube Channel Url',
     'email'=>'Email',
     'mobile_number'=>'Mobile Number',
-    'whatsapp_number'=>'WatsApp Number',
-    'messenger_url'=>'Facebook Page Username To Contact With',
+    'address'=>'Address',
+    'contact_us_page_title'=>'Contact Us Page Title ',
+    'contact_us_page_description'=>'Contact Us Page Description ',
 
     ''=>''
 ];
