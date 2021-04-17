@@ -28,23 +28,26 @@
 
 <body>
 @include('BaseApp::partials.web-header')
-
-<!-- Site Content -->
-<div id="main" class="content">
-<!-- Page Settings -->
-<div class="page-settings" data-layout="dark" data-header-style="light" data-menu-layout="light"></div>
-<!--/ Page settings -->
-<div id="page-content" class="page-content">
-@yield('content')
+<div id="app">
+    <!-- Site Content -->
+    <div id="main" class="content">
+        <!-- Page Settings -->
+        <div class="page-settings" data-layout="dark" data-header-style="light" data-menu-layout="light"></div>
+        <!--/ Page settings -->
+        <div id="page-content" class="page-content">
+            @yield('content')
+        </div>
+        @include('BaseApp::partials.web-footer')
+    </div>
+    <!--/ Site Content -->
 </div>
-@include('BaseApp::partials.web-footer')
-</div>
-<!--/ Site Content -->
-
 <script src="/assets/Web/js/jquery.min.js"></script>
 <script src="/assets/Web/js/jquery-ui.js"></script>
 <script src="/assets/Web/js/plugins.js"></script>
 <script src="/assets/Web/js/scripts.js"></script>
+
+<script src="/assets/Admin/js/vendors.js"></script>
+
 @stack('web_js')
 </body>
 </html>

@@ -20,7 +20,7 @@
 
 
 <!-- Header -->
-<header class="site-header dark">
+<header class="site-header dark" id="header">
 
     <!-- Branding -->
     <div class="site-branding">
@@ -40,7 +40,7 @@
         <div class="menu-overlays"></div>
         <!-- Menu Overlays -->
 
-        <div class="menu-wrapper">
+        <div class="menu-wrapper" id="navigation">
 
             <!-- Navigation -->
             <ul class="menu">
@@ -49,7 +49,7 @@
                 <li class="menu-item menu-item-active">
                     <a href="/">Home</a>
                 </li>
-                <li class="menu-item"><a href="about.html">About</a></li>
+                <li class="menu-item"><a href="/aboutus">About</a></li>
                 <li class="menu-item has-children">
                     <a href="#">Projects</a>
                     <!-- Sub Menu -->

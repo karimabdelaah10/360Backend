@@ -250,8 +250,9 @@
             <!-- Column -->
             <div class="c-col-12 align-center">
                 <div class="caption has-animation skew-up">SEE SMOETHING MORE</div>
-                <h1 data-delay="0.2" class="big-title has-animation skew-up"><a href="about.html" class="underline">About
-                        Us</a></h1>
+                <h1 data-delay="0.2" class="big-title has-animation skew-up">
+                    <a href="/aboutus" class="underline">About Us</a>
+                </h1>
             </div>
             <!--/ Column -->
 

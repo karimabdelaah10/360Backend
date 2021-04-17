@@ -1,26 +1,23 @@
 <?php
 
+namespace App\Modules\Aboutus\Controllers\Admin;
 
-namespace App\Modules\Config\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Modules\Config\Enums\ConfigsEnum;
 use App\Modules\Config\Models\Config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class ConfigController extends Controller
-{
+class AboutUsController extends Controller {
 
-
-    public $model;
-    public $views;
-    public $module, $module_url, $title;
+    public $model,$views,$module,$module_url,$title;
 
     public function __construct(Config $model)
     {
-        $this->views = $this->module = 'Config::Admin.';
-        $this->title = trans('app.Configs');
+        $this->views = $this->module = 'Aboutus::Admin.';
+        $this->title = trans('app.about us page');
         $this->model = $model;
-        $this->module_url = '/admin/configs';
+        $this->module_url = '/admin/aboutus';
 
     }
 
@@ -31,7 +28,7 @@ class ConfigController extends Controller
         $data['views'] = $this->views;
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [];
-        $data['rows'] = $this->model->where('page' , '!=',ConfigsEnum::ABOUT_PAGE)->get();
+        $data['rows'] = $this->model->where('page' , ConfigsEnum::ABOUT_PAGE)->get();
         $data['row'] = $this->model;
 
         return view($this->views . 'edit', $data);

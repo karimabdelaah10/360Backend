@@ -38,9 +38,11 @@ return [
 
 
 
+    'Services'=>'Services',
     'Configs'=>'Main Configs',
     'Contactus Messages'=>'Contactus Messages',
     'contact us page'=>'Contact Us',
+    'about us page'=>'About Us',
 
     ''=>''
 ];

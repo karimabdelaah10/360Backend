@@ -56,6 +56,76 @@ class ConfigsSeeder extends Seeder
                 'value' => '+1257895421',
             ],
 
+            [
+                'title' => ConfigsEnum::ABOUT_PAGE_TITLE,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => 'Hello! We are Pe Themes',
+            ],
+
+            [
+                'title' => ConfigsEnum::ABOUT_PAGE_DESCRIPTION,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => "This vendor is incompetent product launch yet waste of
+resources message the initiative diversify kpis high touch client.
+Herding cats commitment to the cause yet i also believe it's
+important for every member to be involved and invested in our
+company.",
+            ],
+
+            [
+                'title' => ConfigsEnum::SERVICES_TITLE,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => 'What we create?',
+            ],
+
+            [
+                'title' => ConfigsEnum::SERVICES_DESCRIPTION,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => "We create world-class digital products,
+communications, and brands. Let's see
+what we can create for you",
+            ],
+
+            [
+                'title' => ConfigsEnum::MISSION_TITLE,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => "Company Goals",
+            ],
+
+            [
+                'title' => ConfigsEnum::MISSION_DESCRIPTION,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => "Onward and upward, productize the deliverables and
+focus on the bottom line this is meaningless core
+competencies, or a loss a day will keep you focus but
+enough to wash your face but that's mint, well done. Not
+the long pole in my tent synergestic actionablesç",
+            ],
+
+            [
+                'title' => ConfigsEnum::VISION_DESCRIPTION,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => "Eat our own dog food run it up the flagpole,
+ping the boss and circle back throughput for
+execute , yet mobile friendly. Win-win-win
+blue money draw a line in the sand, for going
+forward, pivot",
+            ],
+
+            [
+                'title' => ConfigsEnum::YOUTUBE_VIDEO_EMBED_ID,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::ABOUT_PAGE,
+                'value' => "myvHUM_hmb8",
+            ],
+
         ];
        Config::insert($configs);
     }
