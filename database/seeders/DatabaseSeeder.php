@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ComponentSeeder::class);
 //        $this->call(ComponentFieldSeeder::class);
 //        $this->call(ContactusSeeder::class);
-        $this->call(ConfigsSeeder::class);
+//        $this->call(ConfigsSeeder::class);
     }
 }
