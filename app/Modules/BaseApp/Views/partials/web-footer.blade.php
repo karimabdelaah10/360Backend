@@ -9,11 +9,11 @@
         <div class="c-col-6">
 
             <!-- Footer Menu -->
-            <ul class="footer-menu ">
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Purchase</a></li>
-            </ul>
+{{--            <ul class="footer-menu ">--}}
+{{--                <li><a href="#">Terms</a></li>--}}
+{{--                <li><a href="#">Privacy Policy</a></li>--}}
+{{--                <li><a href="#">Purchase</a></li>--}}
+{{--            </ul>--}}
             <!--/ Footer Menu -->
 
         </div>
@@ -21,7 +21,7 @@
 
         <!-- Column -->
         <div class="c-col-6 align-right">
-            <p class="copyright-text">Pe Themes - CYGNI®, inc 20 - 20©</p>
+{{--            <p class="copyright-text">Pe Themes - CYGNI®, inc 20 - 20©</p>--}}
         </div>
         <!-- Column -->
 

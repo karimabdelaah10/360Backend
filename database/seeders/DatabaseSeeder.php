@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Component;
+use App\Modules\Aboutus\Database\Seeders\ServiceSeeder;
 use App\Modules\Config\Database\Seeders\ConfigsSeeder;
 use App\Modules\Contactus\Database\Seeders\ContactusSeeder;
 use Illuminate\Database\Seeder;
@@ -25,5 +26,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ComponentFieldSeeder::class);
 //        $this->call(ContactusSeeder::class);
         $this->call(ConfigsSeeder::class);
+//        $this->call(ServiceSeeder::class);
     }
 }

@@ -49,7 +49,7 @@
                 <li class="menu-item menu-item-active">
                     <a href="/">Home</a>
                 </li>
-                <li class="menu-item"><a href="about.html">About</a></li>
+                <li class="menu-item"><a href="/aboutus">About</a></li>
                 <li class="menu-item has-children">
                     <a href="#">Projects</a>
                     <!-- Sub Menu -->
