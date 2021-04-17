@@ -1,6 +1,6 @@
 
 <!-- Footer -->
-<footer class="site-footer">
+<footer class="site-footer" id="footer">
 
     <!-- Wrapper -->
     <div style="margin-bottom: 0" class="wrapper">

@@ -20,7 +20,7 @@
 
 
 <!-- Header -->
-<header class="site-header dark">
+<header class="site-header dark" id="header">
 
     <!-- Branding -->
     <div class="site-branding">
@@ -40,7 +40,7 @@
         <div class="menu-overlays"></div>
         <!-- Menu Overlays -->
 
-        <div class="menu-wrapper">
+        <div class="menu-wrapper" id="navigation">
 
             <!-- Navigation -->
             <ul class="menu">

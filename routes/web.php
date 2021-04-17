@@ -24,3 +24,6 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('project/{id}','backend\ProjectsController@index')->name('getProject');
+Route::get('testVue',function (){
+    return view('testVue');
+});

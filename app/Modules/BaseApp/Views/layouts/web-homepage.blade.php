@@ -28,6 +28,7 @@
 
 <body>
 @include('BaseApp::partials.web-header')
+<div id="app">
 <!-- Site Content -->
 <div id="main" class="content">
 
@@ -40,6 +41,7 @@
 @yield('content')
 </div>
 </div>
+</div>
 <!--/ Site Content -->
 
 <script src="/assets/Web/js/jquery.min.js"></script>
@@ -48,5 +50,6 @@
 <script src="/assets/Web/js/scripts.js"></script>
 <script src="/assets/Web/js/jquery.smoothState.js"></script>
 <script src="/assets/Web/js/page-transitions.js"></script>
+<script src="/assets/Admin/js/vendors.js"></script>
 </body>
 </html>
