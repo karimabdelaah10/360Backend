@@ -8,11 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    public function sections(){
+
+    public function Sections(){
         return $this->hasMany(Section::class)->orderBy('order');
     }
+
     public function sectionsWithComponents(){
 
         return $this->hasManyThrough(Component::class,Section::class);
+    }
+
+    public function getData()
+    {
+        return $this;
     }
 }

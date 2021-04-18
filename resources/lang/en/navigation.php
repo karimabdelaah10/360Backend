@@ -5,6 +5,7 @@ return [
     'home' => 'Home Page',
     'projects' => 'Projects',
     'projects categories' => 'Projects Categories',
+    'projects Components' => 'Projects Components',
     'services' => 'Services',
     'contacts messages' => 'Contact Us Messages',
     'account settings' => 'Account Settings',

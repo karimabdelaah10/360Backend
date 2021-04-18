@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ComponentTemplate extends Model
 {
     use HasFactory;
-    public function componentTemplateField(){
+    public function templateFields(){
         return $this->hasMany(ComponentTemplateField::class);
     }
 }

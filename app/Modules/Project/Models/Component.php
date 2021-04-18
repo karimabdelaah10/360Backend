@@ -11,4 +11,9 @@ class Component extends Model
     public function Fields(){
         return $this->hasMany(ComponentField::class);
     }
+    public function ComponentTemplate()
+    {
+        return $this->belongsTo(ComponentTemplate::class);
+    }
+
 }

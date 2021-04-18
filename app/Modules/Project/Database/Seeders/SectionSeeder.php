@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Modules\Project\Database\Seeders;
 
-use App\Models\Section;
+
+use App\Modules\Project\Models\Section;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;

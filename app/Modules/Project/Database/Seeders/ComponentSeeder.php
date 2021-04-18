@@ -1,8 +1,11 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Modules\Project\Database\Seeders;
 
-use App\Models\Component;
+
+use App\Modules\Project\Models\Component;
+use App\Modules\Project\Models\ComponentTemplate;
+use App\Modules\Project\Models\Project;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -20,311 +23,25 @@ class ComponentSeeder extends Seeder
         DB::table('components')->delete();
 
         $faker = Faker::create();
-        $components = [
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 1,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 1,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 1,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 1,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 1,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 2,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 2,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 2,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 2,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 2,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 3,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 3,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 3,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 3,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 3,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 4,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 4,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 4,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 4,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 4,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 5,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 5,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 5,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 5,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 5,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 6,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 6,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 6,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 6,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 6,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 7,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 7,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 7,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 7,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 7,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 8,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 8,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 8,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 8,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 8,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 9,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 9,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 9,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 9,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 9,
-            ],
-            [
-                "name" => "1i-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 10,
-            ],
-            [
-                "name" => "bg-p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 10,
-            ],
-            [
-                "name" => "2p-m",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 10,
-            ],
-            [
-                "name" => "1i-r",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 10,
-            ],
-            [
-                "name" => "t-r-p-l",
-                "type" => "element",
-                "value" => "fake value for testing",
-                "section_id" => 10,
-            ],
-        ];
-        foreach ($components as $component) {
+        $projectsNumber = count(Project::all());
+        $elementsName = ['bg_paragraph_m', 'bg_title_m', 'five_image_space', 'four_image', 'four_image_space', 'nextProject', 'one_image_l', 'one_image_m', 'one_image_r', 'paragraph_l', 'paragraph_r', 'six_image_space', 'slider', 'title_l_pragraph_r', 'two_image', 'two_image_space', 'two_paragraph_m'];
+
+
+        for ($j = 5 * $projectsNumber; $j > 0; $j--) {
+            $elementName = $faker->unique()->randomElement($elementsName);
+            $component_template_id = ComponentTemplate::where('name', $elementName)->get('id');
+            $component = [
+                'name' =>$elementName,
+                'type' => 'element',
+                'value' => 'fake value for testing',
+                'section_id' => $j,
+                'component_template_id' => $component_template_id[0]->id,
+            ];
+
             Component::create($component);
+
         }
+
 
     }
 }

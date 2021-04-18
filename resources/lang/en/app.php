@@ -44,5 +44,5 @@ return [
     'contact us page'=>'Contact Us',
     'about us page'=>'About Us',
 
-    ''=>''
+    'Projects'=>'Projects'
 ];
