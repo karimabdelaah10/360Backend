@@ -19,8 +19,13 @@ class ConfigsSeeder extends Seeder
     public function run()
     {
         DB::table('configs')->truncate();
-        $faker =Faker::create('ar_JO');
         $configs = [
+            [
+                'title' => ConfigsEnum::JOBS_PAGE_TITLE,
+                'type'  => ConfigsEnum::TEXT,
+                'page' => ConfigsEnum::JOBS_PAGE,
+                'value' => 'Available Opportunities',
+            ],
             [
                 'title' => ConfigsEnum::CONTACT_PAGE_TITLE,
                 'type'  => ConfigsEnum::TEXT,

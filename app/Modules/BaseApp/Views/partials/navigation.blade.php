@@ -23,6 +23,28 @@
                     <span class="menu-title text-truncate" data-i18n="HomePage">{{trans('navigation.home')}}</span>
                 </a>
             </li>
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="/admin/jobs">
+                    <i data-feather="grid"></i>
+                    <span class="menu-title text-truncate" data-i18n="Products">{{trans('navigation.jobs')}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="d-flex align-items-center" href="/admin/jobs">
+                            <i data-feather="circle"></i>
+                            <span class="menu-item text-truncate" data-i18n="product-categories">{{trans('navigation.jobs')}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="d-flex align-items-center" href="/admin/cvs">
+                            <i data-feather="circle"></i>
+                            <span class="menu-item text-truncate" data-i18n="product-categories">{{trans('navigation.jobs cvs')}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="/admin/aboutus/edit">
                     <i data-feather="server"></i>
@@ -51,26 +73,7 @@
                 </a>
             </li>
 
-            {{--            <li class=" nav-item">--}}
-{{--                <a class="d-flex align-items-center" href="/projects">--}}
-{{--                    <i data-feather="grid"></i>--}}
-{{--                    <span class="menu-title text-truncate" data-i18n="Products">{{trans('navigation.projects')}}</span>--}}
-{{--                </a>--}}
-{{--                <ul class="menu-content">--}}
-{{--                    <li>--}}
-{{--                        <a class="d-flex align-items-center" href="/projects-categories">--}}
-{{--                            <i data-feather="circle"></i>--}}
-{{--                            <span class="menu-item text-truncate" data-i18n="product-categories">{{trans('navigation.projects categories')}}</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a class="d-flex align-items-center" href="/projects">--}}
-{{--                            <i data-feather="circle"></i>--}}
-{{--                            <span class="menu-item text-truncate" data-i18n="product-categories">{{trans('navigation.projects')}}</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
+
 {{--            <li class=" nav-item">--}}
 {{--                <a class="d-flex align-items-center" href="/jobs">--}}
 {{--                    <i data-feather="framer"></i>--}}

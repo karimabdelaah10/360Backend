@@ -21,7 +21,6 @@ class ContactUsRequest extends FormRequest
             'email' => 'required|email',
             'mobile_number' => 'required|numeric',
             'message' => 'required',
-            'privacy' => 'required',
 
         ];
     }

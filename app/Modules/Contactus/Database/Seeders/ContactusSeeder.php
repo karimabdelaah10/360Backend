@@ -17,7 +17,7 @@ class ContactusSeeder extends Seeder
     public function run()
     {
         DB::table('contactuses')->truncate();
-        $faker =Faker::create('ar_JO');
+        $faker =Faker::create();
         $data=[];
         for ($i=0 ; $i<50 ; $i++){
             Contactus::create([

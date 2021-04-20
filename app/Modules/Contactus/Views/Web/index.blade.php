@@ -1,6 +1,6 @@
 @extends('BaseApp::layouts.web-contact')
 @section('page-title')
-    {{$page_title}}
+    {{@$page_title}}
 @endsection
 @section('content')
     <!-- Section -->
@@ -197,27 +197,6 @@
                         </div>
                         <!--/ Form Field (Textarea)-->
 
-                        <!-- Checkbox -->
-                        <div class="privacy-wrap">
-                            <input
-                                name="privacy"
-                                type="checkbox"
-                               required
-                            />
-                            <span>Accept Privacy</span>
-
-                            <div >
-                                <ul>
-                                    @forelse($errors->get('privacy') as $message)
-                                        <li>
-                                            <span class="text-danger"> {{$message}}</span>
-                                        </li>
-                                    @empty
-                                    @endforelse
-                                </ul>
-                            </div>
-                        </div>
-                        <!--/ Checkbox -->
 
                         <!-- Button -->
                         <div class="send-wrap">

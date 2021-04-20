@@ -11,6 +11,7 @@ return [
     'mobile_number'=>'Mobile Number',
     'address'=>'Address',
 
+    'jobs_page_title'=>'Jobs Page Title ',
     'contact_us_page_title'=>'Contact Us Page Title ',
     'contact_us_page_description'=>'Contact Us Page Description ',
 

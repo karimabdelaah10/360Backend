@@ -6,6 +6,7 @@ use App\Models\Component;
 use App\Modules\Aboutus\Database\Seeders\ServiceSeeder;
 use App\Modules\Config\Database\Seeders\ConfigsSeeder;
 use App\Modules\Contactus\Database\Seeders\ContactusSeeder;
+use App\Modules\Jobs\Database\Seeders\JobsSeeder;
 use Illuminate\Database\Seeder;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ComponentSeeder::class);
 //        $this->call(ComponentFieldSeeder::class);
 //        $this->call(ContactusSeeder::class);
-        $this->call(ConfigsSeeder::class);
+//        $this->call(ConfigsSeeder::class);
 //        $this->call(ServiceSeeder::class);
+        $this->call(JobsSeeder::class);
     }
 }

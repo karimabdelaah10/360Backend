@@ -12,6 +12,7 @@ return [
     'aboutus'=>'About '.appName(),
     'admins' => 'Admins',
     'jobs' => 'Jobs',
+    'jobs cvs' => 'Jobs Cvs',
 
 
     ''=>''

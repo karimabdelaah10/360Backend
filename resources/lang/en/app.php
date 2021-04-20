@@ -43,6 +43,9 @@ return [
     'Contactus Messages'=>'Contactus Messages',
     'contact us page'=>'Contact Us',
     'about us page'=>'About Us',
+    'jobs page'=>'Jobs',
+    'Jobs'=>'Jobs',
+    'Cvs'=>'Cvs',
 
     ''=>''
 ];

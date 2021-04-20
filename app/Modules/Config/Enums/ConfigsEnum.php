@@ -9,6 +9,7 @@ abstract class ConfigsEnum
 
     const CONTACT_PAGE = 'contact_us_page',
           ABOUT_PAGE = 'about_us_page',
+          JOBS_PAGE = 'jobs_page',
 
 
           CONTACT_PAGE_TITLE='contact_us_page_title',
@@ -17,7 +18,9 @@ abstract class ConfigsEnum
           ABOUT_PAGE_TITLE='about_us_page_title',
           ABOUT_PAGE_DESCRIPTION='about_us_page_description',
 
-        SERVICES_TITLE='services_title',
+          JOBS_PAGE_TITLE='jobs_page_title',
+
+          SERVICES_TITLE='services_title',
           SERVICES_DESCRIPTION='services_description',
 
           MISSION_TITLE='mission_title',
