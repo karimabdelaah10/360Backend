@@ -7,6 +7,7 @@ return [
     'not_verified_users' => ' الغير مفعلين',
     'products' => 'المنتجات',
     'products categories' => 'فئات المنتجات',
+    'products Components' => 'مكونات المنتجات',
     'products specs' => 'صفات المنتجات',
     'products specs values' => 'قيم صفات المنتجات',
     'orders' => 'الطلبات',

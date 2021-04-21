@@ -51,6 +51,12 @@
                     <span class="menu-title text-truncate" data-i18n="admins">{{trans('navigation.aboutus')}}</span>
                 </a>
             </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="/admin/projects">
+                    <i data-feather="server"></i>
+                    <span class="menu-title text-truncate" data-i18n="admins">{{trans('navigation.projects')}}</span>
+                </a>
+            </li>
 
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="/admin/services">

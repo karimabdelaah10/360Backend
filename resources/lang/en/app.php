@@ -47,5 +47,5 @@ return [
     'Jobs'=>'Jobs',
     'Cvs'=>'Cvs',
 
-    ''=>''
+    'Projects'=>'Projects'
 ];

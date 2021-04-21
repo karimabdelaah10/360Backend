@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComponentFieldsTable extends Migration
+class Components extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateComponentFieldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('component_fields', function (Blueprint $table) {
+        Schema::create('Components', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
             $table->string('name');
-            $table->string('order');
-            $table->string('value');
-            $table->foreignId('component_id')->constrained()->onDelete('cascade');;
+            $table->string('type');
+            $table->string('value')->nullable();
+            $table->foreignId('section_id')->constrained()->onDelete('cascade');
+            $table->foreignId('component_template_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateComponentFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('component_fields');
+        //
     }
 }

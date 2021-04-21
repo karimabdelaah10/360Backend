@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Modules\Project\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Project;
+use App\Modules\Project\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -13,8 +13,8 @@ class ProjectsController extends Controller
 
 
 
-//        $projects=Project::with('sections.components')->find(1);
-       return view('project');
+        $projects=Project::with('sections.components')->get();
+        return view('project');
        //       return $projects;
     }
 }
