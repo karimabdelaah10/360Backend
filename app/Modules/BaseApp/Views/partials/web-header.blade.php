@@ -70,7 +70,7 @@
                     <!--/ Sub Menu -->
                 </li>
 
-                <li class="menu-item"><a href="jobs.html">Jobs</a></li>
+                <li class="menu-item"><a href="/jobs">Jobs</a></li>
                 <li class="menu-item"><a href="/contactus">Contact</a></li>
                 <!-- /Main Menu -->
 

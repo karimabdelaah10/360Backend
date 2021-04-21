@@ -18,8 +18,8 @@
                         <h4 class="card-title">
                             {{ @$page_description }}
                         </h4>
-{{--                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">--}}
-{{--                            {{trans('jobs.add job')}}</a>--}}
+                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">
+                            {{trans('jobs.add job')}}</a>
                     </div>
 
                     <div class="table-responsive">
@@ -27,9 +27,8 @@
                             <thead>
                             <tr>
                                 <th >#</th>
-                                <th >{{trans('jobs.name')}}</th>
-                                <th >{{trans('jobs.subject')}}</th>
-                                <th >{{trans('jobs.cv url')}}</th>
+                                <th >{{trans('jobs.title')}}</th>
+                                <th >{{trans('jobs.description')}}</th>
                                 <th >{{trans('app.actions')}}</th>
                             </tr>
                             </thead>
@@ -37,13 +36,10 @@
                             @forelse($rows as $element)
                                 <tr>
                                     <td>{{@$element->id}}</td>
-                                    <td>{{@$element->name}}</td>
-                                    <td>{{@$element->subject}}</td>
+                                    <td>{{@$element->title}}</td>
+                                    <td>{{@$element->description}}</td>
                                     <td>
-                                       <a href="{{@$element->cv_url}}" target="_blank">{{@$element->cv_url}}</a>
-                                    </td>
-                                    <td>
-                                        @include('BaseApp::partials.actions' ,['actions'=>['delete'] , $element])
+                                        @include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , $element])
                                     </td>
                                 </tr>
                             @empty

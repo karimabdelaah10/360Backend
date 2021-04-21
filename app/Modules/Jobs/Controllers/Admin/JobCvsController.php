@@ -3,11 +3,7 @@
 namespace App\Modules\Jobs\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Contactus\Models\Contactus;
-use App\Modules\Jobs\Models\Job;
 use App\Modules\Jobs\Models\Jobcv;
-use App\Modules\Jobs\Requests\JobsRequest;
-use Illuminate\Support\Facades\DB;
 
 class JobCvsController extends Controller {
 
