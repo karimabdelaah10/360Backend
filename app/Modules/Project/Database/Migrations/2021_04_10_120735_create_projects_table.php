@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('colorSchema');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{trans('Projects.category')}}</td>
                                 <td>
-                                    {{@$row->Category->name}}
+                                    {{@$row->category}}
                                 </td>
                             </tr>
 
