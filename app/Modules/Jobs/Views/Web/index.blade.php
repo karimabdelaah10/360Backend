@@ -15,7 +15,7 @@
                 <div class="text-wrapper align-center">
                     <div class="caption">OUR JOBS</div>
                     <h1 class="big-title">
-                        {{$row['jobs_page_title']}}
+                        {{@$row['jobs_page_title']}}
                     </h1>
                 </div>
                 <!--/ Text Wrapper -->

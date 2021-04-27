@@ -19,9 +19,9 @@
                     @endif
                     <div class="caption has-animation skew-up">CONTACT US</div>
                     <h1 class="big-title has-animation skew-up ">
-                        <span style="text-transform: capitalize">{{$row['contact_us_page_title_first_word']}}</span>
+                        <span style="text-transform: capitalize">{{@$row['contact_us_page_title_first_word']}}</span>
                     <br>
-                        {{$row['contact_us_page_title_last_chunk']}}
+                        {{@$row['contact_us_page_title_last_chunk']}}
                     </h1>
                 </div>
                 <!-- Text Wrapper -->
