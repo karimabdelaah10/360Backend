@@ -26,6 +26,7 @@ mix.styles([
     'resources/css/ltr/dashboard-ecommerce.min.css',
     'resources/css/ltr/ext-component-toastr.min.css',
     'resources/css/ltr/style.css',
+    'resources/css/ltr/app-todo.min.css',
 ], 'public/assets/Admin/css/en_vendors.css');
 
 mix.styles([
@@ -47,6 +48,7 @@ mix.js([
         'resources/js/libs/toastr.min.js',
         'resources/js/libs/app-menu.min.js',
         'resources/js/libs/front.min.js',
-        'resources/js/libs/customizer.min.js'
+        'resources/js/libs/customizer.min.js',
+        'resources/js/libs/app-todo.min.js'
     ],
     'public/assets/Admin/js/scripts.js');

@@ -59,6 +59,13 @@
             </li>
 
             <li class=" nav-item">
+                <a class="d-flex align-items-center" href="/admin/categories">
+                    <i data-feather="server"></i>
+                    <span class="menu-title text-truncate" data-i18n="admins">{{trans('navigation.categories')}}</span>
+                </a>
+            </li>
+
+            <li class=" nav-item">
                 <a class="d-flex align-items-center" href="/admin/services">
                     <i data-feather="sunrise"></i>
                     <span class="menu-title text-truncate" data-i18n="services">{{trans('navigation.services')}}</span>

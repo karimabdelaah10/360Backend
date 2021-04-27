@@ -15,9 +15,9 @@ class CreateJobcvsTable extends Migration
     {
         Schema::create('jobcvs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('subject')->nullable();
-            $table->string('cv_url')->nullable();
+            $table->string('name');
+            $table->string('subject');
+            $table->string('cv_url');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateJobcvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactuses');
+        Schema::dropIfExists('jobcvs');
     }
 }

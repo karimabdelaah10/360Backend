@@ -1,6 +1,6 @@
 @extends('BaseApp::layouts.master')
 @section('page-title')
-{{trans('app.Projects')}}
+{{trans('app.Categories')}}
 @endsection
 @section('content')
 <div class="section-wrapper">
@@ -19,7 +19,7 @@
                         <h4 class="card-title">
                             {{ @$page_description }}
                         </h4>
-                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">{{trans('Projects.create')}}</a>
+                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">{{trans('Categories.create')}}</a>
                     </div>
 
                     <div class="table-responsive">
@@ -27,9 +27,9 @@
                             <thead>
                             <tr>
                                 <th >#</th>
-                                <th >{{trans('Projects.title')}}</th>
-                                <th >{{trans('Projects.category')}}</th>
-                                <th >{{trans('Projects.description')}}</th>
+                                <th >{{trans('Categories.name')}}</th>
+                                <th >{{trans('Categories.description')}}</th>
+                                <th >{{trans('Categories.image')}}</th>
                                 <th >{{trans('app.actions')}}</th>
                             </tr>
                             </thead>
@@ -37,8 +37,7 @@
                             @forelse($rows as $element)
                                 <tr>
                                     <td>{{@$element->id}}</td>
-                                    <td>{{@$element->title}}</td>
-                                    <td>{{@$element->Category->name}}</td>
+                                    <td>{{@$element->name}}</td>
                                     <td>
                                         @if(!empty($element->description))
                                             <p
@@ -49,10 +48,11 @@
                                             >
                                                 {{splitString($element->description , 0 , 80)}}..
                                             </p>
-                                        @endif
                                     </td>
+                                    <td>{{@$element->image}}</td>
+                                    @endif
                                     <td>
-                                        @include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete','view'] , $element])
+                                        @include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , $element])
                                     </td>
                                 </tr>
                             @empty

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Modules\Project\Database\Seeders;
+namespace App\Modules\Category\Database\Seeders;
 
-use App\Modules\Project\Models\Project;
+use App\Modules\Category\Models\Category;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ProjectSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,32 +16,28 @@ class ProjectSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('projects')->delete();
+        DB::table('categories')->delete();
         $faker = Faker::create();
-        $projects = [
+        $elements = [
             [
                 'name' => "11Rosalee Stamm",
-                'category' => "landscape",
-                'title' => "Mills Group",
                 'description' => "Est nam distinctio harum nesciunt culpa. Eius et ipsum es
 t qui enim minima corporis. Voluptatem mollitia ducimus impedit amet sequi corpo
 ris. Quo qui reiciendis suscipit nostrum tempore itaque omnis.",
-                'colorSchema' => "dark",
-                'category_id' => 1,
+                'image'=>'empty img',
+
             ],
             [
                 'name' => "22Rosalee ",
-                'category' => "landscape",
-                'title' => "Mills Group",
                 'description' => "Est nam distinctio harum nesciunt culpa. Eius et ipsum es
 t qui enim minima corporis. Voluptatem mollitia ducimus impedit amet sequi corpo
 ris. Quo qui reiciendis suscipit nostrum tempore itaque omnis.",
-                'colorSchema' => "light",
-                'category_id' => 1,
+                'image'=>'empty img',
+
             ]
         ];
-        foreach ($projects as $project) {
-            Project::create($project);
+        foreach ($elements  as $element) {
+            Category::create($element);
         }
     }
 }
