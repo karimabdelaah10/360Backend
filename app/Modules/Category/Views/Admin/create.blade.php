@@ -12,7 +12,7 @@
     <div class="content-body">
         {!! Form::model($row,['method' => 'post','files' => true , 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
         <div class="modal-header mb-1">
-            <h5 class="modal-title" id="exampleModalLabel">{{trans('projects.add project')}}</h5>
+            <h5 class="modal-title" id="exampleModalLabel">{{trans('categories.add category')}}</h5>
         </div>
         <div class="modal-body flex-grow-1">
             @include($views.'form',$row)

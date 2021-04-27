@@ -61,7 +61,7 @@
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="/admin/categories">
                     <i data-feather="server"></i>
-                    <span class="menu-title text-truncate" data-i18n="admins">{{trans('navigation.categories')}}</span>
+                    <span class="menu-title text-truncate" data-i18n="admins">{{trans('navigation.projects categories')}}</span>
                 </a>
             </li>
 

@@ -29,7 +29,7 @@ class CategoryController extends Controller
         $data['row'] = $this->model;
         $data['row']->is_active = 1;
         $data['page_title'] = trans('app.list') . " " . $this->title;
-        $data['page_description'] = trans('projects.page description');
+        $data['page_description'] = trans('categories.page description');
         $data['rows'] = $this->model->getData()
             ->orderBy("id", "DESC")
             ->paginate(request('per_page'));
