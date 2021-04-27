@@ -1,19 +1,33 @@
-tement() && bareSuper.parentPath.container === body.node.body && body.node.body.length - 1 === bareSuper.parentPath.key) {
-      if (classState.superThises.length) {
-        call = _core.types.assignmentExpression("=", thisRef(), call);
-      }
+<?php
 
-      bareSuper.parentPath.replaceWith(_core.types.returnStatement(call));
-    } else {
-      bareSuper.replaceWith(_core.types.assignmentExpression("=", thisRef(), call));
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateJobsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('jobs', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->timestamps();
+        });
     }
-  }
 
-  function verifyConstructor() {
-    if (!classState.isDerived) return;
-    const path = classState.userConstructorPath;
-    const body = path.get("body");
-    path.traverse(findThisesVisitor);
-
-    let thisRef = function () {
-      const ref = 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('contactuses');
+    }
+}

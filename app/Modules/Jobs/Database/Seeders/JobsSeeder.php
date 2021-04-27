@@ -1,29 +1,29 @@
-         </div>
-                        <!--/ Button -->
+<?php
 
+namespace App\Modules\Jobs\Database\Seeders;
 
+use App\Modules\Jobs\Models\Job;
+use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-                    </form>
-                </div>
-                <!--/Contact Form -->
-
-
-            </div>
-            <!--/Column -->
-
-        </div>
-        <!--/Wrapper-->
-
-    </div>
-    <!--/Section -->
-
-    <!--Section -->
-    <div class="section">
-
-        <!-- Wrapper -->
-        <div class="wrapper-small">
-
-            <!-- Column -->
-            <div class="c-col-12 align-center">
-                <div class="caption has-animation skew-up">SEE SMOETHING MORE</div>
-                <h1 data-delay="0.2" class="big-title has-animation sk
+class JobsSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('jobs')->truncate();
+        $faker =Faker::create();
+        $data=[];
+        for ($i=0 ; $i<50 ; $i++){
+            Job::create([
+                'title'=>$faker->jobTitle,
+                'description'=>$faker->text,
+            ]);
+        }
+    }
+}
