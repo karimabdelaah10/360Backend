@@ -13,4 +13,6 @@ Route::group([
     Route::post('/edit/{id}', 'ProjectsController@postEdit');
     Route::get('/delete/{id}', 'ProjectsController@getDelete');
 
+    Route::post('/createsection/{id}', 'ProjectsController@postCreateSection');
+
     });
