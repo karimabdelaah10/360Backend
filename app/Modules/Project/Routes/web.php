@@ -3,6 +3,7 @@ Route::group([
     'prefix'=>'project'
 ], function () {
 
-    Route::get('/{id}','ProjectsController@index')->name('getProject');
+    Route::get('/','ProjectsController@index')->name('getAllProjects');
+    Route::get('/{id}','ProjectsController@getProject')->name('getProject');
 
 });

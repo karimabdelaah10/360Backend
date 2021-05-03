@@ -9,7 +9,7 @@ class Component extends Model
 {
     use HasFactory;
     public function Fields(){
-        return $this->hasMany(ComponentField::class);
+        return $this->hasMany(ComponentField::class)->orderBy('order','asc');
     }
     public function ComponentTemplate()
     {
