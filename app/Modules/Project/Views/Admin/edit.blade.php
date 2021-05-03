@@ -12,7 +12,7 @@
             {!! implode('' ,$errors->all('<div class="alert-body">:message</div>')) !!}
         </div>
     @endif
-    <!-- Basic Tabs starts -->
+    <!-- Add Section From -->
     <div class="offset-xl-1 col-xl-10 col-lg-12">
         <div class="card">
             <div class="card-header">
@@ -43,9 +43,8 @@
                                 <h5 class="modal-title" id="exampleModalLabel">{{$component->name}}</h5>
                             </div>
                             <input type="text" name="componentTemplateId" value="{{$component->id}}" hidden>
-                            <input type="file" name="componentTessmplateId" value="{{$component->id}}" >
                             <div class="modal-body flex-grow-1">
-                                @include($views.'componentsForm',$component->templateFields)
+                                @include($views.'componentsForm',[$component->templateFields,$wrappers_type])
                                 <button type="submit"
                                         class="btn btn-primary data-submit mr-1">{{trans('app.add')}}</button>
                                 <button type="reset" class="btn btn-outline-secondary"
@@ -59,9 +58,10 @@
             </div>
         </div>
     </div>
-    <!-- Basic Tabs ends -->
+    <!-- Add Section From ends -->
 
 
+    <!-- Section Data From -->
     <div class="content-body">
         {!! Form::model($row,['method' => 'post','files' => true , 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
         <div class="modal-header mb-1">
@@ -75,6 +75,61 @@
         </div>
         {!! Form::close() !!}
     </div>
+    <!-- Section Data From ends-->
 
+    <!-- project Sections -->
+    <br>
+    @foreach(@$row->sections as $section)
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                        <span>
+                                {{trans('projects.wrapper type')}} : {{@$section->wrapperType}}
+                        </span>
+                            <span>
+                            {{trans('projects.order')}} : {{@$section->order}} {{trans('projects.SecID')}} : {{@$section->id}}
+                        </span>
+                        </div>
+
+                        <div class="card-body">
+                            @foreach($section->components as $component )
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <span>
+                                                {{trans('projects.component name')}} : {{$component->name}}
+                                            </span>
+                                            <span>
+                                                {{trans('projects.component template name')}} : {{$component->componentTemplate->name}}
+                                            </span>
+                                        </div>
+
+                                        <div class="card-body">
+                                            @foreach($component->componentTemplate->TemplateFields as $field )
+                                                <div>
+                                                    {{trans('projects.template field name')}} : {{$field->name}}
+                                                </div>
+
+                                                <div>
+                                                    {{trans('projects.template field type')}} : {{$field->type}}
+                                                </div>
+
+                                                <div>
+                                                    {{trans('projects.template field order')}} : {{$field->order}}
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <!-- project Sections ends -->
 
 @endsection

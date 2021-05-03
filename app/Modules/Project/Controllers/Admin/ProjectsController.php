@@ -5,10 +5,15 @@ namespace App\Modules\Project\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Models\Category;
 use App\Modules\Jobs\Requests\JobsRequest;
+use App\Modules\Project\Models\Component;
+use App\Modules\Project\Models\ComponentField;
 use App\Modules\Project\Models\ComponentTemplate;
 use App\Modules\Project\Models\Project;
+use App\Modules\Project\Models\Section;
 use App\Modules\Project\Requests\ProjectsRequest;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 
 class ProjectsController extends Controller
 {
@@ -85,8 +90,12 @@ class ProjectsController extends Controller
         $data['module'] = $this->module;
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
-        $data['row'] = $this->model->findOrFail($id);
+        $data['row'] = $this->model
+            ->with('Sections.Components.Fields')
+            ->with('Sections.Components.ComponentTemplate.templateFields')
+            ->findOrFail($id);
         $data['row']->is_active = 1;
+        $data['wrappers_type'] = SectionsController::getSectionWarpperTypes();
         $data['componentsTemplate']= ComponentTemplate::with('templateFields')->get();
         $data['categories'] = Category::all()->pluck('name', 'id');
         $data['page_title'] = trans('app.edit') . " " . $this->title;
@@ -114,11 +123,7 @@ class ProjectsController extends Controller
         return back();
     }
 
-    public function postCreateSection(Request $request , $id)
-    {
 
-      dd($request);
-    }
 
 
 
