@@ -28,7 +28,7 @@
         ['name'=>'colorSchema',
     'value'=> $row->colorSchema ?? null,
     'type'=>'text',
-    'options'=>['dark','light'],
+    'options'=>['dark'=>'dark','light'=>'light'],
     'attributes'=>['class'=>'form-control',
     'label'=>trans('projects.colorSchema'),
     'placeholder'=>trans('projects.colorSchema'),
@@ -36,11 +36,11 @@
 
 @include('BaseApp::form.select',
         ['name'=>'category_id',
-    'value'=> $row->colorSchema ?? null,
+    'value'=> $row->Category->name ?? null,
     'type'=>'text',
     'options'=>$categories,
     'attributes'=>['class'=>'form-control',
-    'label'=>trans('projects.colorSchema'),
-    'placeholder'=>trans('projects.colorSchema'),
+    'label'=>trans('projects.Category'),
+    'placeholder'=>trans('projects.Category'),
     'required'=>1]])
 
