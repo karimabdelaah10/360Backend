@@ -49,7 +49,6 @@
 <script src="/assets/Web/js/scripts.js"></script>
 <script src="/assets/Web/js/jquery.smoothState.js"></script>
 <script src="/assets/Web/js/page-transitions.js"></script>
-<script src="/assets/Admin/js/vendors.js"></script>
 @stack('web_js')
 </body>
 </html>

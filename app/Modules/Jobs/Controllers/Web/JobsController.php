@@ -3,6 +3,7 @@
 namespace App\Modules\Jobs\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Category\Models\Category;
 use App\Modules\Jobs\Models\Job;
 use App\Modules\Jobs\Models\Jobcv;
 use App\Modules\Jobs\Requests\JobsWebRequest;
@@ -30,6 +31,7 @@ class JobsController extends Controller {
         $data['page_title'] = $this->title;
         $data['page_description'] = trans('jobs.page description');
         $data['rows'] = $this->model->getData()->orderBy("id","DESC")->paginate(request('per_page'));
+        $data['categories']=Category::all();
 
         return view($this->views . 'index' , $data);
     }

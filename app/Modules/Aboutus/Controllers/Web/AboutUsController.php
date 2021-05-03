@@ -4,6 +4,7 @@ namespace App\Modules\Aboutus\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Aboutus\Models\Service;
+use App\Modules\Category\Models\Category;
 use App\Modules\Config\Enums\ConfigsEnum;
 use App\Modules\Config\Models\Config;
 use App\Modules\Contactus\Models\Contactus;
@@ -23,6 +24,8 @@ class AboutUsController extends Controller {
             ->pluck('value', 'title');
         $data['page_title'] = trans('app.about us page');
         $data['services'] = Service::all();
+        $data['categories']=Category::all();
+
         return view($this->views . 'index',$data );
     }
 }

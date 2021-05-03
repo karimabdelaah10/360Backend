@@ -3,6 +3,7 @@
 namespace App\Modules\Contactus\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Category\Models\Category;
 use App\Modules\Config\Enums\ConfigsEnum;
 use App\Modules\Config\Models\Config;
 use App\Modules\Contactus\Models\Contactus;
@@ -41,6 +42,7 @@ class ContactMessagesController extends Controller {
               $data['row']['address'] = $adress;
           }
 
+        $data['categories']=Category::all();
 
         return view($this->views . 'index' , $data);
     }

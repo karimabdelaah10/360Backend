@@ -57,15 +57,12 @@
                         <li class="menu-item menu-item-active">
                             <a href="category-projects.html">All</a>
                         </li>
+                        @forelse($categories as $category)
                         <li class="menu-item">
-                            <a href="category-projects.html">Category Page 1 </a>
+                            <a href="/category-projects/{{$category->id}}">{{$category->name}}</a>
                         </li>
-                        <li class="menu-item">
-                            <a href="category-projects.html">Category Page 2 </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="category-projects.html">Category Page 3 </a>
-                        </li>
+                        @empty
+                        @endforelse
                     </ul>
                     <!--/ Sub Menu -->
                 </li>

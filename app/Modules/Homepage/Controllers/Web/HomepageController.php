@@ -3,6 +3,7 @@
 namespace App\Modules\Homepage\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Category\Models\Category;
 
 class HomepageController extends Controller {
 
@@ -12,7 +13,8 @@ class HomepageController extends Controller {
     }
 
     public function getIndex() {
-        return view($this->views . 'index');
+        $data['categories']=Category::all();
+        return view($this->views . 'index' , $data);
     }
 
 }
