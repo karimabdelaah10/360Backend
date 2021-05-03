@@ -56,7 +56,7 @@ class CategoryController extends Controller
     {
         if ($this->model->create($request->all())) {
             flash(trans('app.created successfully'))->success();
-            return back();
+            return redirect( $this->module_url);
         }
     }
 
@@ -79,7 +79,7 @@ class CategoryController extends Controller
 
         if ($row->update($request->all())) {
             flash(trans('app.update successfully'))->success();
-            return back();
+            return redirect( $this->module_url);
         }
     }
 

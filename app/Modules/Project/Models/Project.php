@@ -2,13 +2,21 @@
 
 namespace App\Modules\Project\Models;
 
+use App\Modules\BaseApp\Traits\HasAttach;
 use App\Modules\Category\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use HasFactory;
+    use HasAttach;
+
+    protected static $attachFields = [
+        'image' => [
+            'sizes' => ['small' => 'crop,200x200', 'large' => 'resize,800x800'],
+            'path' => 'storage/uploads'
+        ],
+    ];
 
     protected $fillable=['name','description','title','colorSchema','category_id'];
 
