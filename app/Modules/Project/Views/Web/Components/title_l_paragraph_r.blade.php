@@ -26,9 +26,7 @@
             <div class="text-wrapper">
 
                 <p class="big-p has-animation lines-up">
-                    Prethink tribal knowledge and overcome key issues to meet key milestones. We need to
-                    socialize the comms with the wider stakeholder community product launch we need to
-                    button up our approach horsehead offer, or let's prioritize the low-hanging fruit.
+                    {{$component->Fields[0]->value}}
                 </p>
 
             </div>
