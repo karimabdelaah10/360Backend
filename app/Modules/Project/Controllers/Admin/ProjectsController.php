@@ -81,7 +81,7 @@ class ProjectsController extends Controller
 
         if ($project = $this->model->create($request->all())) {
             flash(trans('app.created successfully'))->success();
-            return redirect($this->module_url.'/edit/'.$project->id);
+            return redirect($this->module_url.'/complete-project/'.$project->id);
         }
     }
 
@@ -105,7 +105,7 @@ class ProjectsController extends Controller
     }
 
 
-    public function postEdit(JobsRequest $request, $id)
+    public function postEdit(ProjectsRequest $request, $id)
     {
 
         $row = $this->model->findOrFail($id);
@@ -122,9 +122,24 @@ class ProjectsController extends Controller
         flash(trans('app.deleted successfully'))->success();
         return back();
     }
-
-
-
-
-
+    public function getCompleteProject($id)
+    {
+        $data['module'] = $this->module;
+        $data['module_url'] = $this->module_url;
+        $data['views'] = $this->views;
+        $data['row'] = $this->model
+            ->with('Sections.Components.Fields')
+            ->with('Sections.Components.ComponentTemplate.templateFields')
+            ->findOrFail($id);
+        $data['row']->is_active = 1;
+        $data['wrappers_type'] = SectionsController::getSectionWarpperTypes();
+        $data['componentsTemplate']= ComponentTemplate::with('templateFields')->get();
+        $data['categories'] = Category::all()->pluck('name', 'id');
+        $data['page_title'] = trans('projects.complete');
+        $data['breadcrumb'] = [
+            $this->title => $this->module_url,
+            trans('app.view') . " " . $this->title => $this->module_url.'/view/'.$id
+        ];
+        return view($this->views . 'complete', $data);
+    }
 }

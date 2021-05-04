@@ -31,7 +31,7 @@ class JobsController extends Controller {
         $data['page_title'] = $this->title;
         $data['page_description'] = trans('jobs.page description');
         $data['rows'] = $this->model->getData()->orderBy("id","DESC")->paginate(request('per_page'));
-        $data['categories']=Category::all();
+                $data['categories']=Category::HeaderCategories()->get();
 
         return view($this->views . 'index' , $data);
     }

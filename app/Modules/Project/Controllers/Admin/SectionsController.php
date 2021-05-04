@@ -90,7 +90,8 @@ class SectionsController extends Controller
         }
 
         flash(trans('app.created successfully'))->success();
-        return redirect($this->module_url . '/edit/' . $id);
+        return back();
+//        return redirect($this->module_url . '/edit/' . $id);
     }
 
     public function getDeleteSection($id)

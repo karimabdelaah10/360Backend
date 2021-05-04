@@ -15,12 +15,19 @@
                         <h4 class="card-title">
                             {{ trans('projects.list project details') }}
                         </h4>
+
+                        <a href="{{$module_url}}/complete/{{$row->id}}"
+                           class="add-new btn btn-primary mt-50
+{{--                            @if(count($row->sections)) disabled @endif --}}
+                               ">
+                            {{trans('projects.complete')}}
+                        </a>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table mb-4">
-                            <tr>
-                                <td>{{trans('Projects.title')}}</td>
+                           <tr>
+                                <td>{{trans('Projects.name')}}</td>
                                 <td>
                                     {{@$row->name}}
                                 </td>
@@ -44,63 +51,17 @@
                                     {{@$row->colorSchema}}
                                 </td>
                             </tr>
-                        </table>
+                            <tr>
+                                <td>{{trans('Projects.image')}}</td>
+                                <td>
+                                    {!! viewImage($row->image , 'large'  ,'uploads' , ['height'=>500 , 'width'=>500]) !!}
+                                </td>
+                            </tr>
+                            </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    @foreach(@$row->sections as $section)
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">
-                        <span>
-                                {{trans('projects.wrapper type')}} : {{@$section->wrapperType}}
-                        </span>
-                            <span>
-                            {{trans('projects.order')}} : {{@$section->order}}
-                        </span>
-                        </div>
-
-                        <div class="card-body">
-                            @foreach($section->components as $component )
-                                <div class="col-md-8">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <span>
-                                                {{trans('projects.component name')}} : {{$component->name}}
-                                            </span>
-                                            <span>
-                                                {{trans('projects.component template name')}} : {{$component->componentTemplate->name}}
-                                            </span>
-                                        </div>
-
-                                        <div class="card-body">
-                                            @foreach($component->componentTemplate->TemplateFields as $field )
-                                                <div>
-                                                    {{trans('projects.template field name')}} : {{$field->name}}
-                                                </div>
-
-                                                <div>
-                                                    {{trans('projects.template field type')}} : {{$field->type}}
-                                                </div>
-
-                                                <div>
-                                                    {{trans('projects.template field order')}} : {{$field->order}}
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
 @endsection
 

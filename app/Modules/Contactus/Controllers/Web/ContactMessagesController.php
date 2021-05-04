@@ -42,7 +42,7 @@ class ContactMessagesController extends Controller {
               $data['row']['address'] = $adress;
           }
 
-        $data['categories']=Category::all();
+        $data['categories']=Category::HeaderCategories()->get();
 
         return view($this->views . 'index' , $data);
     }

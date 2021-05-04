@@ -18,7 +18,7 @@ class Project extends Model
         ],
     ];
 
-    protected $fillable=['name','description','title','colorSchema','category_id'];
+    protected $fillable=['name','description','image','colorSchema','category_id'];
 
     public function Sections(){
         return $this->hasMany(Section::class)->orderBy('order');
@@ -34,6 +34,10 @@ class Project extends Model
 
 
     public function getData()
+    {
+        return $this;
+    }
+    public function scopeHomePageProjects($query)
     {
         return $this;
     }

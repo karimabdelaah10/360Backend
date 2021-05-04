@@ -29,5 +29,10 @@ class Category extends Model
         return $this;
     }
 
+    public function scopeHeaderCategories($query)
+    {
+        return $query->has('Projects');
+    }
+
     use HasFactory;
 }

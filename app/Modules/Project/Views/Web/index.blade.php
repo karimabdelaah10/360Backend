@@ -1,6 +1,6 @@
 @extends('BaseApp::layouts.web-contact')
 @section('page-title')
-    {{$page_title}}
+    {{@$page_title}}
 @endsection
 @section('content')
     <!-- Section -->

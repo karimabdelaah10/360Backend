@@ -13,6 +13,8 @@ Route::group([
     Route::post('/edit/{id}', 'ProjectsController@postEdit');
     Route::get('/delete/{id}', 'ProjectsController@getDelete');
 
+    Route::get('/complete-project/{id}', 'ProjectsController@getCompleteProject');
+
     Route::post('/createsection/{id}', 'SectionsController@postCreateSection');
     Route::get('/deletesection/{id}', 'SectionsController@getDeleteSection');
 

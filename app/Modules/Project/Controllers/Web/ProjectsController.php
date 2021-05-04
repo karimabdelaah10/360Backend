@@ -3,6 +3,7 @@
 namespace App\Modules\Project\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Category\Models\Category;
 use App\Modules\Project\Models\Project;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -29,16 +30,24 @@ class ProjectsController extends Controller
     {
          $projects = Project::with('Sections.Components.Fields')
             ->with('Sections.Components.ComponentTemplate.templateFields')->get();
-        return view($this->views . 'index');
+                $data['categories']=Category::HeaderCategories()->get();
+        return view($this->views . 'index' , $data);
     }
 
-    public function getCategoryProjects($id)
+    public function getCategoryProjects($id = null)
     {
-        $data['rows'] =$this->model->where('category_id' , $id)
-            ->orderBy('id' , 'desc')->get();
 
-
-        return $data;
+        if ($id){
+            $data['category'] = Category::findOrFail($id);
+            $category_name = $data['category']->name ;
+            $data['rows'] =$this->model->where('category_id' , $id)->orderBy('id' , 'desc')->get();
+        }else{
+            $category_name = 'All';
+            $data['rows'] =$this->model->orderBy('id' , 'desc')->get();
+        }
+        $data['categories']=Category::HeaderCategories()->get();
+        $data['page_title']=$category_name. ' Projects';
+        return view($this->views . 'category-projects' , $data);
     }
 
     public function getProject($id)
@@ -58,6 +67,7 @@ class ProjectsController extends Controller
         $data['page_title'] = $this->title . $data['row']->name;
         $data['page_description'] = trans('projects.page description');
         $data['SchemaType'] = ProjectsController::ColorSechma;
+        $data['categories']=Category::HeaderCategories()->get();
 
         return view($this->views . 'project', $data);
     }

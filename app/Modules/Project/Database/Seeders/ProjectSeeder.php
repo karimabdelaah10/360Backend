@@ -22,7 +22,7 @@ class ProjectSeeder extends Seeder
             [
                 'name' => "11Rosalee Stamm",
                 'category' => "landscape",
-                'title' => "Mills Group",
+                'image' => null,
                 'description' => "Est nam distinctio harum nesciunt culpa. Eius et ipsum es
 t qui enim minima corporis. Voluptatem mollitia ducimus impedit amet sequi corpo
 ris. Quo qui reiciendis suscipit nostrum tempore itaque omnis.",
@@ -32,7 +32,7 @@ ris. Quo qui reiciendis suscipit nostrum tempore itaque omnis.",
             [
                 'name' => "22Rosalee ",
                 'category' => "landscape",
-                'title' => "Mills Group",
+                'image' => null,
                 'description' => "Est nam distinctio harum nesciunt culpa. Eius et ipsum es
 t qui enim minima corporis. Voluptatem mollitia ducimus impedit amet sequi corpo
 ris. Quo qui reiciendis suscipit nostrum tempore itaque omnis.",

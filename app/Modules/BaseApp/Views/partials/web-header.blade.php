@@ -55,7 +55,7 @@
                     <!-- Sub Menu -->
                     <ul class="sub-menu">
                         <li class="menu-item menu-item-active">
-                            <a href="category-projects.html">All</a>
+                            <a href="/category-projects/">All</a>
                         </li>
                         @forelse($categories as $category)
                         <li class="menu-item">

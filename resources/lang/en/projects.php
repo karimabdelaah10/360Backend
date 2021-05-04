@@ -4,11 +4,15 @@ return [
     'page description'=>'list all projects data',
     'create'=>'Create New Project',
     'edit'=>'Edit Project',
+    'add'=>'Add Project',
+    'complete'=>'Complete Project',
 
-    'title'=>'Title',
-    'description'=>'Description',
+    'name'=>'Name',
+    'image'=>'Image',
     'category'=>'Category',
-    'color'=>'color mode',
+    'description'=>'Description',
+    'colorSchema'=>'Color Schema',
+    'color'=>'Color Mode',
     'list project details'=>'List Project Details',
 
 
@@ -20,4 +24,6 @@ return [
     'template field order'=>'Template Field Order',
     'wrapper type'=>'Wrapper Type',
     'order'=>'Order',
+    'section title'=>'Section Title',
+    'section order'=>'Section Order',
 ];

@@ -27,7 +27,7 @@
                             <thead>
                             <tr>
                                 <th >#</th>
-                                <th >{{trans('Projects.title')}}</th>
+                                <th >{{trans('Projects.name')}}</th>
                                 <th >{{trans('Projects.category')}}</th>
                                 <th >{{trans('Projects.description')}}</th>
                                 <th >{{trans('app.actions')}}</th>
@@ -37,7 +37,7 @@
                             @forelse($rows as $element)
                                 <tr>
                                     <td>{{@$element->id}}</td>
-                                    <td>{{@$element->title}}</td>
+                                    <td>{{@$element->name}}</td>
                                     <td>{{@$element->Category->name}}</td>
                                     <td>
                                         @if(!empty($element->description))

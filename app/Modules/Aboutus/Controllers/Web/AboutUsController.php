@@ -24,7 +24,7 @@ class AboutUsController extends Controller {
             ->pluck('value', 'title');
         $data['page_title'] = trans('app.about us page');
         $data['services'] = Service::all();
-        $data['categories']=Category::all();
+                $data['categories']=Category::HeaderCategories()->get();
 
         return view($this->views . 'index',$data );
     }
