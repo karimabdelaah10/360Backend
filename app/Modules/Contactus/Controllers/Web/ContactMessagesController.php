@@ -43,7 +43,8 @@ class ContactMessagesController extends Controller {
           }
 
         $data['categories']=Category::HeaderCategories()->get();
-
+        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+            ->pluck('value', 'title');
         return view($this->views . 'index' , $data);
     }
 

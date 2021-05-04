@@ -51,7 +51,7 @@
                 </li>
                 <li class="menu-item"><a href="/aboutus">About</a></li>
                 <li class="menu-item has-children">
-                    <a href="#">Projects</a>
+                    <a href="#" class="menu-item-lable">Projects</a>
                     <!-- Sub Menu -->
                     <ul class="sub-menu">
                         <li class="menu-item menu-item-active">
@@ -83,8 +83,8 @@
                     WE ARE ALWAYS HERE;
                 </div>
 
-                <h5>19, Avenue du Président <br>Wilson 75116, Paris</h5>
-                <h5>+9 (0) 512 69 78</h5>
+                <h5>{{@$about_us['address']}}</h5>
+                <h5>{{@$about_us['mobile_number']}}</h5>
                 <div style="color: black">
                     <a style="color: black" href="#"><i class="icon-behance"></i> </a>
                     <a style="color: black" href="#"><i class="icon-twitter"></i> </a>
@@ -104,7 +104,7 @@
         <!-- Menu Widget (Middle) -->
         <div class="menu-widget-wrapper mww-2">
             <div class="scrolling-button">
-                <a href="mailto:hello@pethemes.com">hello@pethemes.com</a>
+                <a href="mailto:{{@$about_us['email']}}">{{@$about_us['email']}}</a>
             </div>
         </div>
         <!--/ Menu Widget (Middle) -->

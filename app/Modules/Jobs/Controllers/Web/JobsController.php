@@ -32,7 +32,8 @@ class JobsController extends Controller {
         $data['page_description'] = trans('jobs.page description');
         $data['rows'] = $this->model->getData()->orderBy("id","DESC")->paginate(request('per_page'));
                 $data['categories']=Category::HeaderCategories()->get();
-
+        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+            ->pluck('value', 'title');
         return view($this->views . 'index' , $data);
     }
 

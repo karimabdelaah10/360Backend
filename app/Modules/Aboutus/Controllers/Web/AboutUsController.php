@@ -22,6 +22,8 @@ class AboutUsController extends Controller {
     public function getIndex() {
         $data['rows'] = Config::where('page' , ConfigsEnum::ABOUT_PAGE)
             ->pluck('value', 'title');
+        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+            ->pluck('value', 'title');
         $data['page_title'] = trans('app.about us page');
         $data['services'] = Service::all();
                 $data['categories']=Category::HeaderCategories()->get();

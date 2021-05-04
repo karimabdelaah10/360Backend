@@ -329,6 +329,17 @@
 
 
     });
+    $('.menu-item-lable').on('click', function () {
+
+        $(this).toggleClass('st-active')
+
+        var parentLi = $(this).parent('li');
+        var openSub = parentLi.children('.sub-menu');
+
+        openSub.toggleClass('sub-menu-in')
+
+
+    });
 
 
 

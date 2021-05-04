@@ -4,6 +4,8 @@ namespace App\Modules\Homepage\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Models\Category;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Project\Models\Project;
 
 class HomepageController extends Controller {
@@ -15,6 +17,8 @@ class HomepageController extends Controller {
 
     public function getIndex() {
         $data['categories']=Category::HeaderCategories()->get();
+        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+            ->pluck('value', 'title');
         $data['rows'] = Project::HomePageProjects()
             ->orderBy('id' , 'desc')
             ->get();

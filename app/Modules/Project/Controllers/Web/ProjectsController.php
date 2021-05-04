@@ -4,6 +4,8 @@ namespace App\Modules\Project\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Models\Category;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Project\Models\Project;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -31,6 +33,8 @@ class ProjectsController extends Controller
          $projects = Project::with('Sections.Components.Fields')
             ->with('Sections.Components.ComponentTemplate.templateFields')->get();
                 $data['categories']=Category::HeaderCategories()->get();
+        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+            ->pluck('value', 'title');
         return view($this->views . 'index' , $data);
     }
 
@@ -46,7 +50,12 @@ class ProjectsController extends Controller
             $data['rows'] =$this->model->orderBy('id' , 'desc')->get();
         }
         $data['categories']=Category::HeaderCategories()->get();
+        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+            ->pluck('value', 'title');
         $data['page_title']=$category_name. ' Projects';
+        if (!count($data['rows'])){
+            return redirect('/');
+        }
         return view($this->views . 'category-projects' , $data);
     }
 
@@ -68,7 +77,8 @@ class ProjectsController extends Controller
         $data['page_description'] = trans('projects.page description');
         $data['SchemaType'] = ProjectsController::ColorSechma;
         $data['categories']=Category::HeaderCategories()->get();
-
+        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+            ->pluck('value', 'title');
         return view($this->views . 'project', $data);
     }
 
