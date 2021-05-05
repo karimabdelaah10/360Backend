@@ -9,7 +9,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/codicis/image_5.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[0]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
 
@@ -22,7 +22,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/codicis/image_6.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[1]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
 
@@ -42,7 +42,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/codicis/image_7.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[2]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
             <span class="pe-empty-space" style="height: 30px"></span>
@@ -53,7 +53,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/codicis/image_8.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[3]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
 
@@ -71,7 +71,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/codicis/image_9.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[4]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
             <span class="pe-empty-space" style="height: 30px"></span>
@@ -82,7 +82,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/codicis/image_10.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[5]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
 

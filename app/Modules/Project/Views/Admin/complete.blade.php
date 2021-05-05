@@ -29,7 +29,7 @@
                                aria-controls="{{$component->name}}"
                                role="tab"
                                aria-selected="true">
-                                {{$component->name}}
+                                {{$component->title}}
                             </a>
                         </li>
                     @endforeach
@@ -38,26 +38,38 @@
                     @foreach($componentsTemplate as $component)
                         <div class="tab-pane" id="{{$component->name}}"
                              aria-labelledby="{{$component->name}}-tab" role="tabpanel">
-                            {!! Form::model($row,['method' => 'post','files' => true , 'url' => [url($module_url.'/createsection',$row->id)], 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
-                            <div class="modal-header mb-1">
-                                <h5 class="modal-title" id="exampleModalLabel">{{$component->name}}</h5>
-                            </div>
-                            <input type="text" name="componentTemplateId" value="{{$component->id}}" hidden>
-                            <div class="modal-body flex-grow-1">
-                                @include($views.'componentsForm',[$component->templateFields,$wrappers_type])
-                                <button type="submit"
-                                        class="btn btn-primary data-submit mr-1">{{trans('app.add')}}</button>
-                                <button type="reset" class="btn btn-outline-secondary"
-                                        data-dismiss="modal">{{trans('app.cancel')}}</button>
+                            <div class="row">
+                                <div class="col-8">
+                                    {!! Form::model($row,['method' => 'post','files' => true , 'url' => [url($module_url.'/createsection',$row->id)], 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
+                                    <div class="modal-header mb-1">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{$component->title}}</h5>
+                                    </div>
+                                    <input type="text" name="componentTemplateId" value="{{$component->id}}" hidden>
+                                    <div class="modal-body flex-grow-1">
+                                        @include($views.'componentsForm',[$component->templateFields,$wrappers_type])
+                                        <button type="submit"
+                                                class="btn btn-primary data-submit mr-1">{{trans('app.add')}}</button>
+                                        <button type="reset" class="btn btn-outline-secondary"
+                                                data-dismiss="modal">{{trans('app.cancel')}}</button>
 
+                                    </div>
+                                    {!! Form::close() !!}
+                                </div>
+                                <div class="col-4">
+                                    <img style="width: 100%" src="/storage/component_temp_images/{{$component->image}}"
+                                         alt="{{$component->image}}">
+                                </div>
                             </div>
-                            {!! Form::close() !!}
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
-{{--        @if(count($row->sections))--}}
+    </div>
+    <!-- Add Section From ends -->
+
+    <!-- Sections table  -->
+    <div class="content-body">
         <div class="row" id="basic-table">
             <div class="col-12">
                 <div class="card">
@@ -69,21 +81,32 @@
                         <table class="table mb-4">
                             <thead>
                             <tr>
-                                <th >#</th>
-                                <th >{{trans('projects.section title')}}</th>
-                                <th >{{trans('projects.section order')}}</th>
-                                <th >{{trans('app.actions')}}</th>
+                                <th>#</th>
+                                <th>{{trans('projects.section title')}}</th>
+                                <th>{{trans('projects.section order')}}</th>
+                                <th>{{trans('projects.section wrapperType')}}</th>
+                                <th>{{trans('app.actions')}}</th>
                             </tr>
                             </thead>
                             <tbody>
-
+                            @if(count($row->sections))
+                                @foreach($row->sections as $section)
+                                    <tr>
+                                        <td>{{$section->id}}</td>
+                                        <td>{{$section->Components[0]->title}}</td> {{--will be chaned to title when title added--}}
+                                        <td>{{$section->order}}</td>
+                                        <td>{{$section->wrapperType}}</td>
+                                        <td>@include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , [$element=$section, $module_url=$section_module_url]])</td>
+                                    </tr>
+                                @endforeach
+                            @endif
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-{{--        @endif--}}
     </div>
-    <!-- Add Section From ends -->
+    <!-- Sections table ends  -->
+
 @endsection

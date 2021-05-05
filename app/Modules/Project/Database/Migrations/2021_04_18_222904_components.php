@@ -16,6 +16,7 @@ class Components extends Migration
         Schema::create('Components', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('title');
             $table->string('type');
             $table->string('value')->nullable();
             $table->foreignId('section_id')->constrained()->onDelete('cascade');

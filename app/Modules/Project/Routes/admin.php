@@ -13,9 +13,14 @@ Route::group([
     Route::post('/edit/{id}', 'ProjectsController@postEdit');
     Route::get('/delete/{id}', 'ProjectsController@getDelete');
 
-    Route::get('/complete-project/{id}', 'ProjectsController@getCompleteProject');
+    Route::get('/complete/{id}', 'ProjectsController@getCompleteProject');
 
     Route::post('/createsection/{id}', 'SectionsController@postCreateSection');
-    Route::get('/deletesection/{id}', 'SectionsController@getDeleteSection');
+
+    Route::get('/sections/edit/{id}', 'SectionsController@getEditSection');
+    Route::post('/sections/edit/{id}', 'SectionsController@postEditSection');
+
+    Route::get('/sections/delete/{id}', 'SectionsController@getDeleteSection');
+
 
     });

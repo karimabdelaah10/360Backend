@@ -8,10 +8,7 @@
                 <div class="caption">CLIENT SAYS:</div>
 
                 <h1 class="thin has-animation lines-up">
-
-                    "Draw a line in the sand one-sheet we need a recap by eod, cob or whatever comes first.
-                    Productize open door policy horsehead offer, make corporate."
-
+                    {{@$component->Fields[0]->value}}
                 </h1>
 
             </div>

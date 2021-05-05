@@ -81,7 +81,7 @@ class ProjectsController extends Controller
 
         if ($project = $this->model->create($request->all())) {
             flash(trans('app.created successfully'))->success();
-            return redirect($this->module_url.'/complete-project/'.$project->id);
+            return redirect($this->module_url.'/complete/'.$project->id);
         }
     }
 
@@ -125,7 +125,8 @@ class ProjectsController extends Controller
     public function getCompleteProject($id)
     {
         $data['module'] = $this->module;
-        $data['module_url'] = $this->module_url;
+        $data['module_url'] = $this->module_url; // for action field
+        $data['section_module_url'] = $this->module_url.'/sections'; // for action field
         $data['views'] = $this->views;
         $data['row'] = $this->model
             ->with('Sections.Components.Fields')
