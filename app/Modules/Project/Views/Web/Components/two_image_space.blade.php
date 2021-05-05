@@ -11,7 +11,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/mens-cave/image_2.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[0]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
 
@@ -28,7 +28,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/mens-cave/image_3.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[1]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
 

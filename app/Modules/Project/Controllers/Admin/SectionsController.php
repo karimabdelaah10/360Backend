@@ -23,7 +23,7 @@ class SectionsController extends Controller
     public function __construct(Section $model)
     {
 
-        $this->module_url = '/admin/projects';
+        $this->module_url = '/admin/projects/sections/';
         $this->model = $model;
     }
 
@@ -37,14 +37,16 @@ class SectionsController extends Controller
 
         $section = new Section();
         $section->project_id = $id;
-        $section->order=$this->getCountSectionsOnProject($section->project_id)+1;
-        $section->wrapperType =$request->wrapperType;
+        $section->order = $this->getCountSectionsOnProject($section->project_id) + 1;
+        $section->wrapperType = $request->wrapperType;
         $section->save();
 
         $component = new Component();
         $component->section_id = $section->id;
         $component->component_template_id = $request->componentTemplateId;
-        $component->name = ComponentTemplate::findOrFail($request->componentTemplateId)->name;
+        $componentTemp = ComponentTemplate::findOrFail($request->componentTemplateId);
+        $component->name = $componentTemp->name;
+        $component->title = $componentTemp->title;
         $component->type = 'element';
         $component->save();
 
@@ -93,6 +95,15 @@ class SectionsController extends Controller
         return back();
 //        return redirect($this->module_url . '/edit/' . $id);
     }
+
+    public function getEditSection($id){
+        return 'edit section';
+    }
+    public function postEditSection(Request $request,$id){
+        return 'post edit section';
+    }
+
+
 
     public function getDeleteSection($id)
     {

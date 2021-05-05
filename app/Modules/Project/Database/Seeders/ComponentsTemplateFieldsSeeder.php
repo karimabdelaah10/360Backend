@@ -5,6 +5,7 @@ namespace App\Modules\Project\Database\Seeders;
 use App\Modules\Project\Models\ComponentTemplate;
 use App\Modules\Project\Models\ComponentTemplateField;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ComponentsTemplateFieldsSeeder extends Seeder
 {
@@ -15,6 +16,7 @@ class ComponentsTemplateFieldsSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('component_template_fields')->delete();
         $componentsTemplateFields = [
             [
                 'name' => 'bg_paragraph_m',
@@ -95,7 +97,7 @@ class ComponentsTemplateFieldsSeeder extends Seeder
             ],
 
             [
-                'name' => 'title_l_pragraph_r',
+                'name' => 'title_l_paragraph_r',
                 'fields' => ['text', 'textarea']
 
             ],

@@ -14,8 +14,8 @@
     'value'=> $row->title ?? null,
     'type'=>$row->type,
     'attributes'=>['class'=>'form-control',
-    'label'=>trans('projects.name'),
-    'placeholder'=>trans('projects.name'),
+    'label'=>trans('projects.title'),
+    'placeholder'=>trans('projects.title'),
     'required'=>1]])
     @elseif($row->type == 'textarea')
         @include('BaseApp::form.textarea',
@@ -23,8 +23,8 @@
     'value'=> $row->title ?? null,
     'type'=>$row->type,
     'attributes'=>['class'=>'form-control',
-    'label'=>trans('projects.name'),
-    'placeholder'=>trans('projects.name'),
+    'label'=>trans('projects.paragraph'),
+    'placeholder'=>trans('projects.paragraph'),
     'required'=>1]])
     @elseif($row->type == 'file')
         @include('BaseApp::form.file',

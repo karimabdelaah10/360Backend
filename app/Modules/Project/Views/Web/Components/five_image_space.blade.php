@@ -9,7 +9,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/meskaline-studio/image_1.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[0]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 
@@ -26,7 +26,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/meskaline-studio/image_2.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[1]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 
@@ -43,7 +43,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/meskaline-studio/image_3.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[2]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 
@@ -60,7 +60,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/meskaline-studio/image_4.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[3]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 
@@ -77,7 +77,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/meskaline-studio/image_5.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[4]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 

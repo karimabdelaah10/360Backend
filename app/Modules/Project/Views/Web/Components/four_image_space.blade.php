@@ -9,7 +9,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/mens-cave/image_4.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[0]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 
@@ -22,7 +22,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/mens-cave/image_7.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[1]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 
@@ -40,7 +40,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/mens-cave/image_6.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[2]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 
@@ -53,7 +53,7 @@
                                 title of the image
                             </span>
                     </div>
-                    <img src="images/projects/mens-cave/image_5.jpg" alt="Single Image">
+                    <img src="{{'\storage\projects\\'.$component->Fields[3]->value}}" alt="Single Image">
                 </div>
                 <!--/ Image Wrapper -->
 

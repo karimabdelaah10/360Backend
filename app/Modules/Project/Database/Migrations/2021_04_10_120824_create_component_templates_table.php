@@ -16,7 +16,9 @@ class CreateComponentTemplatesTable extends Migration
         Schema::create('component_templates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('title');
             $table->string('type');
+            $table->string('image');
             $table->string('numberOfFields');
             $table->timestamps();
         });

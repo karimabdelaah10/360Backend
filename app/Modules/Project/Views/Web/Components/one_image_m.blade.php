@@ -10,7 +10,7 @@
                                 title of the image
                             </span>
                 </div>
-                <img src="images/projects/gabriele-desmarais/hor_cov.jpg" alt="Single Image">
+                <img src="{{'\storage\projects\\'.$component->Fields[0]->value}}" alt="Single Image">
             </div>
             <!--/ Image Wrapper -->
 
