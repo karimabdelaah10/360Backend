@@ -46,7 +46,7 @@
                                     </div>
                                     <input type="text" name="componentTemplateId" value="{{$component->id}}" hidden>
                                     <div class="modal-body flex-grow-1">
-                                        @include($views.'componentsForm',[$component->templateFields,$wrappers_type])
+                                        @include($views.'componentsForm',[$component->templateFields,$wrappers_type,$all_projects])
                                         <button type="submit"
                                                 class="btn btn-primary data-submit mr-1">{{trans('app.add')}}</button>
                                         <button type="reset" class="btn btn-outline-secondary"

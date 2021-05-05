@@ -36,5 +36,14 @@
       'id'=>'image'.$row->id,
       'placeholder'=>trans('categories.image'),
       'required'=>1 ]])
+    @elseif($row->type == 'select')
+        @include('BaseApp::form.select',
+         ['name'=>'nextProject',
+     'value'=> null,
+     'options'=>$all_projects,
+     'attributes'=>['class'=>'form-control',
+     'label'=>trans('Sections.all project'),
+     'placeholder'=>trans('Sections.all project'),
+     'required'=>1]])
     @endif
 @endforeach

@@ -58,7 +58,7 @@ class ComponentsTemplateSeeder extends Seeder
             [
                 'name' => 'nextProject',
                 'title'=> 'next Project',
-                'fields' => ['text', 'textarea', 'link', 'file']
+                'fields' => ['select']
 
             ],
 
