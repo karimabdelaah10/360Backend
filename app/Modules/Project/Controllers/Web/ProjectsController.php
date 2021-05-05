@@ -72,6 +72,7 @@ class ProjectsController extends Controller
             flash(trans('project with Id' . $id . ' not found '))->error();
             return back();
         }
+
         $data['row']->is_active = 1;
         $data['page_title'] = $this->title . $data['row']->name;
         $data['page_description'] = trans('projects.page description');

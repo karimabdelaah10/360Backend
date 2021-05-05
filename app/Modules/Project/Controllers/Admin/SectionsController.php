@@ -30,6 +30,7 @@ class SectionsController extends Controller
 
     public function postCreateSection(Request $request, $id)
     {
+
         $elementOrder = 1;
         $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR;
         $imagesName = array();
@@ -49,6 +50,16 @@ class SectionsController extends Controller
         $component->title = $componentTemp->title;
         $component->type = 'element';
         $component->save();
+
+        if (isset($request->nextProject)) {
+            $field = new ComponentField();
+            $field->value = $request->nextProject;
+            $field->type = 'select';
+            $field->order = $elementOrder++;
+            $field->component_id = $component->id;
+            $field->save();
+        }
+
 
         if (isset($request->files)) {
             foreach ($request->files as $file) {
@@ -96,16 +107,21 @@ class SectionsController extends Controller
 //        return redirect($this->module_url . '/edit/' . $id);
     }
 
-    public function getEditSection($id){
+    public
+    function getEditSection($id)
+    {
         return 'edit section';
     }
-    public function postEditSection(Request $request,$id){
+
+    public
+    function postEditSection(Request $request, $id)
+    {
         return 'post edit section';
     }
 
 
-
-    public function getDeleteSection($id)
+    public
+    function getDeleteSection($id)
     {
         try {
             $row = $this->model->findOrFail($id);
@@ -119,15 +135,16 @@ class SectionsController extends Controller
         return back();
     }
 
-    private function getCountSectionsOnProject($projectId)
+    private
+    function getCountSectionsOnProject($projectId)
     {
         $sections = Section::where('project_id', $projectId)->get();
         return (($sections->count()));
     }
 
-    static public  function getSectionWarpperTypes()
+    static public function getSectionWarpperTypes()
     {
-        $wrapperTypes=['wrapper-small'=>'small','wrapper'=>'normal','wrapper-full'=>'wide'];
+        $wrapperTypes = ['wrapper-small' => 'small', 'wrapper' => 'normal', 'wrapper-full' => 'wide'];
         return $wrapperTypes;
     }
 }

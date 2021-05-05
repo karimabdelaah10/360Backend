@@ -133,6 +133,7 @@ class ProjectsController extends Controller
             ->with('Sections.Components.ComponentTemplate.templateFields')
             ->findOrFail($id);
         $data['row']->is_active = 1;
+        $data['all_projects'] = $this->model->all()->pluck('name', 'id');
         $data['wrappers_type'] = SectionsController::getSectionWarpperTypes();
         $data['componentsTemplate']= ComponentTemplate::with('templateFields')->get();
         $data['categories'] = Category::all()->pluck('name', 'id');
@@ -141,6 +142,7 @@ class ProjectsController extends Controller
             $this->title => $this->module_url,
             trans('app.view') . " " . $this->title => $this->module_url.'/view/'.$id
         ];
+    
         return view($this->views . 'complete', $data);
     }
 }

@@ -29,7 +29,7 @@
                     </div>
 
                     <!-- Project Summary -->
-                    <div class="summary">
+                    <div class="summary" style="background: rgba(0,0,0,.5); padding: 10px; color :#EEEEEE">
                      {{@$element->description}}
                     </div>
                     <!--/ Project Summary -->
