@@ -1,33 +1,14 @@
-
-<!-- Footer -->
 <footer class="site-footer" id="footer">
-
-    <!-- Wrapper -->
-    <div style="margin-bottom: 0" class="wrapper">
-
-        <!-- Column -->
-        <div class="c-col-6">
-
-            <!-- Footer Menu -->
-{{--            <ul class="footer-menu ">--}}
-{{--                <li><a href="#">Terms</a></li>--}}
-{{--                <li><a href="#">Privacy Policy</a></li>--}}
-{{--                <li><a href="#">Purchase</a></li>--}}
-{{--            </ul>--}}
-            <!--/ Footer Menu -->
-
+<div style="margin-bottom: 0" class="wrapper">
+        <div class="c-col-12 align-center">
+            <p class="copyright-text">Developed By
+                <a
+                    href="https://wa.me/0201004976761" target="_blank"
+                    style="color: #fff;text-transform: uppercase;text-decoration: underline;margin: 0 5px">
+                    Abd Almonem  </a>&
+                <a href="https://wa.me/0201091811793" target="_blank" style="color: #fff;text-transform: uppercase;text-decoration: underline;margin: 0 5px">
+                    Karim Abdelaah  </a>
+            </p>
         </div>
-        <!-- Column -->
-
-        <!-- Column -->
-        <div class="c-col-6 align-right">
-{{--            <p class="copyright-text">Pe Themes - CYGNI®, inc 20 - 20©</p>--}}
-        </div>
-        <!-- Column -->
-
     </div>
-    <!-- Wrapper -->
-
-
 </footer>
-<!--/ Footer -->

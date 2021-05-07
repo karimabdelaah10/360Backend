@@ -91,12 +91,16 @@
                     <a style="color: black" href="#"><i class="icon-dribbble"></i> </a>
                     <a style="color: black" href="#"><i class="icon-instagrem"></i> </a>
                     <a style="color: black" href="#"><i class="icon-facebook"></i> </a>
+                    <h5>Developed By
+                        <a href="https://wa.me/0201004976761" target="_blank"
+                            style="text-decoration: underline;margin: 0 5px">
+                            Abd Almonem  </a>&
+                        <a href="https://wa.me/0201091811793" target="_blank"
+                           style="text-decoration: underline;margin: 0 5px">
+                            Karim Abdelaah  </a>
+
+                    </h5>
                 </div>
-
-
-
-
-
             </div>
         </div>
         <!--/ Menu Widget (Left) -->
