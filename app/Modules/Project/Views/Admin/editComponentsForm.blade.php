@@ -7,43 +7,49 @@
     'placeholder'=>trans('Sections.warpper Type'),
     'required'=>1]])
 
-    @foreach($componentTemplate->templateFields as $row)
+@foreach($component->Fields as $row)
     @if($row->type == 'text')
         @include('BaseApp::form.input',
-        ['name'=>$row->type.'[]',
-    'value'=> $row->title ?? null,
+     ['name'=>$row->type.'['.$row->id.']',
+    'value'=> $row->value ?? null,
     'type'=>$row->type,
     'attributes'=>['class'=>'form-control',
     'label'=>trans('projects.title'),
     'placeholder'=>trans('projects.title'),
-    'required'=>1]])
+    ]])
     @elseif($row->type == 'textarea')
         @include('BaseApp::form.textarea',
-        ['name'=>$row->type.'[]',
-    'value'=> $row->title ?? null,
+        ['name'=>$row->type.'['.$row->id.']',
+    'value'=> $row->value ?? null,
     'type'=>$row->type,
     'attributes'=>['class'=>'form-control',
     'label'=>trans('projects.paragraph'),
     'placeholder'=>trans('projects.paragraph'),
-    'required'=>1]])
+   ]])
     @elseif($row->type == 'file')
         @include('BaseApp::form.file',
-          ['name'=>'image'.$row->id,
-      'value'=> $row->image ?? null,
-      'type'=>'file',
-      'attributes'=>['class'=>'form-control',
-      'label'=>trans('categories.image'),
-      'id'=>'image'.$row->id,
-      'placeholder'=>trans('categories.image'),
-      'required'=>1 ]])
+          ['name'=>'image['.$row->id.']',
+          'type'=>'file',
+          'attributes'=>[
+              'class'=>'form-control',
+              'label'=>trans('categories.image'),
+              'id'=>'image['.$row->id.']',
+              'imageFolder'=>'projects',
+              'file_type'=>'image',
+              'image_type'=>'',
+              'value'=> $row->value ?? null,
+              'height'=>'100',
+              'width'=>'100',
+              'placeholder'=>trans('categories.image'),
+       ]])
     @elseif($row->type == 'select')
         @include('BaseApp::form.select',
          ['name'=>'nextProject',
-     'value'=> null,
+     'value'=>$row->value ?? null,
      'options'=>$all_projects,
      'attributes'=>['class'=>'form-control',
      'label'=>trans('Sections.all project'),
      'placeholder'=>trans('Sections.all project'),
-     'required'=>1]])
+     ]])
     @endif
 @endforeach

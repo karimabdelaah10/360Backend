@@ -35,18 +35,18 @@
                     @endforeach
                 </ul>
                 <div class="tab-content">
-                    @foreach($componentsTemplate as $component)
-                        <div class="tab-pane" id="{{$component->name}}"
-                             aria-labelledby="{{$component->name}}-tab" role="tabpanel">
+                    @foreach($componentsTemplate as $componentTemplate)
+                        <div class="tab-pane" id="{{$componentTemplate->name}}"
+                             aria-labelledby="{{$componentTemplate->name}}-tab" role="tabpanel">
                             <div class="row">
                                 <div class="col-8">
                                     {!! Form::model($row,['method' => 'post','files' => true , 'url' => [url($module_url.'/createsection',$row->id)], 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
                                     <div class="modal-header mb-1">
-                                        <h5 class="modal-title" id="exampleModalLabel">{{$component->title}}</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">{{$componentTemplate->title}}</h5>
                                     </div>
-                                    <input type="text" name="componentTemplateId" value="{{$component->id}}" hidden>
+                                    <input type="text" name="componentTemplateId" value="{{$componentTemplate->id}}" hidden>
                                     <div class="modal-body flex-grow-1">
-                                        @include($views.'componentsForm',[$component->templateFields,$wrappers_type,$all_projects])
+                                        @include($views.'componentsForm',[$componentTemplate,$wrappers_type,$all_projects])
                                         <button type="submit"
                                                 class="btn btn-primary data-submit mr-1">{{trans('app.add')}}</button>
                                         <button type="reset" class="btn btn-outline-secondary"
@@ -56,8 +56,8 @@
                                     {!! Form::close() !!}
                                 </div>
                                 <div class="col-4">
-                                    <img style="width: 100%" src="/storage/component_temp_images/{{$component->image}}"
-                                         alt="{{$component->image}}">
+                                    <img style="width: 100%" src="/storage/component_temp_images/{{$componentTemplate->image}}"
+                                         alt="{{$componentTemplate->image}}">
                                 </div>
                             </div>
                         </div>

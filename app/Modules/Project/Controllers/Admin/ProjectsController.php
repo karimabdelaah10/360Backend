@@ -46,6 +46,7 @@ class ProjectsController extends Controller
 
     public function getView($id)
     {
+        $data['section_module_url'] = $this->module_url . '/sections'; // for action field
         $data['module'] = $this->module;
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
@@ -95,8 +96,8 @@ class ProjectsController extends Controller
             ->with('Sections.Components.ComponentTemplate.templateFields')
             ->findOrFail($id);
         $data['row']->is_active = 1;
-        $data['wrappers_type'] = SectionsController::getSectionWarpperTypes();
-        $data['componentsTemplate']= ComponentTemplate::with('templateFields')->get();
+        $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();
+        $data['componentsTemplate'] = ComponentTemplate::with('templateFields')->get();
         $data['categories'] = Category::all()->pluck('name', 'id');
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
@@ -134,15 +135,15 @@ class ProjectsController extends Controller
             ->findOrFail($id);
         $data['row']->is_active = 1;
         $data['all_projects'] = $this->model->all()->pluck('name', 'id');
-        $data['wrappers_type'] = SectionsController::getSectionWarpperTypes();
-        $data['componentsTemplate']= ComponentTemplate::with('templateFields')->get();
+        $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();
+        $data['componentsTemplate'] = ComponentTemplate::with('templateFields')->get();
         $data['categories'] = Category::all()->pluck('name', 'id');
         $data['page_title'] = trans('projects.complete');
         $data['breadcrumb'] = [
             $this->title => $this->module_url,
             trans('app.view') . " " . $this->title => $this->module_url.'/view/'.$id
         ];
-    
+
         return view($this->views . 'complete', $data);
     }
 }

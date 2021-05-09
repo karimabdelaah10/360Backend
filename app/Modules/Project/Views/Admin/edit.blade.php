@@ -17,6 +17,12 @@
         {!! Form::model($row,['method' => 'post','files' => true , 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
         <div class="modal-header mb-1">
             <h5 class="modal-title" id="exampleModalLabel">{{trans('projects.edit')}}</h5>
+            <a href="{{$module_url}}/complete/{{$row->id}}"
+               class="add-new btn btn-primary mt-50
+{{--                            @if(count($row->sections)) disabled @endif --}}
+                   ">
+                {{trans('projects.edit sections')}}
+            </a>
         </div>
         <div class="modal-body flex-grow-1">
             @include($views.'form',$row)
