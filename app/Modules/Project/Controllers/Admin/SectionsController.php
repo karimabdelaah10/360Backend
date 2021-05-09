@@ -136,10 +136,16 @@ class SectionsController extends Controller
     public function postEditSection(Request $request, $id)
     {
         $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR;
-
         $section = Section::findOrFail($request->sectionId);
-        $section->wrapperType=$request->wrapperType;
+        $section->wrapperType = $request->wrapperType;
         $section->save();
+
+        if (isset($request->nextProject)) {
+            $component=Component::findOrFail($id);
+            $field = $component->Fields[0];
+            $field->value = $request->nextProject;
+            $field->save();
+        }
 
         if (null != ($request->file('image'))) {
             foreach ($request->file('image') as $fieldId => $file) {

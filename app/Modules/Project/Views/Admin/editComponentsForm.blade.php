@@ -51,5 +51,6 @@
      'label'=>trans('Sections.all project'),
      'placeholder'=>trans('Sections.all project'),
      ]])
+
     @endif
 @endforeach
