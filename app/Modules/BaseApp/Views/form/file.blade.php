@@ -31,6 +31,8 @@
         @endphp
         @if(@$attributes['file_type'] == 'attachment' )
             {!! viewFile($value) !!}
+        @elseif(@$attributes['file_type'] == 'image' )
+            {!! viewImage($value,$attributes['image_type'] ?? 'small' ,$attributes['imageFolder'] ,@$attributes) !!}
         @else
             {!! viewImage($value,$attributes['image_type'] ?? 'small' ,'uploads' ,@$attributes) !!}
         @endif

@@ -63,5 +63,45 @@
             </div>
         </div>
     </div>
+    <!-- Sections table  -->
+    <div class="content-body">
+        <div class="row" id="basic-table">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"> Project Sections</h4>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table mb-4">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>{{trans('projects.section title')}}</th>
+                                <th>{{trans('projects.section order')}}</th>
+                                <th>{{trans('projects.section wrapperType')}}</th>
+                                <th>{{trans('app.actions')}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @if(count($row->sections))
+                                @foreach($row->sections as $section)
+                                    <tr>
+                                        <td>{{$section->id}}</td>
+                                        <td>{{$section->Components[0]->title}}</td> {{--will be chaned to title when title added--}}
+                                        <td>{{$section->order}}</td>
+                                        <td>{{$section->wrapperType}}</td>
+                                        <td>@include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , [$element=$section, $module_url=$section_module_url]])</td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sections table ends  -->
 @endsection
 

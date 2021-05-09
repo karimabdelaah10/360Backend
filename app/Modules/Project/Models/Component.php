@@ -19,6 +19,10 @@ class Component extends Model
     {
         return $this->belongsTo(ComponentTemplate::class);
     }
+    public function Section()
+    {
+        return $this->belongsTo(Section::class);
+    }
 
     public function getProjectById($id)
     {

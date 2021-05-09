@@ -3,6 +3,7 @@
 namespace App\Modules\Project\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Category\Models\Category;
 use App\Modules\Project\Models\Component;
 use App\Modules\Project\Models\ComponentField;
 use App\Modules\Project\Models\ComponentTemplate;
@@ -18,13 +19,14 @@ use function PHPUnit\Framework\isEmpty;
 
 class SectionsController extends Controller
 {
-    public $model, $module_url;
+    public $model, $module_url, $views, $module, $title;
 
     public function __construct(Section $model)
     {
-
-        $this->module_url = '/admin/projects/sections/';
+        $this->views = 'Project::Admin.';
+        $this->module_url = '/admin/projects';
         $this->model = $model;
+        $this->title = trans('app.Projects');
     }
 
 
@@ -70,7 +72,6 @@ class SectionsController extends Controller
             }
         }
 
-
         foreach ($imagesName as $imageName) {
 
             $field = new ComponentField();
@@ -107,21 +108,76 @@ class SectionsController extends Controller
 //        return redirect($this->module_url . '/edit/' . $id);
     }
 
-    public
-    function getEditSection($id)
+    public function getEditSection($id)
     {
-        return 'edit section';
+
+        $data['module_url'] = $this->module_url; // for action field
+        $data['section_module_url'] = $this->module_url . '/sections'; // for action field
+        $data['views'] = $this->views;
+        $data['row'] = $this->model
+            ->with('Project')
+            ->with('Components.Fields')
+            ->with('Components.ComponentTemplate.templateFields')
+            ->findOrFail($id);
+        $data['row']->is_active = 1;
+        $data['all_projects'] = Project::all()->pluck('name', 'id');
+        $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();
+        $data['componentsTemplate'] = ComponentTemplate::with('templateFields')->get();
+        $data['categories'] = Category::all()->pluck('name', 'id');
+        $data['page_title'] = trans('app.edit') . " " . $this->title;
+        $data['breadcrumb'] = [
+            $this->title => $this->module_url,
+            trans('app.view') . " " . $this->title => $this->module_url . '/view/' . $id
+        ];
+//return $data['row'];
+        return view($this->views . 'editSection', $data);
     }
 
-    public
-    function postEditSection(Request $request, $id)
+    public function postEditSection(Request $request, $id)
     {
-        return 'post edit section';
+        $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR;
+
+        $section = Section::findOrFail($request->sectionId);
+        $section->wrapperType=$request->wrapperType;
+        $section->save();
+
+        if (null != ($request->file('image'))) {
+            foreach ($request->file('image') as $fieldId => $file) {
+                $image = $file;
+                $imageName = time() . $file->getClientOriginalName();
+                if (!$image->move($uploadPath, $imageName)) return;
+                $field = ComponentField::findOrFail($fieldId);
+                if (is_file($uploadPath . $field->value)) {
+                    unlink($uploadPath . $field->value);
+                }
+                $field->value = $imageName;
+                $field->save();
+            }
+        }
+
+        if (isset($request->text)) {
+            foreach ($request->text as $fieldId => $element) {
+                $field = ComponentField::findOrFail($fieldId);
+                $field->value = $element;
+                $field->save();
+            }
+        }
+
+        if (isset($request->textarea)) {
+            foreach ($request->textarea as $fieldId => $element) {
+                $field = ComponentField::findOrFail($fieldId);
+                $field->value = $element;
+                $field->save();
+            }
+        }
+        flash(trans('app.updated successfully'))->success();
+        return back();
+
+
     }
 
 
-    public
-    function getDeleteSection($id)
+    public function getDeleteSection($id)
     {
         try {
             $row = $this->model->findOrFail($id);
@@ -135,16 +191,15 @@ class SectionsController extends Controller
         return back();
     }
 
-    private
-    function getCountSectionsOnProject($projectId)
+    private function getCountSectionsOnProject($projectId)
     {
         $sections = Section::where('project_id', $projectId)->get();
         return (($sections->count()));
     }
 
-    static public function getSectionWarpperTypes()
+    static public function getSectionWrapperTypes()
     {
-        $wrapperTypes = ['wrapper-small' => 'small', 'wrapper' => 'normal', 'wrapper-full' => 'wide'];
-        return $wrapperTypes;
+        return ['wrapper-small' => 'small', 'wrapper' => 'normal', 'wrapper-full' => 'wide'];
+
     }
 }
