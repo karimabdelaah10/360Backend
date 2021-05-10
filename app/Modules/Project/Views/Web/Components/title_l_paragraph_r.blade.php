@@ -6,7 +6,7 @@
             <div class="text-wrapper">
 
                 <h1 class="big-title has-animation skew-up">
-                    Final Approach
+                    {{$component->Fields[0]->value}}
                 </h1>
 
             </div>
@@ -26,7 +26,7 @@
             <div class="text-wrapper">
 
                 <p class="big-p has-animation lines-up">
-                    {{$component->Fields[0]->value}}
+                    {{$component->Fields[1]->value}}
                 </p>
 
             </div>

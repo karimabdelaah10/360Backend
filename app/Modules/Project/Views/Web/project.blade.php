@@ -54,9 +54,9 @@
 
         @foreach($row->Sections as $section)
             <!-- section -->
-                <div class="section">
+                <div class="section" style="margin-bottom: 0px">
                     <!-- Wrapper -->
-                    <div class="{{$section->wrapperType}}">
+                    <div class="{{$section->wrapperType}}" style="margin-bottom: 0px">
 
                         @foreach($section->Components as $component)
                             @include($views.'Components.'.$component->name,$component)
