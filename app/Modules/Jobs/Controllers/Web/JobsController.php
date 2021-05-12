@@ -34,6 +34,9 @@ class JobsController extends Controller {
                 $data['categories']=Category::HeaderCategories()->get();
         $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
             ->pluck('value', 'title');
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['row'][ConfigsEnum::JOBS_COLOR_SCHEMA]]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['row'][ConfigsEnum::JOBS_COLOR_SCHEMA]]['menu-layout'];
+
         return view($this->views . 'index' , $data);
     }
 

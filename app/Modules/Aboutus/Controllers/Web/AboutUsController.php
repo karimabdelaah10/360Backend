@@ -26,7 +26,9 @@ class AboutUsController extends Controller {
             ->pluck('value', 'title');
         $data['page_title'] = trans('app.about us page');
         $data['services'] = Service::all();
-                $data['categories']=Category::HeaderCategories()->get();
+        $data['categories']=Category::HeaderCategories()->get();
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['rows'][ConfigsEnum::ABOUT_US_COLOR_SCHEMA]]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['rows'][ConfigsEnum::ABOUT_US_COLOR_SCHEMA]]['menu-layout'];
 
         return view($this->views . 'index',$data );
     }

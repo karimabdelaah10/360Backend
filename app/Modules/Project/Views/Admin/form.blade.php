@@ -41,6 +41,7 @@
     'placeholder'=>trans('projects.colorSchema'),
     'required'=>1]])
 
+<br>
 @include('BaseApp::form.select',
         ['name'=>'category_id',
     'value'=> $row->Category->name ?? null,
@@ -50,3 +51,11 @@
     'label'=>trans('projects.category'),
     'placeholder'=>trans('projects.category'),
     'required'=>1]])
+
+@include('BaseApp::form.switch',['name'=>'homepage',
+        'value'=> $row->homepage ?? null,
+             'attributes'=>['id'=>'homepage',
+             'class'=>'form-control',
+             'label'=>trans('projects.show in home page'),
+             'required'=>1]
+             ])

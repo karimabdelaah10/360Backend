@@ -108,7 +108,7 @@ class ProjectsController extends Controller
 
     public function postEdit(ProjectsRequest $request, $id)
     {
-
+        $request['homepage'] = $request->homepage ? 1 : 0;
         $row = $this->model->findOrFail($id);
         if ($row->update($request->all())) {
             flash(trans('app.update successfully'))->success();

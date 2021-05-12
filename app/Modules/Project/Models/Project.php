@@ -18,7 +18,7 @@ class Project extends Model
         ],
     ];
 
-    protected $fillable=['name','description','image','colorSchema','category_id'];
+    protected $fillable=['name','description','image','colorSchema','category_id','homepage'];
 
     public function Sections(){
         return $this->hasMany(Section::class)->orderBy('order');
@@ -39,6 +39,6 @@ class Project extends Model
     }
     public function scopeHomePageProjects($query)
     {
-        return $this;
+        return $query->where('homepage' , 1);
     }
 }

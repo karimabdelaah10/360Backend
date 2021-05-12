@@ -30,6 +30,7 @@
                                 <th >{{trans('Projects.name')}}</th>
                                 <th >{{trans('Projects.category')}}</th>
                                 <th >{{trans('Projects.description')}}</th>
+                                <th >{{trans('Projects.show in home page')}}</th>
                                 <th >{{trans('app.actions')}}</th>
                             </tr>
                             </thead>
@@ -49,6 +50,13 @@
                                             >
                                                 {{splitString($element->description , 0 , 80)}}..
                                             </p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($element->homepage)
+                                            <i data-feather="check-circle"></i>
+                                        @else
+                                            <i data-feather="x-circle"></i>
                                         @endif
                                     </td>
                                     <td>

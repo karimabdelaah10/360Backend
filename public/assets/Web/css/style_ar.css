@@ -2290,7 +2290,7 @@ h5.cyg_widget-title {
     opacity: 1;
     visibility: visible;
     text-transform: uppercase;
-    color: rgba(24, 25, 25, 0.52);
+    color: #fff;
     -webkit-transition: transform .3s;
     -o-transition: transform .3s;
     -webkit-transition: -webkit-transform .3s;
@@ -2400,7 +2400,7 @@ h5.cyg_widget-title {
     -webkit-transform: none !important;
     -ms-transform: none !important;
     transform: none !important;
-    color: rgba(24, 25, 25, 0.52);
+    color: #fff;
 }
 
 .site-navigation.classic .menu li > .sub-menu li a {
@@ -4939,7 +4939,7 @@ h5.cyg_widget-title {
     -webkit-transform: translateX(-50%) rotate(45deg) translateY(-50%);
     -ms-transform: translateX(-50%) rotate(45deg) translateY(-50%);
     transform: translateX(-50%) rotate(45deg) translateY(-50%);
-    color: rgba(24, 25, 25, 0.52);
+    color: #fff;
     width: 130px;
     height: 130px;
     pointer-events: all;
@@ -5475,7 +5475,7 @@ h5.cyg_widget-title {
 }
 
 .layout-dark .bsb-link {
-    color: #ededed91;
+    color: #fff;
 }
 
 .layout-dark .project-url span {

@@ -1,5 +1,5 @@
 @foreach($rows as $row)
-{{--    @if($row->type == 'text')--}}
+    @if($row->type == 'text')
     @include('BaseApp::form.input',['name'=>$row->id,
         'value'=> $row->value ?? null,
         'type'=>$row->type,
@@ -7,13 +7,23 @@
         'label'=>trans('configs.'.$row->title),
         'placeholder'=>trans('configs.'.$row->title),
         'required'=>1]])
-{{--    @elseif($row->type == 'switch')--}}
+    @elseif($row->type == 'select')
+        @include('BaseApp::form.select',
+        ['name'=>$row->id,
+    'value'=>  $row->value ?? null,
+    'type'=>'text',
+    'options'=>\App\Modules\Config\Enums\ConfigsEnum::getColorsSelectors(),
+    'attributes'=>['class'=>'form-control',
+    'label'=>trans('app.'.$row->title),
+    'required'=>1]])
+        <br>
+
 {{--        @include('BaseApp::form.switch',['name'=>$row->id,--}}
 {{--        'value'=> $row->value ?? null,--}}
 {{--             'attributes'=>['id'=>'is_verified','class'=>'form-control',--}}
 {{--             'label'=>trans('app.auto_register'),--}}
 {{--             'required'=>1]--}}
 {{--             ])--}}
-{{--    @endif--}}
+    @endif
 @endforeach
 

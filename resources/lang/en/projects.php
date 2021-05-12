@@ -14,6 +14,7 @@ return [
     'colorSchema'=>'Color Schema',
     'color'=>'Color Mode',
     'list project details'=>'List Project Details',
+    'show in home page'=>'Show In Home Page',
 
 
     //components

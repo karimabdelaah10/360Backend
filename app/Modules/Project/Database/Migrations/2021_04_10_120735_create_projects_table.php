@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('image')->nullable();
             $table->string('description');
             $table->string('colorSchema');
+            $table->boolean('homepage')->default(0);
             $table->foreignId('category_id');
             $table->timestamps();
         });

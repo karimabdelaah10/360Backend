@@ -5481,7 +5481,7 @@ h5.cyg_widget-title {
 }
 
 .layout-dark .bsb-link {
-    color: #ededed91;
+    color: #ffffff;
 }
 
 .layout-dark .project-url span {
@@ -9133,5 +9133,11 @@ section:after {
 
 }
 
-
-
+.footer-dark{
+    color: #fff;
+    font-weight: bolder;
+}
+.footer-light{
+    color: #000;
+    font-weight: bolder;
+}

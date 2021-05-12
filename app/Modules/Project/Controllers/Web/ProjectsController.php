@@ -52,10 +52,15 @@ class ProjectsController extends Controller
         $data['categories']=Category::HeaderCategories()->get();
         $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
             ->pluck('value', 'title');
+        $data['category_config'] = Config::where('page' , ConfigsEnum::PROJECT_CATEGORY_PAGE)
+            ->pluck('value', 'title');
         $data['page_title']=$category_name. ' Projects';
         if (!count($data['rows'])){
             return redirect('/');
         }
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['menu-layout'];
+
         return view($this->views . 'category-projects' , $data);
     }
 
@@ -80,6 +85,10 @@ class ProjectsController extends Controller
         $data['categories']=Category::HeaderCategories()->get();
         $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
             ->pluck('value', 'title');
+
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['row']->colorSchema]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['row']->colorSchema]['menu-layout'];
+
         return view($this->views . 'project', $data);
     }
 

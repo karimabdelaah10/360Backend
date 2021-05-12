@@ -3,6 +3,6 @@ Route::group([
     'prefix'=>'aboutus'
 ], function () {
 
-    Route::get('/', 'AboutUsController@getIndex');
+    Route::get('/', 'AboutUsController@getIndex')->name('getAboutUS');
 
 });

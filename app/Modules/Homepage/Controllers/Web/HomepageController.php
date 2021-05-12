@@ -22,6 +22,9 @@ class HomepageController extends Controller {
         $data['rows'] = Project::HomePageProjects()
             ->orderBy('id' , 'desc')
             ->get();
+        if (!count($data['rows'])){
+            return redirect(route('getAboutUS'));
+        }
         return view($this->views . 'index' , $data);
     }
 

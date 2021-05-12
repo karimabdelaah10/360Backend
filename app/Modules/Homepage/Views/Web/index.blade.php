@@ -13,10 +13,10 @@
 
                 @forelse($rows as $element)
                 <!-- Project -->
-                <div class="big-slider-item">
+                <div class="big-slider-item" style="background: rgba(0,0,0,.5);z-index: 2">
 
                     <!-- Project URL -->
-                    <a href="project-4.html"></a>
+                    <a href="/category-projects/{{@$element->category_id}}"></a>
                     <!--/ Project URL -->
 
                     <div class="top">
@@ -29,7 +29,7 @@
                     </div>
 
                     <!-- Project Summary -->
-                    <div class="summary" style="background: rgba(0,0,0,.5); padding: 10px; color :#EEEEEE">
+                    <div class="summary" style="background: rgba(0,0,0,1); padding: 10px; color :#fff;font-size: larger">
                      {{@$element->description}}
                     </div>
                     <!--/ Project Summary -->

@@ -32,7 +32,9 @@
 <!-- Site Content -->
 <div id="main" class="content">
 <!-- Page Settings -->
-<div class="page-settings" data-layout="{{$SchemaType[$row->colorSchema]['site-layout']}}" data-header-style="{{$SchemaType[$row->colorSchema]['menu-layout']}}" data-menu-layout="{{$SchemaType[$row->colorSchema]['menu-layout']}}"></div>
+<div class="page-settings" data-layout="{{@$site_layout ?? 'dark'}}"
+     data-header-style="{{@$menu_layout ?? 'light'}}"
+     data-menu-layout="{{@$menu_layout ?? 'light'}}"></div>
 <!--/ Page settings -->
 
 @yield('content')

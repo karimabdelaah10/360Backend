@@ -20,7 +20,7 @@
 
 
 <!-- Header -->
-<header class="site-header dark" id="header">
+<header class="site-header {{@$site_layout ?? 'dark'}}" id="header">
 
     <!-- Branding -->
     <div class="site-branding">
@@ -30,7 +30,7 @@
     <!-- /Branding -->
 
     <!-- Menu -->
-    <div class="site-navigation light">
+    <div class="site-navigation {{@$menu_layout ?? 'light'}}">
 
         <!-- Menu Toggle (Don't Touch) -->
         <div class="menu-toggle"></div>

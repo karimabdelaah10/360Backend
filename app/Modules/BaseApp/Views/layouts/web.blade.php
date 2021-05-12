@@ -31,9 +31,12 @@
 <div id="app">
 <!-- Site Content -->
 <div id="main" class="content">
-<!-- Page Settings -->
-<div class="page-settings" data-layout="dark" data-header-style="light" data-menu-layout="light"></div>
-<!--/ Page settings -->
+    <!-- Page Settings -->
+    <div class="page-settings" data-layout="{{@$site_layout ?? 'dark'}}"
+         data-header-style="{{@$menu_layout ?? 'light'}}"
+         data-menu-layout="{{@$menu_layout ?? 'light'}}"></div>
+    <!--/ Page settings -->
+
 <div id="page-content" class="page-content">
 @yield('content')
 </div>

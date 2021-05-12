@@ -10,6 +10,7 @@ abstract class ConfigsEnum
     const CONTACT_PAGE = 'contact_us_page',
           ABOUT_PAGE = 'about_us_page',
           JOBS_PAGE = 'jobs_page',
+          PROJECT_CATEGORY_PAGE = 'project_category_page',
 
 
           CONTACT_PAGE_TITLE='contact_us_page_title',
@@ -27,23 +28,33 @@ abstract class ConfigsEnum
           MISSION_DESCRIPTION='mission_description',
           VISION_DESCRIPTION='vision_description',
           YOUTUBE_VIDEO_EMBED_ID='youtube_video_embed_id',
+          CONTACT_US_COLOR_SCHEMA='contact_us_color_schema',
+          ABOUT_US_COLOR_SCHEMA='about_us_color_schema',
+          JOBS_COLOR_SCHEMA='jobs_color_schema',
+          PROJECT_CATEGORY_COLOR_SCHEMA='project_category_color_schema',
 
+        DARK='dark',
+        LIGHT='light',
 
           TEXT='text',
+          SELECT='select',
           NUMBER='number',
           ADDRESS='address',
           EMAIL='email',
           URL='url',
           MOBILE_NUMBER='mobile_number'
 ;
-    public static function conigsTitls()
+    public static function getColorsSelectors()
     {
-//        return [GeneralEnum::PENDING, GeneralEnum::UNDER_REVIEW , GeneralEnum::TRANSFORMED];
+        return [self::DARK => self::DARK,
+                self::LIGHT => self::LIGHT
+        ];
     }
-    public static function conigsTitlsForSelector()
+    public static function getColorSchema()
     {
-//        return [GeneralEnum::PENDING  => trans('app.'.GeneralEnum::PENDING),
-//            GeneralEnum::UNDER_REVIEW => trans('app.'.GeneralEnum::UNDER_REVIEW),
-//            GeneralEnum::TRANSFORMED  => trans('app.'.GeneralEnum::TRANSFORMED)];
+        return [
+            self::DARK => ['site-layout' => self::DARK, 'menu-layout' => self::LIGHT],
+            self::LIGHT => ['site-layout' => self::LIGHT, 'menu-layout' => self::DARK]
+        ];
     }
 }

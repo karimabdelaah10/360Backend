@@ -127,8 +127,36 @@ forward, pivot",
             [
                 'title' => ConfigsEnum::YOUTUBE_VIDEO_EMBED_ID,
                 'type'  => ConfigsEnum::TEXT,
-                'page' => ConfigsEnum::ABOUT_PAGE,
+                'page'  => ConfigsEnum::ABOUT_PAGE,
                 'value' => "myvHUM_hmb8",
+            ],
+
+            [
+                'title' => ConfigsEnum::CONTACT_US_COLOR_SCHEMA,
+                'type'  => ConfigsEnum::SELECT,
+                'page'  => ConfigsEnum::CONTACT_PAGE,
+                'value' => ConfigsEnum::DARK,
+            ],
+
+            [
+                'title' => ConfigsEnum::ABOUT_US_COLOR_SCHEMA,
+                'type'  => ConfigsEnum::SELECT,
+                'page'  => ConfigsEnum::ABOUT_PAGE,
+                'value' => ConfigsEnum::DARK,
+            ],
+
+            [
+                'title' => ConfigsEnum::JOBS_COLOR_SCHEMA,
+                'type'  => ConfigsEnum::SELECT,
+                'page'  => ConfigsEnum::JOBS_PAGE,
+                'value' => ConfigsEnum::DARK,
+            ],
+
+            [
+                'title' => ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA,
+                'type'  => ConfigsEnum::SELECT,
+                'page'  =>  ConfigsEnum::PROJECT_CATEGORY_PAGE,
+                'value' => ConfigsEnum::DARK,
             ],
 
         ];

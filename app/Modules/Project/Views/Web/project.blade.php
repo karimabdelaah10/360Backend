@@ -1,6 +1,6 @@
 @extends('BaseApp::layouts.web-project',[$row,$SchemaType])
 @section('page-title')
-    {{trans('app.Project Page')}}
+    {{@$row->name}}
 @endsection
 @section('content')
 
@@ -9,7 +9,7 @@
     <div class="single-project">
 
         <!-- Project Header -->
-        <div class="project-header {{$SchemaType[$row->colorSchema]['menu-layout']}}">
+        <div class="project-header {{@$menu_layout}}">
 
             <!-- Project Image -->
             <div class="project-image project-image-full ">

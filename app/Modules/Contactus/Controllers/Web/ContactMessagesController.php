@@ -26,16 +26,7 @@ class ContactMessagesController extends Controller {
         ->pluck('value', 'title');
         $data['page_title'] = trans('app.contact us page');
         $page_title = [];
-        $data['row']['contact_us_page_title_first_word'] = '';
-        $data['row']['contact_us_page_title_last_chunk'] = '';
-        if (!empty($data['rows']['contact_us_page_title'])){
-            $string =$data['rows']['contact_us_page_title'];
-            $string_as_list = explode(' ', $string);
-            $first_word = array_shift($string_as_list);
-            $last_chunk = implode(' ', $string_as_list);
-            $data['row']['contact_us_page_title_first_word'] = $first_word;
-            $data['row']['contact_us_page_title_last_chunk'] = $last_chunk;
-        }
+
           if (!empty($data['rows']['address'])){
               $string = $data['rows']['address'];
               $adress = explode(',', $string, );
@@ -45,6 +36,9 @@ class ContactMessagesController extends Controller {
         $data['categories']=Category::HeaderCategories()->get();
         $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
             ->pluck('value', 'title');
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['about_us'][ConfigsEnum::CONTACT_US_COLOR_SCHEMA]]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['about_us'][ConfigsEnum::CONTACT_US_COLOR_SCHEMA]]['menu-layout'];
+
         return view($this->views . 'index' , $data);
     }
 
