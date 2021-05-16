@@ -32,6 +32,7 @@ class Components extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Components');
+
     }
 }

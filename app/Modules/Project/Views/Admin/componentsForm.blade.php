@@ -36,6 +36,17 @@
       'id'=>'image'.$row->id,
       'placeholder'=>trans('categories.image'),
       'required'=>1 ]])
+    @elseif($row->type == 'file[]')
+        @include('BaseApp::form.file',
+          ['name'=>'slider_images[]',
+      'value'=>  null,
+      'type'=>'file',
+      'attributes'=>['class'=>'form-control',
+      'label'=>'slider_images',
+      'id'=>'slider_images',
+      'placeholder'=>trans('categories.images'),
+      'required'=>1, 'multiple'=>'multiple' ]])
+
     @elseif($row->type == 'select')
         @include('BaseApp::form.select',
          ['name'=>'nextProject',

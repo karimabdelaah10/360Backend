@@ -93,7 +93,7 @@
                                 @foreach($row->sections as $section)
                                     <tr>
                                         <td>{{$section->id}}</td>
-                                        <td>{{$section->Components[0]->title}}</td> {{--will be chaned to title when title added--}}
+                                        <td>{{@$section->Components[0]->title}}</td> {{--will be chaned to title when title added--}}
                                         <td>{{$section->order}}</td>
                                         <td>{{$section->wrapperType}}</td>
                                         <td>@include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , [$element=$section, $module_url=$section_module_url]])</td>
