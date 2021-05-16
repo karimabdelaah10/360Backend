@@ -15,10 +15,20 @@ class Component extends Model
         return $this->hasMany(ComponentField::class)->orderBy('order', 'asc');
     }
 
+    public function SliderImages()
+    {
+        if ($this->name == 'slider') {
+            return $this->hasMany(SliderImages::class);
+        }
+        return [];
+
+    }
+
     public function ComponentTemplate()
     {
         return $this->belongsTo(ComponentTemplate::class);
     }
+
     public function Section()
     {
         return $this->belongsTo(Section::class);

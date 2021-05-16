@@ -5,7 +5,7 @@
             <!-- Carousel -->
             <div class="pe-carousel swiper-container">
                 <div class="swiper-wrapper">
-                    @foreach($component->Fields as $field)
+                    @foreach($component->SliderImages as $field)
                     <div class="pe-carousel-item swiper-slide">
                         <img alt="Carousel Image" src="{{'\storage\projects\\'.$field->value}}">
                     </div>

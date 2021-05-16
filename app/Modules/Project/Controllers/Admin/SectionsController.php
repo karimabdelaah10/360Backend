@@ -9,6 +9,7 @@ use App\Modules\Project\Models\ComponentField;
 use App\Modules\Project\Models\ComponentTemplate;
 use App\Modules\Project\Models\Project;
 use App\Modules\Project\Models\Section;
+use App\Modules\Project\Models\SliderImages;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -37,7 +38,6 @@ class SectionsController extends Controller
         $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR;
         $imagesName = array();
 
-
         $section = new Section();
         $section->project_id = $id;
         $section->order = $this->getCountSectionsOnProject($section->project_id) + 1;
@@ -53,6 +53,7 @@ class SectionsController extends Controller
         $component->type = 'element';
         $component->save();
 
+
         if (isset($request->nextProject)) {
             $field = new ComponentField();
             $field->value = $request->nextProject;
@@ -62,8 +63,14 @@ class SectionsController extends Controller
             $field->save();
         }
 
-
-        if (isset($request->files)) {
+        if (null != $request->file('slider_images')) {
+            foreach ($request->file('slider_images') as $file) {
+                $image = $file;
+                $temp = time() . $file->getClientOriginalName();
+                $imagesName[] = $temp;
+                if (!$image->move($uploadPath, $temp)) return;
+            }
+        } elseif (isset($request->files)) {
             foreach ($request->files as $file) {
                 $image = $file;
                 $temp = time() . $file->getClientOriginalName();
@@ -72,14 +79,22 @@ class SectionsController extends Controller
             }
         }
 
-        foreach ($imagesName as $imageName) {
-
-            $field = new ComponentField();
-            $field->value = $imageName;
-            $field->type = 'file';
-            $field->order = $elementOrder++;
-            $field->component_id = $component->id;
-            $field->save();
+        if (null == $request->file('slider_images')) {
+            foreach ($imagesName as $imageName) {
+                $field = new ComponentField();
+                $field->value = $imageName;
+                $field->type = 'file';
+                $field->order = $elementOrder++;
+                $field->component_id = $component->id;
+                $field->save();
+            }
+        } elseif (null != $request->file('slider_images')) {
+            foreach ($imagesName as $imageName) {
+                $field = new  SliderImages();
+                $field->value = $imageName;
+                $field->component_id = $component->id;
+                $field->save();
+            }
         }
 
         if (isset($request->text)) {
@@ -150,6 +165,7 @@ class SectionsController extends Controller
             $field->save();
         }
 
+
         if (null != ($request->file('image'))) {
             foreach ($request->file('image') as $fieldId => $file) {
                 $image = $file;
@@ -178,6 +194,26 @@ class SectionsController extends Controller
                 $field->value = $element;
                 $field->save();
             }
+        }
+
+        if ($request->file('slider_images') != null) {
+            $component =$section->Components[0];
+            $component->SliderImages();
+            foreach ($component->SliderImages as $image) {
+                $image->delete();
+                unlink($uploadPath . $image->value);
+            }
+            foreach ($request->file('slider_images') as $file) {
+
+                $imageName = time() . $file->getClientOriginalName();
+                if (!$file->move($uploadPath, $imageName)) return;
+                $img = new SliderImages();
+                $img->value = $imageName;
+                $img->component_id = $component->id;
+                $img->save();
+            }
+
+
         }
         flash(trans('app.updated successfully'))->success();
         return back();
