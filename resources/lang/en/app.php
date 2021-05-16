@@ -48,9 +48,10 @@ return [
     'contact us page'=>'Contact Us',
     'about us page'=>'About Us',
     'jobs page'=>'Jobs',
+    'Careers page'=>'Careers',
     'Jobs'=>'Jobs',
+    'Careers'=>'Careers',
     'Cvs'=>'Cvs',
-
     'Projects'=>'Projects',
     'categories'=>'Categories',
     'Categories'=>'Categories'
