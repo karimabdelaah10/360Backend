@@ -7,6 +7,14 @@
     'placeholder'=>trans('Sections.warpper Type'),
     'required'=>1]])
 
+@include('BaseApp::form.textarea',
+    ['name'=>'order',
+'value'=> $component->Section->order ?? null,
+'type'=>'text',
+'attributes'=>['class'=>'form-control',
+'label'=>trans('projects.paragraph'),
+'placeholder'=>trans('projects.paragraph'),
+]])
 @foreach($component->Fields as $row)
     @if($row->type == 'text')
         @include('BaseApp::form.input',

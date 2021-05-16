@@ -79,10 +79,10 @@ class ProjectsController extends Controller
 
     public function postCreate(ProjectsRequest $request)
     {
-
+        $request['homepage'] = $request->homepage ? 1 : 0;
         if ($project = $this->model->create($request->all())) {
             flash(trans('app.created successfully'))->success();
-            return redirect($this->module_url.'/complete/'.$project->id);
+            return redirect($this->module_url . '/complete/' . $project->id);
         }
     }
 
