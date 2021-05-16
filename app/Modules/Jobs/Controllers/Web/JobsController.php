@@ -16,7 +16,7 @@ class JobsController extends Controller {
 
     public function __construct(Job $model) {
         $this->views = $this->module = 'Jobs::Web.';
-        $this->title = trans('app.Jobs');
+        $this->title = trans('app.Careers');
         $this->model = $model;
         $this->module_url = '/jobs';
     }

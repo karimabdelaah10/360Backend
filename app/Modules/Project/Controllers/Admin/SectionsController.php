@@ -142,7 +142,7 @@ class SectionsController extends Controller
        if ($section->order != $request->order) $this->updateSectionOrder($section, $request->order);
         $section->order=$request->order;
         $section->save();
-  
+
         if (isset($request->nextProject)) {
             $component=Component::findOrFail($id);
             $field = $component->Fields[0];
