@@ -135,11 +135,14 @@ class SectionsController extends Controller
 
     public function postEditSection(Request $request, $id)
     {
+
         $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR;
         $section = Section::findOrFail($request->sectionId);
         $section->wrapperType = $request->wrapperType;
+       if ($section->order != $request->order) $this->updateSectionOrder($section, $request->order);
+        $section->order=$request->order;
         $section->save();
-
+  
         if (isset($request->nextProject)) {
             $component=Component::findOrFail($id);
             $field = $component->Fields[0];
@@ -206,6 +209,27 @@ class SectionsController extends Controller
     static public function getSectionWrapperTypes()
     {
         return ['wrapper-small' => 'small', 'wrapper' => 'normal', 'wrapper-full' => 'wide'];
+
+    }
+
+    public function updateSectionOrder($section, $order)
+    {
+        $current_index = $section->order;
+        $new_index = $order;
+        $skip_id = $section->id;
+        if ($current_index != $new_index) {
+            if ($current_index > $new_index) {
+                $section->where('order', '>=', $new_index)
+                    ->where('order', '<', $current_index)
+                    ->where('id', '!=', $skip_id) // to skip this element
+                    ->increment('order');
+            } elseif ($current_index < $new_index) {
+                $section->where('order', '<=', $new_index)
+                    ->where('order', '>', $current_index)
+                    ->where('id', '!=', $skip_id)
+                    ->decrement('order');
+            }
+        }
 
     }
 }
