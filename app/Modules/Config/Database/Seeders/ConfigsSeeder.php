@@ -123,14 +123,42 @@ execute , yet mobile friendly. Win-win-win
 blue money draw a line in the sand, for going
 forward, pivot",
             ],
-
+            [
+                'title' => ConfigsEnum::FACEBOOK_URL,
+                'type'  => ConfigsEnum::URL,
+                'page'  => ConfigsEnum::CONTACT_PAGE,
+                'value' => "https://www.facebook.com/",
+            ],
+            [
+            'title' => ConfigsEnum::INSTAGRAM_URL,
+            'type'  => ConfigsEnum::URL,
+            'page'  => ConfigsEnum::CONTACT_PAGE,
+            'value' => "https://www.instagram.com/",
+            ],
+            [
+                'title' => ConfigsEnum::BEHANCE_URL,
+                'type'  => ConfigsEnum::URL,
+                'page'  => ConfigsEnum::CONTACT_PAGE,
+                'value' => "https://www.behance.com/",
+            ],
+            [
+            'title' => ConfigsEnum::LINKEDIN_URL,
+            'type'  => ConfigsEnum::URL,
+            'page'  => ConfigsEnum::CONTACT_PAGE,
+            'value' => "https://www.linkedin.com/",
+            ],
+            [
+                'title' => ConfigsEnum::PINTEREST_URL,
+                'type'  => ConfigsEnum::URL,
+                'page'  => ConfigsEnum::CONTACT_PAGE,
+                'value' => "https://www.pinterest.com/",
+            ],
             [
                 'title' => ConfigsEnum::YOUTUBE_VIDEO_EMBED_ID,
                 'type'  => ConfigsEnum::TEXT,
                 'page'  => ConfigsEnum::ABOUT_PAGE,
                 'value' => "myvHUM_hmb8",
             ],
-
             [
                 'title' => ConfigsEnum::CONTACT_US_COLOR_SCHEMA,
                 'type'  => ConfigsEnum::SELECT,

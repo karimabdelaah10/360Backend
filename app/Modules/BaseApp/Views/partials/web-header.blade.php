@@ -86,11 +86,11 @@
                 <h5>{{@$about_us['address']}}</h5>
                 <h5>{{@$about_us['mobile_number']}}</h5>
                 <div style="color: black">
-                    <a style="color: black" href="#"><i class="icon-behance"></i> </a>
-                    <a style="color: black" href="#"><i class="icon-twitter"></i> </a>
-                    <a style="color: black" href="#"><i class="icon-dribbble"></i> </a>
-                    <a style="color: black" href="#"><i class="icon-instagrem"></i> </a>
-                    <a style="color: black" href="#"><i class="icon-facebook"></i> </a>
+                    <a style="color: black"  href="{{$about_us['facebook_url'] ?? '#'}}"><i class="icon-facebook"></i></a>
+                    <a style="color: black"  href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i></a>
+                    <a style="color: black"  href="{{$about_us['behance_url'] ?? '#'}}"><i class="icon-behance"></i></a>
+                    <a style="color: black"  href="{{$about_us['linkedin_url'] ?? '#'}}"><i class="icon-linkedin"></i></a>
+                    <a style="color: black" href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i></a>
                     <h5>Developed By
                         <a href="https://wa.me/0201004976761" target="_blank"
                             style="text-decoration: underline;margin: 0 5px">
@@ -117,11 +117,11 @@
         <div class="menu-widget-wrapper mww-3">
             <div class="menu-widget">
                 <ul class="widget-socials">
-                    <li><a href="#"><i class="icon-behance"></i> </a></li>
-                    <li><a href="#"><i class="icon-twitter"></i> </a></li>
-                    <li><a href="#"><i class="icon-dribbble"></i> </a></li>
-                    <li><a href="#"><i class="icon-instagrem"></i> </a></li>
-                    <li><a href="#"><i class="icon-facebook"></i> </a></li>
+                    <li><a href="{{$about_us['facebook_url'] ?? '#'}}"><i class="icon-facebook"></i> </a></li>
+                    <li><a href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i> </a></li>
+                    <li><a href="{{$about_us['behance_url'] ?? '#'}}"><i class="icon-behance"></i> </a></li>
+                    <li><a href="{{$about_us['linkedin_url'] ?? '#'}}"><i class="icon-linkedin"></i> </a></li>
+                    <li><a href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i> </a></li>
                 </ul>
             </div>
         </div>

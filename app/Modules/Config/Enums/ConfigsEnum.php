@@ -11,6 +11,7 @@ abstract class ConfigsEnum
           ABOUT_PAGE = 'about_us_page',
           JOBS_PAGE = 'jobs_page',
           PROJECT_CATEGORY_PAGE = 'project_category_page',
+          ALL_PAGE='all_pages',
 
 
           CONTACT_PAGE_TITLE='contact_us_page_title',
@@ -27,6 +28,13 @@ abstract class ConfigsEnum
           MISSION_TITLE='mission_title',
           MISSION_DESCRIPTION='mission_description',
           VISION_DESCRIPTION='vision_description',
+
+          FACEBOOK_URL='facebook_url',
+          INSTAGRAM_URL='instagram_url',
+          BEHANCE_URL='behance_url',
+          LINKEDIN_URL='linkedin_url',
+          PINTEREST_URL='pinterest_url',
+
           YOUTUBE_VIDEO_EMBED_ID='youtube_video_embed_id',
           CONTACT_US_COLOR_SCHEMA='contact_us_color_schema',
           ABOUT_US_COLOR_SCHEMA='about_us_color_schema',

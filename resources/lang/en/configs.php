@@ -6,7 +6,10 @@ return [
     'edit aboutus' => 'Edit About Us',
 
     'facebook_url'=>'Facebook Page Url',
-    'youtube_url'=>'Youtube Channel Url',
+    'instagram_url'=>'Instagram Url',
+    'behance_url'=>'Behance Url',
+    'linkedin_url'=>'Linkedin Url',
+    'pinterest_url'=>'Pinterest  Url',
     'email'=>'Email',
     'mobile_number'=>'Mobile Number',
     'address'=>'Address',

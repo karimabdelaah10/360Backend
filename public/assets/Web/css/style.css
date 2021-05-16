@@ -2129,6 +2129,7 @@ h5.cyg_widget-title {
     transform: skewY(0) translateY(0);
     visibility: visible;
     opacity: 1;
+    margin: 0 30%;
 }
 
 .widget-socials li a {
@@ -2171,7 +2172,8 @@ h5.cyg_widget-title {
 }
 
 .site-navigation.light .widget-socials li a {
-    color: #121212
+    color: #121212;
+    font-size: 40px;
 }
 
 .site-navigation.light .scrolling-button a:hover {
