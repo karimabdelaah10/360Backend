@@ -33,6 +33,10 @@
             {!! viewFile($value) !!}
         @elseif(@$attributes['file_type'] == 'image' )
             {!! viewImage($value,$attributes['image_type'] ?? 'small' ,$attributes['imageFolder'] ,@$attributes) !!}
+        @elseif(@$attributes['file_type'] == 'images' )
+            @foreach($value as $val)
+                {!! viewImage($val->value,$attributes['image_type'] ?? 'small' ,$attributes['imageFolder'] ,@$attributes) !!}
+            @endforeach
         @else
             {!! viewImage($value,$attributes['image_type'] ?? 'small' ,'uploads' ,@$attributes) !!}
         @endif

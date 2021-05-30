@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ComponentFields extends Migration
+class SliderImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class ComponentFields extends Migration
      */
     public function up()
     {
-        Schema::create('component_fields', function (Blueprint $table) {
+        Schema::create('slider_images', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('name');
-            $table->string('order');
             $table->string('value');
+            $table->string('order');
             $table->foreignId('component_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
@@ -31,7 +29,6 @@ class ComponentFields extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('component_fields');
-
+        Schema::dropIfExists('slider_images');
     }
 }

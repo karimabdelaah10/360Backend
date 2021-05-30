@@ -12,9 +12,30 @@
 'value'=> $component->Section->order ?? null,
 'type'=>'text',
 'attributes'=>['class'=>'form-control',
-'label'=>trans('projects.paragraph'),
-'placeholder'=>trans('projects.paragraph'),
+'label'=>trans('projects.order'),
+'placeholder'=>trans('projects.order'),
 ]])
+@if($component->name=='slider')
+    @include('BaseApp::form.file',
+      ['name'=>'slider_images[]',
+  'value'=>  null,
+  'type'=>'file',
+  'attributes'=>[
+              'class'=>'form-control',
+              'label'=>'slider_images',
+              'id'=>'slider_images',
+              'imageFolder'=>'projects',
+              'file_type'=>'images',
+              'image_type'=>'',
+              'value'=> $component->SliderImages ?? null,
+              'height'=>'100',
+              'width'=>'100',
+              'placeholder'=>trans('categories.images'),
+              'required'=>1,
+              'multiple'=>'multiple' ]])
+
+@endif
+
 @foreach($component->Fields as $row)
     @if($row->type == 'text')
         @include('BaseApp::form.input',
@@ -43,7 +64,7 @@
               'label'=>trans('categories.image'),
               'id'=>'image['.$row->id.']',
               'imageFolder'=>'projects',
-              'file_type'=>'image',
+              'file_type'=>'images',
               'image_type'=>'',
               'value'=> $row->value ?? null,
               'height'=>'100',
@@ -59,6 +80,5 @@
      'label'=>trans('Sections.all project'),
      'placeholder'=>trans('Sections.all project'),
      ]])
-
     @endif
 @endforeach

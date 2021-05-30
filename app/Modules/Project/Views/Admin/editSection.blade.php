@@ -9,6 +9,7 @@
             {!! implode('' ,$errors->all('<div class="alert-body">:message</div>')) !!}
         </div>
     @endif
+
     <div class="content-body">
         @if($row->Components != null)
             @foreach($row->Components as $component)
