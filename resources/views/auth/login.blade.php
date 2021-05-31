@@ -29,7 +29,8 @@
                     <h2 class="card-title font-weight-bold mb-1">{{trans('auth.welcome in')}} {{ appName() }}! 👋</h2>
                     <p class="card-text mb-2">{{trans('auth.login to you account')}}</p>
                     <form class="auth-login-form mt-2" action="{{ route('login') }}" method="POST">
-                        @csrf
+{{--                        @csrf--}}
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <label class="form-label" for="login-email">{{trans('user.mobile_number')}}</label>
                             <input class="form-control"
