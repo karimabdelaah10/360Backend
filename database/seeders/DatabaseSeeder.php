@@ -40,8 +40,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ComponentFieldSeeder::class);
 //        $this->call(ContactusSeeder::class);
         $this->call(ConfigsSeeder::class);
-//        $this->call(ServiceSeeder::class);
-//        $this->call(JobsSeeder::class);
+        $this->call(ServiceSeeder::class);
+        $this->call(JobsSeeder::class);
 
     }
 }
