@@ -19,6 +19,7 @@ class ComponentFields extends Migration
             $table->string('name');
             $table->string('order');
             $table->string('value');
+            $table->unsignedBigInteger('component_id');
             $table->foreign('component_id','componentFieldsCons')->references('id')->on('components')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
