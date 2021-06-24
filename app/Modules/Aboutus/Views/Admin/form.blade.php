@@ -1,5 +1,5 @@
 @foreach($rows as $row)
-{{--    @if($row->type == 'text')--}}
+    @if($row->type == 'text')
     @include('BaseApp::form.input',['name'=>$row->id,
         'value'=> $row->value ?? null,
         'type'=>$row->type,
@@ -14,6 +14,6 @@
 {{--             'label'=>trans('app.auto_register'),--}}
 {{--             'required'=>1]--}}
 {{--             ])--}}
-{{--    @endif--}}
+    @endif
 @endforeach
 
