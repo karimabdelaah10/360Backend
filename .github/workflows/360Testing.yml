@@ -64,7 +64,6 @@ jobs:
           host: ${{ secrets.ARCH_TESTING_IP }}
           username: ${{ secrets.ARCH_TESTING_USER }}
           key: ${{ secrets.ARCH_TESTING_KEY }} 
-          
           script: |
             whoami
             ls -la
