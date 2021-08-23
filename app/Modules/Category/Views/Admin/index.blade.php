@@ -58,6 +58,7 @@
                             @empty
                             @endforelse
                             </tbody>
+                            
                         </table>
                         {{ $rows->links('vendor.pagination.custom' ,['module_url'=>$module_url]) }}
                     </div>
