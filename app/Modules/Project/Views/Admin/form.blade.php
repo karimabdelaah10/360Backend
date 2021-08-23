@@ -1,11 +1,19 @@
 @include('BaseApp::form.input',
         ['name'=>'name',
-    'value'=> $row->title ?? null,
+    'value'=> $row->name ?? null,
     'type'=>'text',
     'attributes'=>['class'=>'form-control',
     'label'=>trans('projects.name'),
     'placeholder'=>trans('projects.name'),
     'required'=>1]])
+    @include('BaseApp::form.input',
+    ['name'=>'sub_title',
+'value'=> $row->sub_title ?? null,
+'type'=>'text',
+'attributes'=>['class'=>'form-control',
+'label'=>trans('projects.sub_title'),
+'placeholder'=>trans('projects.sub_title'),
+'required'=>1]])
 
 @include('BaseApp::form.input',
         ['name'=>'description',

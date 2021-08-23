@@ -23,10 +23,10 @@
 <header class="site-header {{@$site_layout ?? 'dark'}}" id="header">
 
     <!-- Branding -->
-    <div class="site-branding">
+    <a href="/" class="site-branding">
         <img class="dark-logo" src="/assets/Web/images/logo_gold.png" alt="Site Logo">
         <img class="light-logo" src="/assets/Web/images/logo_gold.png" alt="Site Light Logo">
-    </div>
+    </a>
     <!-- /Branding -->
 
     <!-- Menu -->

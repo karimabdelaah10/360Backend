@@ -36,12 +36,7 @@
             <!-- Project Metas -->
             <div class="project-meta">
 
-                <div data-delay=".7" class="has-animation skew-up"><span class="pm-tit">Client: </span>Uniti</div>
-
-                <div data-delay=".8" class="has-animation skew-up"><span class="pm-tit">Year: </span>2012</div>
-
-                <div data-delay=".9" class="has-animation skew-up"><span class="pm-tit">Role: </span>Paper Works</div>
-
+                <div data-delay=".7" class="has-animation skew-up">{{@$row->sub_title}}</div>
             </div>
             <!-- Project Metas -->
 

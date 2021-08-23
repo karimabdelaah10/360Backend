@@ -17,7 +17,6 @@ class SliderImagesTable extends Migration
             $table->id();
             $table->string('value');
             $table->string('order');
-            $table->foreignId('component_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

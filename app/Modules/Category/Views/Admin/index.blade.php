@@ -19,7 +19,7 @@
                         <h4 class="card-title">
                             {{ @$page_description }}
                         </h4>
-                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">{{trans('Categories.create')}}</a>
+                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">{{trans('categories.create')}}</a>
                     </div>
 
                     <div class="table-responsive">
@@ -27,9 +27,9 @@
                             <thead>
                             <tr>
                                 <th >#</th>
-                                <th >{{trans('Categories.name')}}</th>
-                                <th >{{trans('Categories.description')}}</th>
-                                <th >{{trans('Categories.image')}}</th>
+                                <th >{{trans('categories.name')}}</th>
+                                <th >{{trans('categories.description')}}</th>
+                                <th >{{trans('categories.image')}}</th>
                                 <th >{{trans('app.actions')}}</th>
                             </tr>
                             </thead>
@@ -49,7 +49,7 @@
                                                 {{splitString($element->description , 0 , 80)}}..
                                             </p>
                                     </td>
-                                    <td>{{@$element->image}}</td>
+                                    <td><img style="width: 100px" src="{{image($element->image , 'small')}}"> </td>
                                     @endif
                                     <td>
                                         @include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , $element])

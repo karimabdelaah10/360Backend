@@ -9143,3 +9143,25 @@ section:after {
     color: #000;
     font-weight: bolder;
 }
+.top-scrollerx {
+    position: fixed;
+        bottom: 50px;
+        right: 40px;
+        font-size: 1em;
+        display: none;
+        z-index: 999;
+        text-align: center;
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color:rgb(211, 211, 211) ;
+        color: #000;
+        line-height: 40px;
+    
+    }
+     .top-scrollerx:hover {
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+
+    }

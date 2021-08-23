@@ -6,7 +6,7 @@ return [
     'edit'=>'Edit Project',
     'add'=>'Add Project',
     'complete'=>'Complete Project',
-
+    'sub_title'=>'Sub Title',
     'name'=>'Name',
     'image'=>'Image',
     'category'=>'Category',

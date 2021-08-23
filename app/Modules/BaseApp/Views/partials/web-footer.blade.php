@@ -14,3 +14,22 @@
         </div>
     </div>
 </footer>
+<div class="top-scrollerx js-top-scrollerx svg-icons">
+    <i class="icon-up-open-big"></i>
+</div>
+ @push('web_js')
+ <script>
+    $(window).scroll(function(){
+if ($(this).scrollTop() > 400) {
+$('.js-top-scrollerx').fadeIn();
+} else {
+$('.js-top-scrollerx').fadeOut();
+}
+});
+//Click event to scroll to top
+$('.js-top-scrollerx').click(function(){
+$('html, body').animate({scrollTop : 0},1000);
+return false;
+});
+</script>
+ @endpush

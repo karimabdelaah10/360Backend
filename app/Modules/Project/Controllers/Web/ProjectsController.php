@@ -66,7 +66,6 @@ class ProjectsController extends Controller
 
     public function getProject($id)
     {
-
         $data['module'] = $this->module;
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
