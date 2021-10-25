@@ -1,6 +1,7 @@
 <?php
 Route::group([
-    'prefix'=>'project'
+    'prefix'=>'project',
+    'middleware' => ['IsProduction'],
 ], function () {
 
     Route::get('/','ProjectsController@index')->name('getAllProjects');

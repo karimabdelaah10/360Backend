@@ -1,6 +1,7 @@
 <?php
 Route::group([
-    'prefix'=>'contactus'
+    'prefix'=>'contactus',
+    'middleware' => ['IsProduction'],
 ], function () {
 
     Route::get('/', 'ContactMessagesController@getIndex');

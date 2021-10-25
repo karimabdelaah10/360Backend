@@ -54,5 +54,6 @@ return [
     'Cvs'=>'Cvs',
     'Projects'=>'Projects',
     'categories'=>'Categories',
-    'Categories'=>'Categories'
+    'Categories'=>'Categories',
+    'under_construction_mode'=>'Under Construction Mode'
 ];

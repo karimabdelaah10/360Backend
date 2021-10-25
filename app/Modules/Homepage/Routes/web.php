@@ -1,6 +1,8 @@
 <?php
-Route::group([], function () {
-    Route::get('/', 'HomepageController@getIndex');
+Route::group([
+    'middleware' => ['IsProduction'],
+], function () {
+    Route::get('/', 'HomepageController@getIndex')->name('homepage');
     Route::get('/clear',function(){
         Artisan::call('view:clear');
         Artisan::call('route:clear');
@@ -8,4 +10,8 @@ Route::group([], function () {
         Artisan::call('cache:clear');
         return "clear done";
     });
+});
+Route::group([
+], function () {
+    Route::get('/under_construction', 'HomepageController@getUnderConstruction')->name('under_construction');
 });

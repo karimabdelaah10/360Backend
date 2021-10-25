@@ -1,6 +1,8 @@
+
 <?php
 Route::group([
-    'prefix'=>'jobs'
+    'prefix'=>'jobs',
+    'middleware' => ['IsProduction'],
 ], function () {
 
     Route::get('/', 'JobsController@getIndex');

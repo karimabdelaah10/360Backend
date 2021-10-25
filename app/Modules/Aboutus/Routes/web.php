@@ -1,6 +1,7 @@
 <?php
 Route::group([
-    'prefix'=>'aboutus'
+    'prefix'=>'aboutus',
+    'middleware' => ['IsProduction'],
 ], function () {
 
     Route::get('/', 'AboutUsController@getIndex')->name('getAboutUS');
