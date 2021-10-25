@@ -42,7 +42,7 @@ class ConfigController extends Controller
 
     public function postEdit(Request $request)
     {
-//        Config::where('type', 'switch')->update(['value' => 0]);
+        Config::where('type', ConfigsEnum::BOOL)->update(['value' => 0]);
         if (!empty($request)) {
             foreach ($request->all() as $key => $value) {
                 $row = $this->model->find($key);

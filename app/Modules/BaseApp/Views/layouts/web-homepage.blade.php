@@ -8,11 +8,6 @@
     <!-- Page Title -->
     <title>{{appName()}} | @yield('page-title')</title>
     <!--/ Page Title -->
-
-    <meta name="author" content="Pe Themes">
-    <meta name="description" content="Interactive Portfolio Showcase Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,600,700&display=swap" rel="stylesheet">
 
     <link href="/assets/Web/css/plugins.css" rel="stylesheet">

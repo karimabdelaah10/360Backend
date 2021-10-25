@@ -186,6 +186,12 @@ forward, pivot",
                 'page'  =>  ConfigsEnum::PROJECT_CATEGORY_PAGE,
                 'value' => ConfigsEnum::DARK,
             ],
+            [
+                'title' => ConfigsEnum::UNDER_CONSTRUCTION,
+                'type'  => ConfigsEnum::BOOL,
+                'page'  =>  ConfigsEnum::ALL_PAGE,
+                'value' => 1,
+            ],
 
         ];
        Config::insert($configs);

@@ -25,13 +25,13 @@
     'label'=>trans('app.'.$row->title),
     'required'=>1]])
         <br>
-
-{{--        @include('BaseApp::form.switch',['name'=>$row->id,--}}
-{{--        'value'=> $row->value ?? null,--}}
-{{--             'attributes'=>['id'=>'is_verified','class'=>'form-control',--}}
-{{--             'label'=>trans('app.auto_register'),--}}
-{{--             'required'=>1]--}}
-{{--             ])--}}
+    @elseif($row->type == \App\Modules\Config\Enums\ConfigsEnum::BOOL)
+    @include('BaseApp::form.switch',['name'=>$row->id,
+    'value'=> $row->value ?? null,
+         'attributes'=>['id'=>'is_verified','class'=>'form-control',
+         'label'=>trans('app.under_construction_mode'),
+         'required'=>1]
+         ])
     @endif
 @endforeach
 

@@ -40,6 +40,7 @@ abstract class ConfigsEnum
           ABOUT_US_COLOR_SCHEMA='about_us_color_schema',
           JOBS_COLOR_SCHEMA='jobs_color_schema',
           PROJECT_CATEGORY_COLOR_SCHEMA='project_category_color_schema',
+          UNDER_CONSTRUCTION='under_construction',
 
         DARK='dark',
         LIGHT='light',
@@ -50,7 +51,8 @@ abstract class ConfigsEnum
           ADDRESS='address',
           EMAIL='email',
           URL='url',
-          MOBILE_NUMBER='mobile_number'
+          MOBILE_NUMBER='mobile_number',
+          BOOL='bool'
 ;
     public static function getColorsSelectors()
     {

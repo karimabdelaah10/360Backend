@@ -7,6 +7,7 @@ use App\Http\Middleware\IsCustomer;
 use App\Http\Middleware\IsFinancialAdmin;
 use App\Http\Middleware\IsProductAdmin;
 use App\Http\Middleware\IsSuperAdmin;
+use App\Http\Middleware\IsProduction;
 use App\Http\Middleware\ProductAdminIds;
 use App\Http\Middleware\ProductAdminOrdersIds;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -71,6 +72,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'IsAdmin' =>IsAdmin::class,
         'IsSuperAdmin' =>IsSuperAdmin::class,
+        'IsProduction' =>IsProduction::class,
         'ProductAdminIds' =>ProductAdminIds::class,
         'ProductAdminOrdersIds' =>ProductAdminOrdersIds::class,
         /**** OTHER MIDDLEWARE ****/
