@@ -12,6 +12,7 @@ return [
     'pinterest_url'=>'Pinterest  Url',
     'email'=>'Email',
     'mobile_number'=>'Mobile Number',
+    'google_map_location'=>'Google Map Location',
     'address'=>'Address',
 
     'jobs_page_title'=>'Jobs Page Title ',

@@ -10,6 +10,3 @@ Route::group([
 });
 
 Route::get('/category-projects/{id?}','ProjectsController@getCategoryProjects');
-//Route::get('/category-projects/{name?}', function ($name = 'sss') {
-//    return $name;
-//});

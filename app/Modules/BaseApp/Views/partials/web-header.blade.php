@@ -83,7 +83,10 @@
                     WE ARE ALWAYS HERE;
                 </div>
 
-                <h5>{{@$about_us['address']}}</h5>
+                <h5>{{@$about_us['address']}}
+                    <a style="color: black" target="_blank" href="{{$about_us['google_map_location'] ?? '#'}}"><i class="icon-location"></i></a>
+                </h5>
+
                 <h5>{{@$about_us['mobile_number']}}</h5>
                 <div style="color: black">
                     <a style="color: black"  href="{{$about_us['facebook_url'] ?? '#'}}"><i class="icon-facebook"></i></a>

@@ -51,6 +51,7 @@ abstract class ConfigsEnum
           ADDRESS='address',
           EMAIL='email',
           URL='url',
+          GOOGLE_MAP_LOCATION='google_map_location',
           MOBILE_NUMBER='mobile_number',
           BOOL='bool'
 ;
