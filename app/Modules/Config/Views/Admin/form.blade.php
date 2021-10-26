@@ -15,6 +15,14 @@
             'label'=>trans('configs.'.$row->title),
             'placeholder'=>trans('configs.'.$row->title),
             'required'=>1]])
+    @elseif($row->type == 'number')
+        @include('BaseApp::form.input',['name'=>$row->id,
+            'value'=> $row->value ?? null,
+            'type'=>'text',
+            'attributes'=>['class'=>'form-control',
+            'label'=>trans('configs.'.$row->title),
+            'placeholder'=>trans('configs.'.$row->title),
+            'required'=>1]])
     @elseif($row->type == 'select')
         @include('BaseApp::form.select',
         ['name'=>$row->id,

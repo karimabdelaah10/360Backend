@@ -62,6 +62,13 @@ class ConfigsSeeder extends Seeder
             ],
 
             [
+                'title' => ConfigsEnum::GOOGLE_MAP_LOCATION,
+                'type'  => ConfigsEnum::URL,
+                'page' => ConfigsEnum::CONTACT_PAGE,
+                'value' => "https://www.google.com/maps/place/30%C2%B003'35.7%22N+31%C2%B000'22.0%22E/@30.059921,31.0039173,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d30.0599211!4d31.0061064",
+            ],
+
+            [
                 'title' => ConfigsEnum::ABOUT_PAGE_TITLE,
                 'type'  => ConfigsEnum::TEXT,
                 'page' => ConfigsEnum::ABOUT_PAGE,
