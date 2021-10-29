@@ -19,14 +19,14 @@
                         <a href="{{$module_url}}/complete/{{$row->id}}"
                            class="add-new btn btn-primary mt-50
 {{--                            @if(count($row->sections)) disabled @endif --}}
-                               ">
+                                   ">
                             {{trans('projects.complete')}}
                         </a>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table mb-4">
-                           <tr>
+                            <tr>
                                 <td>{{trans('Projects.name')}}</td>
                                 <td>
                                     {{@$row->name}}
@@ -57,7 +57,7 @@
                                     {!! viewImage($row->image , 'large'  ,'uploads' , ['height'=>500 , 'width'=>500]) !!}
                                 </td>
                             </tr>
-                            </table>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -84,17 +84,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if(count($row->sections))
-                                @foreach($row->sections as $section)
-                                    <tr>
-                                        <td>{{$section->id}}</td>
-                                        <td>{{$section->Components[0]->title}}</td> {{--will be chaned to title when title added--}}
-                                        <td>{{$section->order}}</td>
-                                        <td>{{$section->wrapperType}}</td>
-                                        <td>@include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , [$element=$section, $module_url=$section_module_url]])</td>
-                                    </tr>
-                                @endforeach
-                            @endif
+                            @forelse($row->sections as $section)
+                                <tr>
+                                    <td>{{$section->id}}</td>
+                                    {{--//@todo: section -> component title --}}
+                                    <td>{{@$section->Components[0]->title}}</td> {{--will be chaned to title when title added--}}
+                                    <td>{{$section->order}}</td>
+                                    <td>{{$section->wrapperType}}</td>
+                                    <td>@include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete'] , [$element=$section, $module_url=$section_module_url]])</td>
+                                </tr>
+                             @empty
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
