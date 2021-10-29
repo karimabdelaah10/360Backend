@@ -94,15 +94,15 @@
                     <a style="color: black"  href="{{$about_us['behance_url'] ?? '#'}}"><i class="icon-behance"></i></a>
                     <a style="color: black"  href="{{$about_us['linkedin_url'] ?? '#'}}"><i class="icon-linkedin"></i></a>
                     <a style="color: black" href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i></a>
-                    <h5>Developed By
-                        <a href="https://wa.me/0201004976761" target="_blank"
-                            style="text-decoration: underline;margin: 0 5px">
-                            Abd Almonem  </a>&
-                        <a href="https://wa.me/0201091811793" target="_blank"
-                           style="text-decoration: underline;margin: 0 5px">
-                            Karim Abdelaah  </a>
+{{--                    <h5>Developed By--}}
+{{--                        <a href="https://wa.me/0201004976761" target="_blank"--}}
+{{--                            style="text-decoration: underline;margin: 0 5px">--}}
+{{--                            Abd Almonem  </a>&--}}
+{{--                        <a href="https://wa.me/0201091811793" target="_blank"--}}
+{{--                           style="text-decoration: underline;margin: 0 5px">--}}
+{{--                            Karim Abdelaah  </a>--}}
 
-                    </h5>
+{{--                    </h5>--}}
                 </div>
             </div>
         </div>

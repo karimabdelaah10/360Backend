@@ -6630,7 +6630,7 @@ h5.cyg_widget-title {
 .project-header {
     height: 100vh;
     position: relative;
-    margin-bottom: 150px;
+    /*margin-bottom: 150px;*/
 }
 
 .project-content {
