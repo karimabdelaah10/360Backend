@@ -995,19 +995,19 @@ if (! function_exists('getUserCompletDataFlags')) {
     }
 }
 if (! function_exists('reArrangeIndex')) {
-    function reArrangeIndex($current_index , $new_index , $skip_id , $model)
+    function reArrangeIndex($current_index , $new_index , $skip_id , $model ,$col)
     {
         if ($current_index != $new_index){
             if ($current_index > $new_index){
-                $model->where('index' , '>=' , $new_index)
-                    ->where('index' ,'<' , $current_index)
+                $model->where($col , '>=' , $new_index)
+                    ->where($col ,'<' , $current_index)
                     ->where('id' , '!=' , $skip_id) // to skip this element
-                    ->increment('index');
+                    ->increment($col);
             }elseif($current_index < $new_index){
-                $model->where('index' , '<=' , $new_index)
-                    ->where('index' ,'>' , $current_index)
+                $model->where($col , '<=' , $new_index)
+                    ->where($col ,'>' , $current_index)
                     ->where('id' , '!=' , $skip_id)
-                    ->decrement('index');
+                    ->decrement($col);
             }
         }
     }

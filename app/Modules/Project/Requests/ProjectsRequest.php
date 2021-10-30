@@ -24,7 +24,7 @@ class ProjectsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "homepage_order" => "required_if:homepage,==,on"
         ];
     }
 }

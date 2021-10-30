@@ -31,6 +31,7 @@
                                 <th >{{trans('Projects.category')}}</th>
                                 <th >{{trans('Projects.description')}}</th>
                                 <th >{{trans('Projects.show in home page')}}</th>
+                                <th >{{trans('Projects.show in home page order')}}</th>
                                 <th >{{trans('app.actions')}}</th>
                             </tr>
                             </thead>
@@ -58,6 +59,10 @@
                                         @else
                                             <i data-feather="x-circle"></i>
                                         @endif
+                                    </td>
+
+                                    <td>
+                                        {{$element->homepage_order}}
                                     </td>
                                     <td>
                                         @include('BaseApp::partials.actions' ,['actions'=>['edit' ,'delete','view'] , $element])

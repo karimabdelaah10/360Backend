@@ -4,16 +4,9 @@ namespace App\Modules\Project\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Models\Category;
-use App\Modules\Jobs\Requests\JobsRequest;
-use App\Modules\Project\Models\Component;
-use App\Modules\Project\Models\ComponentField;
 use App\Modules\Project\Models\ComponentTemplate;
 use App\Modules\Project\Models\Project;
-use App\Modules\Project\Models\Section;
 use App\Modules\Project\Requests\ProjectsRequest;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use function PHPUnit\Framework\isEmpty;
 
 class ProjectsController extends Controller
 {
@@ -58,13 +51,11 @@ class ProjectsController extends Controller
         $data['page_title'] = trans('app.view') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
         return view($this->views . 'view', $data);
-
     }
 
 
     public function getCreate()
     {
-
         $data['module'] = $this->module;
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
@@ -79,8 +70,17 @@ class ProjectsController extends Controller
 
     public function postCreate(ProjectsRequest $request)
     {
+        $currentIndex = Project::count() + 1;
+        $newIndex = $request->homepage_order;
         $request['homepage'] = $request->homepage ? 1 : 0;
         if ($project = $this->model->create($request->all())) {
+            reArrangeIndex(
+                $currentIndex,
+                $newIndex,
+                $project->id,
+                $this->model,
+                'homepage_order'
+            );
             flash(trans('app.created successfully'))->success();
             return redirect($this->module_url . '/complete/' . $project->id);
         }
@@ -110,7 +110,16 @@ class ProjectsController extends Controller
     {
         $request['homepage'] = $request->homepage ? 1 : 0;
         $row = $this->model->findOrFail($id);
+        $currentIndex = $row->homepage_order;
+        $newIndex = $request->homepage_order;
         if ($row->update($request->all())) {
+            reArrangeIndex(
+                $currentIndex,
+                $newIndex,
+                $row->id,
+                $this->model,
+                'homepage_order'
+            );
             flash(trans('app.update successfully'))->success();
             return back();
         }
@@ -123,11 +132,12 @@ class ProjectsController extends Controller
         flash(trans('app.deleted successfully'))->success();
         return back();
     }
+
     public function getCompleteProject($id)
     {
         $data['module'] = $this->module;
         $data['module_url'] = $this->module_url; // for action field
-        $data['section_module_url'] = $this->module_url.'/sections'; // for action field
+        $data['section_module_url'] = $this->module_url . '/sections'; // for action field
         $data['views'] = $this->views;
         $data['row'] = $this->model
             ->with('Sections.Components.Fields')
@@ -141,7 +151,7 @@ class ProjectsController extends Controller
         $data['page_title'] = trans('projects.complete');
         $data['breadcrumb'] = [
             $this->title => $this->module_url,
-            trans('app.view') . " " . $this->title => $this->module_url.'/view/'.$id
+            trans('app.view') . " " . $this->title => $this->module_url . '/view/' . $id
         ];
 
         return view($this->views . 'complete', $data);

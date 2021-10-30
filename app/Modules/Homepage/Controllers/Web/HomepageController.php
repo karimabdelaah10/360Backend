@@ -24,7 +24,7 @@ class HomepageController extends Controller
         $data['about_us'] = Config::where('page', ConfigsEnum::CONTACT_PAGE)
             ->pluck('value', 'title');
         $data['rows'] = Project::HomePageProjects()
-            ->orderBy('id', 'desc')
+            ->orderBy('homepage_order', 'asc')
             ->get();
         if (!count($data['rows'])) {
             return redirect(route('getAboutUS'));

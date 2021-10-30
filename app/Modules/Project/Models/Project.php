@@ -18,7 +18,7 @@ class Project extends Model
         ],
     ];
 
-    protected $fillable=['name','sub_title','description','image','colorSchema','category_id','homepage'];
+    protected $fillable=['name','sub_title','description','image','colorSchema','category_id','homepage','homepage_order'];
 
     public function Sections(){
         return $this->hasMany(Section::class)->orderBy('order');
