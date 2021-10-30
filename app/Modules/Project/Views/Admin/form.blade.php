@@ -6,8 +6,8 @@
     'label'=>trans('projects.name'),
     'placeholder'=>trans('projects.name'),
     'required'=>1]])
-    @include('BaseApp::form.input',
-    ['name'=>'sub_title',
+@include('BaseApp::form.input',
+['name'=>'sub_title',
 'value'=> $row->sub_title ?? null,
 'type'=>'text',
 'attributes'=>['class'=>'form-control',
@@ -65,5 +65,29 @@
              'attributes'=>['id'=>'homepage',
              'class'=>'form-control',
              'label'=>trans('projects.show in home page'),
-             'required'=>1]
+             'required'=>1,
+             ]
              ])
+<div id="homepage_order" @if(!$row || !$row->homepage) style="display: none" @endif>
+    @include('BaseApp::form.input',
+        ['name'=>'homepage_order',
+    'value'=> $row->homepage_order ?? null,
+    'type'=>'text',
+    'attributes'=>['class'=>'form-control',
+    'id'=>'homepage_order',
+    'label'=>trans('projects.homepage_order'),
+    'placeholder'=>trans('projects.homepage_order'),
+    'required'=>1,
+        ]])
+</div>
+@push('js')
+    <script>
+        $('#homepage').click((e)=>{
+            if ($('#homepage_order').css('display') === 'none'){
+                $('#homepage_order').css('display' , 'inline');
+            }else{
+                $('#homepage_order').css('display' , 'none');
+            }
+        });
+    </script>
+@endpush
