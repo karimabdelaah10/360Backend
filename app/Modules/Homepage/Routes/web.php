@@ -3,11 +3,12 @@ Route::group([
     'middleware' => ['IsProduction'],
 ], function () {
     Route::get('/', 'HomepageController@getIndex')->name('homepage');
-    Route::get('/clear',function(){
+    Route::get('/clear', function () {
         Artisan::call('view:clear');
         Artisan::call('route:clear');
         Artisan::call('config:cache');
         Artisan::call('cache:clear');
+        Artisan::call('optimize:clear');
         return "clear done";
     });
 });

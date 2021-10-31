@@ -64,7 +64,7 @@
               'label'=>trans('categories.image'),
               'id'=>'image['.$row->id.']',
               'imageFolder'=>'projects',
-              'file_type'=>'images',
+              'file_type'=>'image',
               'image_type'=>'',
               'value'=> $row->value ?? null,
               'height'=>'100',
