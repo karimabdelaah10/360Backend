@@ -5,7 +5,7 @@
             <!-- Text wrapper -->
             <div class="text-wrapper">
 
-                <div class="caption has-animation skew-up">ABOUT PROJECT</div>
+{{--                <div class="caption has-animation skew-up">ABOUT PROJECT</div>--}}
 
                 <h3 class="has-animation lines-fade-up">
                     {{$component->Fields[0]->value}}
