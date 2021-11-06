@@ -24,7 +24,7 @@
                         <!--/ Project Category -->
 
                         <!-- Project Title -->
-                        @if(@$element->colorSchema==\App\Modules\Config\Enums\ConfigsEnum::DARK)
+                        @if(@$site_layout==\App\Modules\Config\Enums\ConfigsEnum::DARK)
                             <div class="text-shadow " style="color:#eee">{{@$element->name}}</div>
                         @else
                             <div class="text-shadow ">{{@$element->name}}</div>
