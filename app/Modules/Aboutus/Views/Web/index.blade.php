@@ -15,7 +15,7 @@
 
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
-                    <div class="caption has-animation skew-up">ABOUT THE AGENCY</div>
+                    <div class="caption has-animation skew-up">ABOUT US</div>
                     <h1 class="big-title has-animation skew-up">
                         {{$rows['about_us_page_title']}}.
                     </h1>
@@ -33,7 +33,7 @@
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
                     <p data-delay="0.4" class="big-p has-animation lines-up">
-                   {{$rows['about_us_page_description']}}
+                        {{$rows['about_us_page_description']}}
                     </p>
                 </div>
                 <!--/ Text Wrapper -->
@@ -103,7 +103,7 @@
                 <!-- Text Wrapper -->
                 <div class="text-wrapper">
                     <h4 class="thin has-animation lines-up">
-                  {{$rows['services_description']}}
+                        {{$rows['services_description']}}
                     </h4>
                 </div>
                 <!--/ Text Wrapper -->
@@ -155,43 +155,40 @@
 
             </div>
             <!--/ Column -->
-
+        @if(isset($rows['mission_description']))
             <!-- Column -->
-            <div class="c-col-8">
-
-                <!-- Text Wrapper -->
-                <div class="text-wrapper">
-                    <div style="color: #ededed" class="caption has-animation skew-up">OUR MISSION</div>
-                    <h4 style="color: #ededed" class="thin has-animation lines-up">
-                    {{$rows['mission_description']}}
-                    </h4>
-
+                <div class="c-col-8">
+                    <!-- Text Wrapper -->
+                    <div class="text-wrapper">
+                        <div style="color: #ededed" class="caption has-animation skew-up">OUR MISSION</div>
+                        <h4 style="color: #ededed" class="thin has-animation lines-up">
+                            {{$rows['mission_description']}}
+                        </h4>
+                    </div>
+                    <!--/ Text Wrapper -->
                 </div>
-                <!--/ Text Wrapper -->
-
-            </div>
-            <!--/ Column -->
-
+                <!--/ Column -->
+            @endif
         </div>
         <!--/ Wrapper -->
 
-        <!-- Wrapper -->
-        <div class="wrapper-full">
+{{--        <!-- Wrapper -->--}}
+{{--        <div class="wrapper-full">--}}
 
-            <!-- Column -->
-            <div class="c-col-12 no-gap">
+{{--            <!-- Column -->--}}
+{{--            <div class="c-col-12 no-gap">--}}
 
-                <!-- Image Wrapper -->
-                <div class="image-wrapper send-back">
-                    <img src="/assets/Web/images/aboutus.jpg" alt="Single Image">
-                </div>
-                <!--/ Image Wrapper -->
+{{--                <!-- Image Wrapper -->--}}
+{{--                <div class="image-wrapper send-back">--}}
+{{--                    <img src="/assets/Web/images/aboutus.jpg" alt="Single Image">--}}
+{{--                </div>--}}
+{{--                <!--/ Image Wrapper -->--}}
 
-            </div>
-            <!--/ Column -->
+{{--            </div>--}}
+{{--            <!--/ Column -->--}}
 
-        </div>
-        <!--/ Wrapper -->
+{{--        </div>--}}
+{{--        <!--/ Wrapper -->--}}
 
         <!-- Wrapper -->
         <div class="wrapper-small">
@@ -203,8 +200,8 @@
                 <div class="text-wrapper">
                     <div style="color: #ededed" class="caption has-animation skew-up">OUR VISION</div>
                     <h3 style="color: #ededed" class="thin has-animation lines-up">
-                     {{$rows['vision_description']}}
-                     </h3>
+                        {{$rows['vision_description']}}
+                    </h3>
                 </div>
                 <!--/ Text Wrapper -->
 
@@ -217,24 +214,24 @@
     </div>
     <!-- Section -->
 
-    <!--/ Section -->
-    <div class="section">
+{{--    <!--/ Section -->--}}
+{{--    <div class="section">--}}
 
-        <!-- Wrapper -->
-        <div class="wrapper-small">
+{{--        <!-- Wrapper -->--}}
+{{--        <div class="wrapper-small">--}}
 
-            <!-- Column -->
-            <div class="c-col-12 align-center">
-                <div class="caption has-animation skew-up">WHAT WE DID BEFORE</div>
-                <h1 data-delay="0.2" class="big-title has-animation skew-up">
-                    <a href="works.html" class="underline">Works</a></h1>
-            </div>
-            <!--/ Column -->
+{{--            <!-- Column -->--}}
+{{--            <div class="c-col-12 align-center">--}}
+{{--                <div class="caption has-animation skew-up">WHAT WE DID BEFORE</div>--}}
+{{--                <h1 data-delay="0.2" class="big-title has-animation skew-up">--}}
+{{--                    <a href="works.html" class="underline">Works</a></h1>--}}
+{{--            </div>--}}
+{{--            <!--/ Column -->--}}
 
-        </div>
-        <!--/ Wrapper -->
+{{--        </div>--}}
+{{--        <!--/ Wrapper -->--}}
 
-    </div>
-    <!--/ Section -->
+{{--    </div>--}}
+{{--    <!--/ Section -->--}}
 
 @endsection
