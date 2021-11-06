@@ -13,7 +13,7 @@
     <div class="content-body">
         @if($row->Components != null)
             @foreach($row->Components as $component)
-                {!! Form::model($row,['method' => 'post','files' => true , 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
+                {!! Form::model($component,['method' => 'post','files' => true , 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
                 <div class="modal-header mb-1">
                     <h5 class="modal-title" id="exampleModalLabel">{{trans('projects.edit')}} section
                         id:{{$row->id}}</h5>
