@@ -159,7 +159,7 @@ class SectionsController extends Controller
         $section->save();
 
         if (isset($request->nextProject)) {
-            $component = Component::findOrFail($id);
+            $component = Component::findOrFail($request->componentId);
             $field = $component->Fields[0];
             $field->value = $request->nextProject;
             $field->save();

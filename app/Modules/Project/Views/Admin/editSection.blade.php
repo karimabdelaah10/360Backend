@@ -13,13 +13,14 @@
     <div class="content-body">
         @if($row->Components != null)
             @foreach($row->Components as $component)
-                {!! Form::model($component,['method' => 'post','files' => true , 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
+                {!! Form::model($row,['method' => 'post','files' => true , 'class'=>"add-new-record modal-content pt-0" ] ) !!} {{ csrf_field() }}
                 <div class="modal-header mb-1">
                     <h5 class="modal-title" id="exampleModalLabel">{{trans('projects.edit')}} section
                         id:{{$row->id}}</h5>
                 </div>
                 <div class="modal-body flex-grow-1">
                     <input type="text" name="sectionId" value="{{$component->Section->id}}" hidden>
+                    <input type="text" name="componentId" value="{{$component->id}}" hidden>
                     @include($views.'editComponentsForm',[$component])
                     <button type="submit" class="btn btn-primary data-submit mr-1">{{trans('app.save')}}</button>
                     <button type="reset" class="btn btn-outline-secondary"
