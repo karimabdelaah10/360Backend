@@ -255,12 +255,12 @@ class SectionsController extends Controller
         $skip_id = $section->id;
         if ($current_index != $new_index) {
             if ($current_index > $new_index) {
-                $section->where('order', '>=', $new_index)
+                Section::where(['project_id' => $section->project_id])->where('order', '>=', $new_index)
                     ->where('order', '<', $current_index)
                     ->where('id', '!=', $skip_id) // to skip this element
                     ->increment('order');
             } elseif ($current_index < $new_index) {
-                $section->where('order', '<=', $new_index)
+                Section::where(['project_id' => $section->project_id])->where('order', '<=', $new_index)
                     ->where('order', '>', $current_index)
                     ->where('id', '!=', $skip_id)
                     ->decrement('order');
