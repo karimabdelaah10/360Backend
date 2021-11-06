@@ -2,7 +2,7 @@
 <div style="margin-bottom: 0" class="wrapper">
         <div class="c-col-12 align-center">
             <p class="copyright-text footer-{{@$site_layout ?? 'dark'}}">
-                all copy rights reserved Nov 2021.
+               COPYRIGHT © Nov 2021 , All rights Reserved
 {{--                <a--}}
 {{--                    class="footer-{{@$site_layout ?? 'dark'}}"--}}
 {{--                    href="https://wa.me/0201004976761" target="_blank"--}}
