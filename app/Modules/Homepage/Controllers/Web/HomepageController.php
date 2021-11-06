@@ -29,6 +29,10 @@ class HomepageController extends Controller
         if (!count($data['rows'])) {
             return redirect(route('getAboutUS'));
         }
+        $data['color'] = Config::where('page', ConfigsEnum::HOME_PAGE)->pluck('value', 'title');;
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['color'][ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['color'][ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]]['menu-layout'];
+
         return view($this->views . 'index', $data);
     }
 

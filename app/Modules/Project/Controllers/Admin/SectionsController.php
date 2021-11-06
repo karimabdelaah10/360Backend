@@ -154,12 +154,12 @@ class SectionsController extends Controller
         $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR;
         $section = Section::findOrFail($request->sectionId);
         $section->wrapperType = $request->wrapperType;
-       if ($section->order != $request->order) $this->updateSectionOrder($section, $request->order);
-        $section->order=$request->order;
+        if ($section->order != $request->order) $this->updateSectionOrder($section, $request->order);
+
         $section->save();
 
         if (isset($request->nextProject)) {
-            $component=Component::findOrFail($id);
+            $component = Component::findOrFail($id);
             $field = $component->Fields[0];
             $field->value = $request->nextProject;
             $field->save();
@@ -197,7 +197,7 @@ class SectionsController extends Controller
         }
 
         if ($request->file('slider_images') != null) {
-            $component =$section->Components[0];
+            $component = $section->Components[0];
             $component->SliderImages();
             foreach ($component->SliderImages as $image) {
                 $image->delete();
@@ -266,6 +266,17 @@ class SectionsController extends Controller
                     ->decrement('order');
             }
         }
+        $section->order = $order;
+        $section->save();
+        $sections = Section::where(['project_id' => $section->project_id])->orderBy('order', 'asc')->get();
+        $i = 1;
+        foreach ($sections as $section) {
+            if ($section->order != $i) {
+                $section->update(['order' => $i]);
+            }
+            $i++;
+        }
+
 
     }
 }

@@ -36,6 +36,7 @@ return [
 
     'actions'=>'Actions',
     'contact_us_color_schema'=>'Contact Us Page Color Schema',
+    'home_page_color_schema'=>'Home Page Color Schema',
     'about_us_color_schema'=>'About Us Page Color Schema',
     'jobs_color_schema'=>'Jobs Page Color Schema',
     'project_category_color_schema'=>'Project Category Page Color Schema',

@@ -27,28 +27,26 @@
             </div>
             <!--/ Project Image -->
 
-            <div class="project-top">
+            <div class="" style="position: relative;left: 6.5%;bottom: 18.5%;">
 
-                <!-- Project Category -->
-                <div data-delay=".2" class="project-work has-animation skew-down">
-                    Arch 360 Project
-                </div>
-                <!-- Project Category -->
+{{--                <!-- Project Category -->--}}
+{{--                <div data-delay=".2" class="project-work has-animation skew-down">--}}
+{{--                    Arch 360 Project--}}
+{{--                </div>--}}
+{{--                <!-- Project Category -->--}}
 
                 <!-- Project Title -->
-                <div class="project-title has-animation skew-up">
+                <div class="project-title has-animation skew-up" style="font-size:3em " >
                     {{$row->name}}
                 </div>
                 <!-- Project Title -->
-
             </div>
 
-            <!-- Project Metas -->
-            <div class="project-meta">
-
-                <div data-delay=".7" class="has-animation skew-up">{{@$row->sub_title}}</div>
-            </div>
-            <!-- Project Metas -->
+{{--            <!-- Project Metas -->--}}
+{{--            <div class="project-meta">--}}
+{{--                <div data-delay=".7" class="has-animation skew-up">{{@$row->sub_title}}</div>--}}
+{{--            </div>--}}
+{{--            <!-- Project Metas -->--}}
 
         </div>
         <!--/ Project Header ends-->

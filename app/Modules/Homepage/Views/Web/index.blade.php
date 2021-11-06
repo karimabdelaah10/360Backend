@@ -1,18 +1,18 @@
 @extends('BaseApp::layouts.web-homepage')
 @section('page-title')
-{{trans('app.Home Page')}}
+    {{trans('app.Home Page')}}
 @endsection
 @section('content')
 
-        <!-- Big Slider Overlays (Don't Touch) -->
-        <div class="big-slider-overlays"></div>
-        <!--/ Big Slider Overlays (Don't Touch) -->
+    <!-- Big Slider Overlays (Don't Touch) -->
+    <div class="big-slider-overlays"></div>
+    <!--/ Big Slider Overlays (Don't Touch) -->
 
-        <div class="big-slider">
-            <div class="big-slider-wrapper">
+    <div class="big-slider">
+        <div class="big-slider-wrapper">
 
-                @forelse($rows as $element)
-                <!-- Project -->
+        @forelse($rows as $element)
+            <!-- Project -->
                 <div class="big-slider-item" style="background: rgba(0,0,0,.5);z-index: 2">
 
                     <!-- Project URL -->
@@ -24,18 +24,23 @@
                         <!--/ Project Category -->
 
                         <!-- Project Title -->
-                        <div class="text-shadow">{{@$element->name}}</div>
-                        <!--/ Project Title -->
+                        @if(@$element->colorSchema==\App\Modules\Config\Enums\ConfigsEnum::DARK)
+                            <div class="text-shadow " style="color:#eee">{{@$element->name}}</div>
+                        @else
+                            <div class="text-shadow ">{{@$element->name}}</div>
+
+                    @endif
+                    <!--/ Project Title -->
                     </div>
 
-                    <!-- Project Summary -->
-                    <div class="summary" style="background: rgba(0,0,0,1); padding: 10px; color :#fff;font-size: larger">
-                     {{@$element->description}}
-                    </div>
-                    <!--/ Project Summary -->
+                {{--                    <!-- Project Summary -->--}}
+                {{--                    <div class="summary" style="background: rgba(0,0,0,1); padding: 10px; color :#fff;font-size: larger">--}}
+                {{--                     {{@$element->description}}--}}
+                {{--                    </div>--}}
+                {{--                    <!--/ Project Summary -->--}}
 
 
-                    <!-- Project Featured Image -->
+                <!-- Project Featured Image -->
                     <div class="image">
                         <img src="{{image($element->image , 'large')}}"
                              alt="{{@$element->name}}">
@@ -44,25 +49,25 @@
 
                 </div>
                 <!--/ Project -->
-                @empty
-                @endforelse
-            </div>
+            @empty
+            @endforelse
         </div>
-
-        <!-- View Project Button -->
-        <div class="big-slide-button">View Project</div>
-        <!--/ View Project Button -->
-
-        <!-- Slider Elements (Don't Touch) -->
-        <div class="big-slide-pag">
-            <div class="big-slide-prev"><i class="icon-up-open-big"></i></div>
-            <div class="big-slide-next"><i class="icon-down-open-big"></i></div>
-        </div>
-        <div class="bs-bullets"></div>
-        <div class="bs-splitted"></div>
-        <!--/ Slider Elements (Don't Touch) -->
-
     </div>
+
+    <!-- View Project Button -->
+    <div class="big-slide-button">View Project</div>
+    <!--/ View Project Button -->
+
+    <!-- Slider Elements (Don't Touch) -->
+    <div class="big-slide-pag">
+        <div class="big-slide-prev"><i class="icon-up-open-big"></i></div>
+        <div class="big-slide-next"><i class="icon-down-open-big"></i></div>
+    </div>
+    <div class="bs-bullets"></div>
+    <div class="bs-splitted"></div>
+    <!--/ Slider Elements (Don't Touch) -->
+
+
     <!--/Portfolio Big Carousel-->
 
 @endsection

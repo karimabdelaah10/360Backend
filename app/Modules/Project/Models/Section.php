@@ -9,6 +9,8 @@ class Section extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['order'];
+
     public function Components()
     {
         return $this->hasMany(Component::class);

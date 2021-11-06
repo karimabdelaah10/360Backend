@@ -31,19 +31,19 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        $this->call(ProjectHomepageOrderSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(ProjectSeeder::class);
-        $this->call(SectionSeeder::class);
-        $this->call(ComponentsTemplateSeeder::class);
-        $this->call(ComponentsTemplateFieldsSeeder::class);
-//        $this->call(ComponentSeeder::class);
-        $this->call(ComponentFieldSeeder::class);
-        $this->call(ContactusSeeder::class);
+//        $this->call(ProjectHomepageOrderSeeder::class);
+//        $this->call(UserSeeder::class);
+//        $this->call(CategorySeeder::class);
+//        $this->call(ProjectSeeder::class);
+//        $this->call(SectionSeeder::class);
+//        $this->call(ComponentsTemplateSeeder::class);
+//        $this->call(ComponentsTemplateFieldsSeeder::class);
+////        $this->call(ComponentSeeder::class);
+//        $this->call(ComponentFieldSeeder::class);
+//        $this->call(ContactusSeeder::class);
         $this->call(ConfigsSeeder::class);
-        $this->call(ServiceSeeder::class);
-        $this->call(JobsSeeder::class);
+//        $this->call(ServiceSeeder::class);
+//        $this->call(JobsSeeder::class);
 
     }
 }
