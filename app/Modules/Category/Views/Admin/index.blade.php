@@ -29,6 +29,7 @@
                                 <th >#</th>
                                 <th >{{trans('categories.name')}}</th>
                                 <th >{{trans('categories.description')}}</th>
+                                <th >Parent Category</th>
                                 <th >{{trans('categories.image')}}</th>
                                 <th >{{trans('app.actions')}}</th>
                             </tr>
@@ -49,6 +50,7 @@
                                                 {{splitString($element->description , 0 , 80)}}..
                                             </p>
                                     </td>
+                                    <td>{{@$element->parent->name}}</td>
                                     <td><img style="width: 100px" src="{{image($element->image , 'small')}}"> </td>
                                     @endif
                                     <td>

@@ -46,6 +46,7 @@ class CategoryController extends Controller
         $data['views'] = $this->views;
         $data['row'] = $this->model;
         $data['row']->is_active = 1;
+        $data['parents'] =$this->model->whereNull('parent_id')->pluck('name' ,'id');
         $data['page_title'] = trans('app.add') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
 
@@ -67,6 +68,7 @@ class CategoryController extends Controller
         $data['views'] = $this->views;
         $data['row'] = $this->model->findOrFail($id);
         $data['row']->is_active = 1;
+        $data['parents'] =$this->model->whereNull('parent_id')->pluck('name' ,'id');
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
 
