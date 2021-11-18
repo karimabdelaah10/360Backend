@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use  HasAttach ;
+    use  HasAttach;
 
-    protected $fillable = ['name', 'description', 'image'];
+    protected $fillable = ['name', 'description', 'parent_id', 'image'];
 
     protected static $attachFields = [
         'image' => [
@@ -19,9 +19,20 @@ class Category extends Model
             'path' => 'storage/uploads'
         ],
     ];
+
     public function Projects()
     {
         return $this->hasMany(Project::class);
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(self::class , 'parent_id');
+    }
+
+    public function chlids()
+    {
+        return $this->hasMany(self::class , 'parent_id');
     }
 
     public function getData()

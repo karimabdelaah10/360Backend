@@ -16,6 +16,15 @@
     'placeholder'=>trans('categories.description'),
     'required'=>1]])
 
+@include('BaseApp::form.select',
+        ['name'=>'parent_id',
+    'value'=> $row->parent_id,
+    'options'=>$parents,
+    'attributes'=>['class'=>'form-control',
+    'label'=>'Parent Category',
+    'placeholder'=>'Select Parent Category',
+    ]])
+
 @include('BaseApp::form.file',
     ['name'=>'image',
 'value'=> $row->image ?? null,
