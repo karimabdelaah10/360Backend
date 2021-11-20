@@ -1,4 +1,3 @@
-
 <!-- Loading Text -->
 <div class="loading-text">Loading</div>
 <!-- Loading Text -->
@@ -16,7 +15,6 @@
 <!-- Overlays (Don't Touch) -->
 <div class="overlays"></div>
 <!-- /Overlays -->
-
 
 
 <!-- Header -->
@@ -58,9 +56,20 @@
                             <a href="/category-projects/">All</a>
                         </li>
                         @forelse($categories as $category)
-                        <li class="menu-item">
-                            <a href="/category-projects/{{$category->id}}">{{$category->name}}</a>
-                        </li>
+                            <li class="menu-item">
+                                <a href="/category-projects/{{$category->id}}">{{$category->name}}</a>
+                                @if($category->chlids()->exists())
+                                    <ul>
+                                        @forelse($category->chlids as $child)
+                                            <li class="menu-item" style="margin-left: 20px">
+                                                <a href="/category-projects/{{$child->id}}"><span>- </span>{{$child->name}}
+                                                </a>
+                                            </li>
+                                        @empty
+                                        @endforelse
+                                    </ul>
+                                @endif
+                            </li>
                         @empty
                         @endforelse
                     </ul>
@@ -84,25 +93,28 @@
                 </div>
 
                 <h5>{{@$about_us['address']}}
-                    <a style="color: black" target="_blank" href="{{$about_us['google_map_location'] ?? '#'}}"><i class="icon-location"></i></a>
+                    <a style="color: black" target="_blank" href="{{$about_us['google_map_location'] ?? '#'}}"><i
+                                class="icon-location"></i></a>
                 </h5>
 
                 <h5>{{@$about_us['mobile_number']}}</h5>
                 <div style="color: black">
-                    <a style="color: black"  href="{{$about_us['facebook_url'] ?? '#'}}"><i class="icon-facebook"></i></a>
-                    <a style="color: black"  href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i></a>
-                    <a style="color: black"  href="{{$about_us['behance_url'] ?? '#'}}"><i class="icon-behance"></i></a>
-                    <a style="color: black"  href="{{$about_us['linkedin_url'] ?? '#'}}"><i class="icon-linkedin"></i></a>
+                    <a style="color: black" href="{{$about_us['facebook_url'] ?? '#'}}"><i
+                                class="icon-facebook"></i></a>
+                    <a style="color: black" href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i></a>
+                    <a style="color: black" href="{{$about_us['behance_url'] ?? '#'}}"><i class="icon-behance"></i></a>
+                    <a style="color: black" href="{{$about_us['linkedin_url'] ?? '#'}}"><i
+                                class="icon-linkedin"></i></a>
                     <a style="color: black" href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i></a>
-{{--                    <h5>Developed By--}}
-{{--                        <a href="https://wa.me/0201004976761" target="_blank"--}}
-{{--                            style="text-decoration: underline;margin: 0 5px">--}}
-{{--                            Abd Almonem  </a>&--}}
-{{--                        <a href="https://wa.me/0201091811793" target="_blank"--}}
-{{--                           style="text-decoration: underline;margin: 0 5px">--}}
-{{--                            Karim Abdelaah  </a>--}}
+                    {{--                    <h5>Developed By--}}
+                    {{--                        <a href="https://wa.me/0201004976761" target="_blank"--}}
+                    {{--                            style="text-decoration: underline;margin: 0 5px">--}}
+                    {{--                            Abd Almonem  </a>&--}}
+                    {{--                        <a href="https://wa.me/0201091811793" target="_blank"--}}
+                    {{--                           style="text-decoration: underline;margin: 0 5px">--}}
+                    {{--                            Karim Abdelaah  </a>--}}
 
-{{--                    </h5>--}}
+                    {{--                    </h5>--}}
                 </div>
             </div>
         </div>

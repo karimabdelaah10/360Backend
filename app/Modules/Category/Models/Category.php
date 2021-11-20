@@ -42,7 +42,10 @@ class Category extends Model
 
     public function scopeHeaderCategories($query)
     {
-        return $query->has('Projects');
+        $query->whereDoesntHave('parent')
+//            ->whereHas('Projects')
+            ->with('chlids');
+        return $query;
     }
 
     use HasFactory;
