@@ -9,4 +9,5 @@ Route::group([
 
 });
 
+Route::get('/sub-categories/{category}','ProjectsController@getSubCategoriesByCategoryId')->name('getSubCategoriesByCategoryId');
 Route::get('/category-projects/{id?}','ProjectsController@getCategoryProjects');

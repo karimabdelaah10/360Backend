@@ -16,7 +16,7 @@
                 <div class="big-slider-item" style="background: rgba(0,0,0,.5);z-index: 2">
 
                     <!-- Project URL -->
-                    <a href="/category-projects/{{@$element->category_id}}"></a>
+                    <a href="/project/{{@$element->id}}"></a>
                     <!--/ Project URL -->
 
                     <div class="top">

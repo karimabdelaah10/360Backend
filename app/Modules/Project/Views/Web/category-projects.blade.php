@@ -1,58 +1,125 @@
-@extends('BaseApp::layouts.web-category-projects')
+@extends('BaseApp::layouts.web')
 @section('page-title')
     {{@$page_title}}
 @endsection
 @section('content')
 
-    <!-- Titles (Don't Touch) -->
-    <div class="list-titles"></div>
-    <!-- Titles (Don't Touch) -->
 
-    <!-- List Projects -->
-    <div class="list-images">
-        <div class="swiper-wrapper">
+    <!-- Page Settings -->
+    <div class="page-settings" data-layout="{{@$site_layout ?? 'dark'}}"
+         data-header-style="{{@$menu_layout ?? 'light'}}"
+         data-menu-layout="{{@$menu_layout ?? 'light'}}"></div>
+    <!--/ Page settings -->
 
-            @forelse($rows  as $element)
-            <!-- Project -->
-            <div class="list-image swiper-slide">
+    <!-- Journal -->
+    <div class="pe-journal">
 
-                <!-- Project URL -->
-                <a href="/project/{{$element->id}}"></a>
-                <!--/ Project URL -->
+        <!-- Background Text -->
+        <div class="j-back">Projects</div>
+        <!--/ Background Text -->
 
-                <!-- Project Title -->
-                <div class="list-p-title">{{@$element->name}}</div>
-                <!--/ Project Title -->
+        <!-- Blog Posts -->
+        <div class="pe-blog-posts">
 
-                <!-- Project Metas -->
-                <div class="list-titles-meta">
-                    <span>{{@$element->description}}</span>
-                </div>
-                <!--/ Project Metas -->
+            <!-- Post Sizer and Gutter (Don't Touch) -->
+            <div class="pe-blog-sizer"></div>
+            <div class="pe-blog-gutter"></div>
+            <!-- Post Sizer and Gutter (Don't Touch) -->
 
-                <!-- Project image -->
-                <div class="list-image-wrapper">
-                    <img src="{{image($element->image , 'large')}}" alt="List Project Image">
-                </div>
-                <!--/ Project Image -->
-
+            <!-- Blog Page Title -->
+            <div class="pe-blog-stamp">
+                <div class="blog-page-title has-animation skew-up">Projects</div>
             </div>
-            <!--/ Project -->
-            @empty
-            @endforelse
-        </div>
-    </div>
-    <!--/ List Projects -->
+            <!-- Blog Page Title -->
+            <!-- Post (Sticky) -->
+            @forelse($rows as $row)
+                <div class="pe-post @if($loop->first) sticky @endif">
+                    <!-- Post URL --><a href="{{route('getProject', $row->id)}}">
 
-    <!-- Page Elements -->
-    <div class="list-titles-fraction">
-        <span class="lt-current"></span>
-        <span class="lt-total"></span>
+                        <!-- Post Image -->
+                        <div class="pe-post-featured">
+                            <img src="{{image($row->image , 'large')}}" alt="Project Image">
+                        </div>
+                        <!--/ Post Image -->
+
+                        <!-- Post -->
+                        <div class="post-meta">
+
+                            <!-- Post Category -->
+                            <div class="post-cat">{{$category->name}}</div>
+                            <!--/ Post Category -->
+
+                            <!-- Post Title -->
+                            <div class="post-title">
+                                {{$row->name}}.
+                            </div>
+                            <!--/ Post Title -->
+
+                        </div>
+                        <!--/ Post Meta -->
+
+                    </a>
+                </div>
+        @empty
+        @endforelse
+        <!--/ Post (Sticky) -->
+        </div>
+        <!--/ Blog Posts -->
+
     </div>
-    <div class="list-carousel-pagination">
-        <div class="lc-next"><i class="icon-right-open-big"></i></div>
-        <div class="lc-prev"><i class="icon-left-open-big"></i></div>
-    </div>
-    <!--/ Page Elements -->
+    <!--/ Journal -->
+
+
+
+    {{--    <!-- Titles (Don't Touch) -->--}}
+    {{--    <div class="list-titles"></div>--}}
+    {{--    <!-- Titles (Don't Touch) -->--}}
+
+    {{--    <!-- List Projects -->--}}
+    {{--    <div class="list-images">--}}
+    {{--        <div class="swiper-wrapper">--}}
+
+    {{--            @forelse($rows  as $element)--}}
+    {{--            <!-- Project -->--}}
+    {{--            <div class="list-image swiper-slide">--}}
+
+    {{--                <!-- Project URL -->--}}
+    {{--                <a href="/project/{{$element->id}}"></a>--}}
+    {{--                <!--/ Project URL -->--}}
+
+    {{--                <!-- Project Title -->--}}
+    {{--                <div class="list-p-title">{{@$element->name}}</div>--}}
+    {{--                <!--/ Project Title -->--}}
+
+    {{--                <!-- Project Metas -->--}}
+    {{--                <div class="list-titles-meta">--}}
+    {{--                    <span>{{@$element->description}}</span>--}}
+    {{--                </div>--}}
+    {{--                <!--/ Project Metas -->--}}
+
+    {{--                <!-- Project image -->--}}
+    {{--                <div class="list-image-wrapper">--}}
+    {{--                    <img src="{{image($element->image , 'large')}}" alt="List Project Image">--}}
+    {{--                </div>--}}
+    {{--                <!--/ Project Image -->--}}
+
+    {{--            </div>--}}
+    {{--            <!--/ Project -->--}}
+    {{--            @empty--}}
+    {{--            @endforelse--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    {{--    <!--/ List Projects -->--}}
+
+    {{--    <!-- Page Elements -->--}}
+    {{--    <div class="list-titles-fraction">--}}
+    {{--        <span class="lt-current"></span>--}}
+    {{--        <span class="lt-total"></span>--}}
+    {{--    </div>--}}
+    {{--    <div class="list-carousel-pagination">--}}
+    {{--        <div class="lc-next"><i class="icon-right-open-big"></i></div>--}}
+    {{--        <div class="lc-prev"><i class="icon-left-open-big"></i></div>--}}
+    {{--    </div>--}}
+    {{--    <!--/ Page Elements -->--}}
 
 @endsection
