@@ -38,9 +38,16 @@ class ProjectsController extends Controller
         return view($this->views . 'index' , $data);
     }
 
+    public function getSubCategoriesByCategoryId(Category $category)
+    {
+        $data['rows'] = Category::ChildCategories($category->id)->whereHas('Projects')->get();
+        $data['categories']=Category::HeaderCategories()->get();
+        $data['page_title']=$category->name. ' Sub Categories';
+        $data['parent'] = $category;
+        return view($this->views . 'sub_categories' , $data);
+    }
     public function getCategoryProjects($id = null)
     {
-
         if ($id){
             $data['category'] = Category::findOrFail($id);
             $category_name = $data['category']->name ;
@@ -55,9 +62,6 @@ class ProjectsController extends Controller
         $data['category_config'] = Config::where('page' , ConfigsEnum::PROJECT_CATEGORY_PAGE)
             ->pluck('value', 'title');
         $data['page_title']=$category_name. ' Projects';
-        if (!count($data['rows'])){
-            return redirect('/');
-        }
         $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['site-layout'];
         $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['menu-layout'];
 

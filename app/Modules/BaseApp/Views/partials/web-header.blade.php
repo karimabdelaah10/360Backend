@@ -57,18 +57,7 @@
                         </li>
                         @forelse($categories as $category)
                             <li class="menu-item">
-                                <a href="/category-projects/{{$category->id}}">{{$category->name}}</a>
-                                @if($category->chlids()->exists())
-                                    <ul>
-                                        @forelse($category->chlids as $child)
-                                            <li class="menu-item" style="margin-left: 20px">
-                                                <a href="/category-projects/{{$child->id}}"><span>- </span>{{$child->name}}
-                                                </a>
-                                            </li>
-                                        @empty
-                                        @endforelse
-                                    </ul>
-                                @endif
+                                <a href="/sub-categories/{{$category->id}}">{{$category->name}}</a>
                             </li>
                         @empty
                         @endforelse

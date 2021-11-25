@@ -11,6 +11,7 @@ class Category extends Model
 {
     use  HasAttach;
 
+    public $table='categories';
     protected $fillable = ['name', 'description', 'parent_id', 'image'];
 
     protected static $attachFields = [
@@ -43,10 +44,16 @@ class Category extends Model
     public function scopeHeaderCategories($query)
     {
         $query->whereDoesntHave('parent')
-//            ->whereHas('Projects')
-            ->with('chlids');
+            ->where(function ($q){
+                $q->whereHas('chlids');
+            })
+        ;
         return $query;
     }
-
+    public function scopeChildCategories($query , $category_id)
+    {
+        $query->where('parent_id' , $category_id);
+        return $query;
+    }
     use HasFactory;
 }
