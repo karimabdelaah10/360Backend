@@ -16,7 +16,7 @@
 
                 <!-- Text Wrapper -->
                 <div class="text-wrapper has-animation skew-up">
-{{--                    <div class="caption">OUR WORKS</div>--}}
+                    {{--                    <div class="caption">OUR WORKS</div>--}}
                     <h1 style="font-size: 92px" class="big-title">
                         {{$parent->name}} Sub Categories
                     </h1>
@@ -49,31 +49,32 @@
 
                     <!-- Sub Category -->
                     @forelse($rows as $row)
-                    <div data-scroll class="grid-project">
+                        <div data-scroll class="grid-project">
 
-                        <!-- Project URL --><a href="/category-projects/{{$row->id}}">
+                            <!-- Project URL --><a href="/category-projects/{{$row->id}}">
 
-                            <!-- Project Meta -->
-                            <div class="grid-project-meta">
-                                <!-- Project Title-->
-                                <div class="grid-project-title">{{$row->name}}</div>
-                                <!--/ Project Title-->
-                            </div>
-                            <!--/ Project Meta-->
+                                <!-- Project Meta -->
+                                <div class="grid-project-meta">
+                                    <!-- Project Title-->
+                                    <div class="grid-project-title"
+                                         style="font-size: 1.5em !important;">{{$row->name}}</div>
+                                    <!--/ Project Title-->
+                                </div>
+                                <!--/ Project Meta-->
 
-                            <!-- Project Image-->
-                            <div class="grid-project-image">
+                                <!-- Project Image-->
+                                <div class="grid-project-image">
 
-                                <img src="{{image($row->image , 'large')}}" alt="Grid Project Image">
+                                    <img src="{{image($row->image , 'large')}}" alt="Grid Project Image">
 
-                            </div>
-                            <!--/ Project Image-->
-                        </a>
+                                </div>
+                                <!--/ Project Image-->
+                            </a>
 
-                    </div>
-                    @empty
-                    @endforelse
-                        <!--/ Sub Category -->
+                        </div>
+                @empty
+                @endforelse
+                <!--/ Sub Category -->
 
                 </div>
                 <!--/ Portfolio Grid -->
@@ -96,7 +97,8 @@
             <!-- Column -->
             <div class="c-col-12 align-center">
                 <div class="caption has-animation skew-up">SEE SOMETHING MORE</div>
-                <h1 data-delay="0.2" class="big-title has-animation skew-up"><a href="/aboutus" class="underline">About Us</a></h1>
+                <h1 data-delay="0.2" class="big-title has-animation skew-up"><a href="/aboutus" class="underline">About
+                        Us</a></h1>
 
                 <span class="pe-empty-space" style="height: 100px"></span>
             </div>
