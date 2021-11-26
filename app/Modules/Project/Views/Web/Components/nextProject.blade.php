@@ -1,9 +1,12 @@
-<div class="c-col-6 hide-mobile"></div>
+<div class="c-col-8 hide-mobile"></div>
 
 <!-- Column -->
-<div class="c-col-4 no-gap">
+<div class="c-col-3 no-gap">
     <a href="{{url('project',$component->Fields[0]->value)}}">
         <!-- Image Wrapper -->
+        <span class="title-line">
+next project
+                            </span>
         <div class="image-wrapper has-animation slide-right">
             <div class="vertical-item-title image-title ">
                             <span class="title-line">
