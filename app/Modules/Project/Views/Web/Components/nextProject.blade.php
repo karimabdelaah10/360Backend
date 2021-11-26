@@ -10,7 +10,7 @@
             <div class="vertical-item-title image-title ">
                                             <span class="title-line"
                                                   style="font-size: 1em !important; position: absolute; left: 10px; top: 5px;">
-  {{$component->getProjectById($component->Fields[0]->value)->name}}
+next project
                             </span>
                 <span class="title-line">
   {{$component->getProjectById($component->Fields[0]->value)->name}}
