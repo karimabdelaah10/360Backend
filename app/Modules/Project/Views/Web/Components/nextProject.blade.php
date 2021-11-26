@@ -6,10 +6,12 @@
         <!-- Image Wrapper -->
 
         <div class="image-wrapper has-animation slide-right">
-                                        <span class="title-line"
-                                              style="font-size: 1em !important; position: absolute; left: 10px; top: 5px;">
+            <div class="vertical-item-title image-title " style="position: absolute; top: 0; left: 0">
+               <span class="title-line"
+                     style="font-size: 1em !important; position: absolute; left: 10px; top: 5px;">
 next project
                             </span>
+            </div>
             <div class="vertical-item-title image-title ">
 
                 <span class="title-line">
