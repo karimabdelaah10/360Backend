@@ -83,18 +83,20 @@
 
                 <h5>{{@$about_us['address']}}
                     <a style="color: black" target="_blank" href="{{$about_us['google_map_location'] ?? '#'}}"><i
-                                class="icon-location"></i></a>
+                            class="icon-location"></i></a>
                 </h5>
 
                 <h5>{{@$about_us['mobile_number']}}</h5>
                 <div style="color: black">
                     <a style="color: black" href="{{$about_us['facebook_url'] ?? '#'}}"><i
-                                class="icon-facebook"></i></a>
-                    <a style="color: black" href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i></a>
+                            class="icon-facebook"></i> </a>
+                    <a style="color: black" href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i>
+                    </a>
                     <a style="color: black" href="{{$about_us['behance_url'] ?? '#'}}"><i class="icon-behance"></i></a>
                     <a style="color: black" href="{{$about_us['linkedin_url'] ?? '#'}}"><i
-                                class="icon-linkedin"></i></a>
-                    <a style="color: black" href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i></a>
+                            class="icon-linkedin"></i></a>
+                    <a style="color: black" href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i>
+                    </a>
                     {{--                    <h5>Developed By--}}
                     {{--                        <a href="https://wa.me/0201004976761" target="_blank"--}}
                     {{--                            style="text-decoration: underline;margin: 0 5px">--}}
@@ -120,12 +122,27 @@
         <!-- Menu Widget (Right -->
         <div class="menu-widget-wrapper mww-3">
             <div class="menu-widget">
-                <ul class="widget-socials">
-                    <li><a href="{{$about_us['facebook_url'] ?? '#'}}"><i class="icon-facebook"></i> </a></li>
-                    <li><a href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i> </a></li>
-                    <li><a href="{{$about_us['behance_url'] ?? '#'}}"><i class="icon-behance"></i> </a></li>
-                    <li><a href="{{$about_us['linkedin_url'] ?? '#'}}"><i class="icon-linkedin"></i> </a></li>
-                    <li><a href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i> </a></li>
+                <ul class="widget-socials" style="font-size: .9em !important;">
+                    <li>
+                        <a href="{{$about_us['facebook_url'] ?? '#'}}" style="font-size: .9em !important;">
+                            <i class="icon-facebook"></i>Facebook </a>
+                    </li>
+                    <li>
+                        <a href="{{$about_us['instagram_url'] ?? '#'}}" style="font-size: .9em !important;">
+                            <i class="icon-instagrem"></i> Instagram</a>
+                    </li>
+                    <li>
+                        <a href="{{$about_us['behance_url'] ?? '#'}}" style="font-size: .9em !important;">
+                            <i class="icon-behance"></i> Behance</a>
+                    </li>
+                    <li>
+                        <a href="{{$about_us['linkedin_url'] ?? '#'}}" style="font-size: .9em !important;">
+                            <i class="icon-linkedin"></i> LinkedIn</a>
+                    </li>
+                    <li>
+                        <a href="{{$about_us['pinterest_url'] ?? '#'}}" style="font-size: .9em !important;">
+                            <i class="icon-pinterest"></i>Pinterest </a>
+                    </li>
                 </ul>
             </div>
         </div>

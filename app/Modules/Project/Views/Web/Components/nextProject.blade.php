@@ -1,5 +1,5 @@
 <!-- Next Project Setion -->
-<div class="projects-nav">
+{{--<div class="projects-nav">--}}
     <div class="next-project">
         <!-- Next Project URL -->
         <a href="{{url('project',$component->Fields[0]->value)}}">
@@ -24,5 +24,5 @@
     </div>
 
 
-</div>
+{{--</div>--}}
 <!--/ Next Project Setion ends -->
