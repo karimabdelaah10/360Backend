@@ -1,7 +1,7 @@
-<div class="c-col-6 hide-mobile"></div>
+<div class="c-col-7 hide-mobile"></div>
 
 <!-- Column -->
-<div class="c-col-5 no-gap">
+<div class="c-col-4 no-gap">
     <a href="{{url('project',$component->Fields[0]->value)}}">
         <!-- Image Wrapper -->
         <div class="image-wrapper has-animation slide-right">
@@ -17,6 +17,7 @@
     </a>
 </div>
 <!--/ Column -->
+<div class="c-col-12 hide-mobile"></div>
 
 
 <!-- Next Project Setion -->
