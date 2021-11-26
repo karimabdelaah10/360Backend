@@ -1,7 +1,7 @@
-<div class="c-col-9 hide-mobile"></div>
+<div class="c-col-6 hide-mobile"></div>
 
 <!-- Column -->
-<div class="c-col-3 no-gap">
+<div class="c-col-5 no-gap">
     <a href="{{url('project',$component->Fields[0]->value)}}">
         <!-- Image Wrapper -->
         <div class="image-wrapper has-animation slide-right">
