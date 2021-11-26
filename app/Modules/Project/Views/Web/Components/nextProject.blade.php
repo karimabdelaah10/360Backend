@@ -1,4 +1,4 @@
-<div class="c-col-7 hide-mobile"></div>
+<div class="c-col-6 hide-mobile"></div>
 
 <!-- Column -->
 <div class="c-col-4 no-gap">
