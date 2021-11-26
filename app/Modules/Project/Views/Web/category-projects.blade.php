@@ -46,7 +46,7 @@
                         <div class="post-meta">
 
                             <!-- Post Category -->
-                            <div class="post-cat">{{$category->name}}</div>
+                            <div class="post-cat">{{@$category->name}}</div>
                             <!--/ Post Category -->
 
                             <!-- Post Title -->
