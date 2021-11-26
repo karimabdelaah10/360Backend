@@ -87,7 +87,7 @@
                 </h5>
 
                 <h5>{{@$about_us['mobile_number']}}</h5>
-                <div style="color: black">
+{{--                <div style="color: black">--}}
 {{--                    <a style="color: black" href="{{$about_us['facebook_url'] ?? '#'}}"><i--}}
 {{--                            class="icon-facebook"></i> </a>--}}
 {{--                    <a style="color: black" href="{{$about_us['instagram_url'] ?? '#'}}"><i class="icon-instagrem"></i>--}}
@@ -97,16 +97,16 @@
 {{--                            class="icon-linkedin"></i></a>--}}
 {{--                    <a style="color: black" href="{{$about_us['pinterest_url'] ?? '#'}}"><i class="icon-pinterest"></i>--}}
 {{--                    </a>--}}
-                    {{--                    <h5>Developed By--}}
-                    {{--                        <a href="https://wa.me/0201004976761" target="_blank"--}}
-                    {{--                            style="text-decoration: underline;margin: 0 5px">--}}
-                    {{--                            Abd Almonem  </a>&--}}
-                    {{--                        <a href="https://wa.me/0201091811793" target="_blank"--}}
-                    {{--                           style="text-decoration: underline;margin: 0 5px">--}}
-                    {{--                            Karim Abdelaah  </a>--}}
+{{--                    --}}{{--                    <h5>Developed By--}}
+{{--                    --}}{{--                        <a href="https://wa.me/0201004976761" target="_blank"--}}
+{{--                    --}}{{--                            style="text-decoration: underline;margin: 0 5px">--}}
+{{--                    --}}{{--                            Abd Almonem  </a>&--}}
+{{--                    --}}{{--                        <a href="https://wa.me/0201091811793" target="_blank"--}}
+{{--                    --}}{{--                           style="text-decoration: underline;margin: 0 5px">--}}
+{{--                    --}}{{--                            Karim Abdelaah  </a>--}}
 
-                    {{--                    </h5>--}}
-                </div>
+{{--                    --}}{{--                    </h5>--}}
+{{--                </div>--}}
             </div>
         </div>
         <!--/ Menu Widget (Left) -->
