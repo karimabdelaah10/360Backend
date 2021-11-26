@@ -1,4 +1,4 @@
-<div class="c-col-3 hide-mobile"></div>
+<div class="c-col-9 hide-mobile"></div>
 
 <!-- Column -->
 <div class="c-col-3 no-gap">
@@ -11,14 +11,12 @@
                             </span>
             </div>
             <img src="{{image($component->getProjectById($component->Fields[0]->value)->image,'large')}}"
-                 alt="Single Image">
+                 alt="Single Image" style="width: 100% !important;">
         </div>
         <!--/ Image Wrapper -->
     </a>
 </div>
 <!--/ Column -->
-
-<div class="c-col-3 hide-mobile"></div>
 
 
 <!-- Next Project Setion -->
