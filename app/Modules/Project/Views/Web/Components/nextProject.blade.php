@@ -4,10 +4,11 @@
 <div class="c-col-3 no-gap">
     <a href="{{url('project',$component->Fields[0]->value)}}">
         <!-- Image Wrapper -->
-        <span class="title-line">
+
+        <div class="image-wrapper has-animation slide-right">
+                    <span class="title-line">
 next project
                             </span>
-        <div class="image-wrapper has-animation slide-right">
             <div class="vertical-item-title image-title ">
                             <span class="title-line">
   {{$component->getProjectById($component->Fields[0]->value)->name}}
