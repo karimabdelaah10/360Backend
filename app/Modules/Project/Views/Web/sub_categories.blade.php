@@ -18,7 +18,7 @@
                 <div class="text-wrapper has-animation skew-up">
                     {{--                    <div class="caption">OUR WORKS</div>--}}
                     <h1 style="font-size: 92px" class="big-title">
-                        {{$parent->name}} <br>Sub Categories
+                        {{$parent->name}} <br>
                     </h1>
 
                 </div>
