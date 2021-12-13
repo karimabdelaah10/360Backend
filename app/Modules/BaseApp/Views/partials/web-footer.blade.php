@@ -21,7 +21,6 @@
  @push('web_js')
  <script>
     $(window).scroll(function(){
-        console.log('aaaaaa')
 if ($(this).scrollTop() > 400) {
 $('.js-top-scrollerx').fadeIn();
 } else {
