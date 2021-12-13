@@ -18,27 +18,47 @@ class Project extends Model
         ],
     ];
 
-    protected $fillable=['name','sub_title','description','image','colorSchema','category_id','homepage','homepage_order'];
+    protected $fillable = ['name', 'sub_title', 'description', 'image',
+        'colorSchema', 'category_id', 'homepage', 'homepage_order',
+        'next_project',
+        'previous_project'
+    ];
 
-    public function Sections(){
+    protected $with = ['PreviousProject', 'NextProject'];
+
+    public function Sections()
+    {
         return $this->hasMany(Section::class)->orderBy('order');
     }
-    public function Category(){
+
+    public function Category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function sectionsWithComponents(){
-
-        return $this->hasManyThrough(Component::class,Section::class);
+    public function NextProject()
+    {
+        return $this->belongsTo(Project::class, 'next_project')->without(['PreviousProject', 'NextProject']);
     }
 
+    public function PreviousProject()
+    {
+        return $this->belongsTo(Project::class, 'previous_project')->without(['PreviousProject', 'NextProject']);
+    }
+
+    public function sectionsWithComponents()
+    {
+
+        return $this->hasManyThrough(Component::class, Section::class);
+    }
 
     public function getData()
     {
         return $this;
     }
+
     public function scopeHomePageProjects($query)
     {
-        return $query->where('homepage' , 1);
+        return $query->where('homepage', 1);
     }
 }

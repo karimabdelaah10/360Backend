@@ -55,12 +55,12 @@ class ComponentsTemplateSeeder extends Seeder
 
             ],
 
-            [
-                'name' => 'nextProject',
-                'title'=> 'next Project',
-                'fields' => ['select']
-
-            ],
+//            [
+//                'name' => 'nextProject',
+//                'title'=> 'next Project',
+//                'fields' => ['select']
+//
+//            ],
 
             [
                 'name' => 'one_image_l',

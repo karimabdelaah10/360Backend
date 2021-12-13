@@ -46,6 +46,7 @@ class ProjectsController extends Controller
         $data['row'] = $this->model
             ->with('Sections.Components.Fields')
             ->with('Sections.Components.ComponentTemplate.templateFields')
+            ->with('Sections.Components.ComponentTemplate.templateFields')
             ->findOrFail($id);
         $data['categories'] = Category::all()->pluck('name', 'id');
         $data['page_title'] = trans('app.view') . " " . $this->title;
@@ -61,6 +62,7 @@ class ProjectsController extends Controller
         $data['views'] = $this->views;
         $data['row'] = $this->model;
         $data['row']->is_active = 1;
+        $data['all_projects'] = Project::all()->pluck('name', 'id');
         $data['categories'] = Category::whereHas('parent')->pluck('name', 'id');
         $data['page_title'] = trans('app.add') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
@@ -98,6 +100,7 @@ class ProjectsController extends Controller
         $data['row']->is_active = 1;
         $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();
         $data['componentsTemplate'] = ComponentTemplate::with('templateFields')->get();
+        $data['all_projects'] = Project::all()->pluck('name', 'id');
         $data['categories'] = Category::whereHas('parent')->pluck('name', 'id');
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];

@@ -59,7 +59,29 @@
     'label'=>trans('projects.category'),
     'placeholder'=>trans('projects.category'),
     'required'=>1]])
-
+<br>
+@include('BaseApp::form.select',
+        ['name'=>'next_project',
+    'value'=> $row->NextProject->name ?? null,
+    'type'=>'text',
+     'class'=>'mb-2',
+    'options'=>$all_projects,
+    'attributes'=>['class'=>'form-control',
+    'label'=>trans('projects.nextProject'),
+    'placeholder'=>trans('projects.nextProject'),
+   ]])
+<br>
+@include('BaseApp::form.select',
+        ['name'=>'previous_project',
+    'value'=> $row->PreviousProject->name ?? null,
+    'type'=>'text',
+     'class'=>'mb-2',
+    'options'=>$all_projects,
+    'attributes'=>['class'=>'form-control',
+    'label'=>trans('projects.previousProject'),
+    'placeholder'=>trans('projects.previousProject'),
+   ]])
+<br>
 @include('BaseApp::form.switch',['name'=>'homepage',
         'value'=> $row->homepage ?? null,
              'attributes'=>['id'=>'homepage',
@@ -82,11 +104,11 @@
 </div>
 @push('js')
     <script>
-        $('#homepage').click((e)=>{
-            if ($('#homepage_order').css('display') === 'none'){
-                $('#homepage_order').css('display' , 'inline');
-            }else{
-                $('#homepage_order').css('display' , 'none');
+        $('#homepage').click((e) => {
+            if ($('#homepage_order').css('display') === 'none') {
+                $('#homepage_order').css('display', 'inline');
+            } else {
+                $('#homepage_order').css('display', 'none');
             }
         });
     </script>
