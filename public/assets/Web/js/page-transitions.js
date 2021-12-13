@@ -124,7 +124,7 @@ $(function () {
 
                         if (dataLayout != null) {
                             var siteLayout = 'layout-' + dataLayout;
-
+                            body.removeAttr('class')
                             body.addClass(siteLayout)
                         }
 
@@ -133,7 +133,8 @@ $(function () {
                         if (dataHeaderStyle != null) {
                             var headerStyle = 'header-style-' + dataLayout;
 
-                            $('.site-header').addClass(dataHeaderStyle)
+
+                            $('.site-header').attr('class', 'site-header '+ dataHeaderStyle);
                         }
 
                         var dataMenuStyle = pageSettings.data('menu-style');
@@ -141,7 +142,7 @@ $(function () {
                         if (dataMenuStyle != null) {
                             var menuStyle = 'menu-style-' + dataMenuStyle;
 
-                            $('.site-navigation').addClass(dataMenuStyle)
+                            $('.site-navigation').attr('class', 'site-navigation '+ dataMenuStyle);
 
                         }
 
@@ -149,9 +150,7 @@ $(function () {
 
                         if (dataMenuLayout != null) {
                             var menuLayout = dataMenuLayout;
-
-                            $('.site-navigation').addClass(dataMenuLayout)
-
+                            $('.site-navigation').attr('class', 'site-navigation '+ dataMenuLayout);
                         }
 
                         var dataBackground = pageSettings.data('background');
