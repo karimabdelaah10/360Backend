@@ -59,6 +59,7 @@ class CategoryController extends Controller
         $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.list') . " " . $this->title;
         $data['page_description'] = "List ".$data['row']->name." Projects";
+        $data['breadcrumb'] = [$this->title => $this->module_url];
 
 
         return view($this->views . 'category_projects', $data);
@@ -78,6 +79,45 @@ class CategoryController extends Controller
         $project->update(['category_id'=>$project->category_id]);
         flash(trans('app.update successfully'))->success();
         return redirect($this->module_url.'/list-projects/'.$project->category_id);
+    }
+
+
+    public function listSubCategories($categroy_id)
+    {
+        $data['rows'] = $this->model->where('parent_id' ,$categroy_id)
+            ->orderBy("id", "DESC")
+            ->paginate(request('per_page'));
+        if (!count($data['rows'])){
+            return redirect()->back();
+        }
+        $data['module'] = $this->module;
+        $data['module_url'] = $this->module_url;
+        $data['views'] = $this->views;
+        $data['row'] = $this->model->findOrFail($categroy_id);
+        $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
+        $data['page_title'] = trans('app.list') . " " . $this->title;
+        $data['page_description'] = "List ".$data['row']->name." Sub Categories";
+        $data['breadcrumb'] = [$this->title => $this->module_url];
+
+
+        return view($this->views . 'category_sub_categories', $data);
+    }
+
+    public function getEditSubCategoryOrder($category_id)
+    {
+        $data['row'] = $this->model->findOrFail($category_id);
+        $data['breadcrumb'] = [$this->title => $this->module_url];
+        $data['max_count'] = $this->model->where('parent_id' , $data['row']->parent_id)->count();
+        return view($this->views . 'update_sub_category_order', $data);
+    }
+
+    public function postEditSubCategoryOrder(Request $request ,$category_id)
+    {
+        $category = $this->model->findOrFail($category_id);
+        $category->update(['parent_id'=>$category->parent_id]);
+        flash(trans('app.update successfully'))->success();
+        return redirect($this->module_url.'/list-sub-categories/'.$category->parent_id);
     }
 
     public function getCreate()

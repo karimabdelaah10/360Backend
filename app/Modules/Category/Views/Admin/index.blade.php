@@ -66,6 +66,12 @@
                                                             <span>List Projects</span>
                                                         </a>
                                                     @endif
+                                                        @if(count($element->chlids))
+                                                            <a class="dropdown-item"  href="{{$module_url}}/list-sub-categories/{{$element->id}}" >
+                                                                <i data-feather="eye" class="mr-50"></i>
+                                                                <span>List Sub Categories</span>
+                                                            </a>
+                                                        @endif
                                                         <a class="dropdown-item" href="{{$module_url}}/edit/{{$element->id}}">
                                                             <i data-feather="edit-2" class="mr-50"></i>
                                                             <span>{{trans('app.edit')}}</span>
