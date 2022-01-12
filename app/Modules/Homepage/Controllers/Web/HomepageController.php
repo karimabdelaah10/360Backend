@@ -29,6 +29,7 @@ class HomepageController extends Controller
         if (!count($data['rows'])) {
             return redirect(route('getAboutUS'));
         }
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['color'] = Config::where('page', ConfigsEnum::HOME_PAGE)->pluck('value', 'title');;
         $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['color'][ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]]['site-layout'];
         $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['color'][ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]]['menu-layout'];
@@ -39,9 +40,10 @@ class HomepageController extends Controller
     public function getUnderConstruction()
     {
         $underConstruction = Config::where('title', ConfigsEnum::UNDER_CONSTRUCTION)->first();
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         if ($underConstruction && !$underConstruction->value) {
             return redirect(route('homepage'));
         }
-        return view('under_construction');
+        return view('under_construction' , $data);
     }
 }

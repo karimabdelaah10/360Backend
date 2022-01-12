@@ -3,6 +3,8 @@
 namespace App\Modules\Contactus\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Contactus\Models\Contactus;
 use Illuminate\Support\Facades\DB;
 
@@ -22,6 +24,7 @@ class ContactMessagesController extends Controller {
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
         $data['row']=$this->model;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['row']->is_active = 1;
         $data['page_title'] = trans('app.list') . " " . $this->title;
         $data['page_description'] = trans('contactus.page description');
@@ -36,6 +39,7 @@ class ContactMessagesController extends Controller {
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
         $data['row']=$this->model->findOrFail($id);
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.view') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
         return view($this->views . 'view', $data);

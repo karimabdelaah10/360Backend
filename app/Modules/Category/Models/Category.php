@@ -3,15 +3,16 @@
 namespace App\Modules\Category\Models;
 
 use App\Modules\BaseApp\Traits\HasAttach;
+use App\Modules\BaseApp\Traits\Order;
 use App\Modules\Project\Models\Project;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use  HasAttach;
+    use  HasAttach, Order;
 
-    public $table='categories';
+    public $table = 'categories';
     protected $fillable = ['name', 'description', 'parent_id', 'image'];
 
     protected static $attachFields = [
@@ -20,6 +21,7 @@ class Category extends Model
             'path' => 'storage/uploads'
         ],
     ];
+    protected $ordersCols = ['menu_order'];
 
     public function Projects()
     {
@@ -28,12 +30,12 @@ class Category extends Model
 
     public function parent()
     {
-        return $this->belongsTo(self::class , 'parent_id');
+        return $this->belongsTo(self::class, 'parent_id');
     }
 
     public function chlids()
     {
-        return $this->hasMany(self::class , 'parent_id');
+        return $this->hasMany(self::class, 'parent_id');
     }
 
     public function getData()
@@ -44,16 +46,18 @@ class Category extends Model
     public function scopeHeaderCategories($query)
     {
         $query->whereDoesntHave('parent')
-            ->where(function ($q){
+              ->where(function ($q) {
                 $q->whereHas('chlids');
-            })
-        ;
+             })
+            ->orderBy("menu_order","DESC");
         return $query;
     }
-    public function scopeChildCategories($query , $category_id)
+
+    public function scopeChildCategories($query, $category_id)
     {
-        $query->where('parent_id' , $category_id);
+        $query->where('parent_id', $category_id);
         return $query;
     }
+
     use HasFactory;
 }

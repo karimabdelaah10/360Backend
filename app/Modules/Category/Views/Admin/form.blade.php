@@ -34,3 +34,14 @@
 'id'=>'category-image',
 'placeholder'=>trans('categories.image'),
 ]])
+@include('BaseApp::form.input',
+       ['name'=>'menu_order',
+       'value'=> $row->menu_order ?? $row->count() +1 ,
+       'type'=>'number',
+       'attributes'=>['class'=>'form-control',
+       'max'=> $row->id ? $row->count() :$row->count() +1 ,
+       'min'=>1,
+       'id'=>'menu_order',
+       'label'=>"Menu Order",
+       'placeholder'=>"Menu Order",
+       ]])

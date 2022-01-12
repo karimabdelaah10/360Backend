@@ -3,6 +3,8 @@
 namespace App\Modules\Jobs\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Jobs\Models\Jobcv;
 
 class JobCvsController extends Controller {
@@ -21,6 +23,7 @@ class JobCvsController extends Controller {
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
         $data['row']=$this->model;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['row']->is_active = 1;
         $data['page_title'] = trans('app.list') . " " . $this->title;
         $data['page_description'] = trans('jobs.cvs page description');

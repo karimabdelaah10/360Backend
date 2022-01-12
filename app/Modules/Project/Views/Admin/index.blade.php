@@ -19,7 +19,7 @@
                         <h4 class="card-title">
                             {{ @$page_description }}
                         </h4>
-                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">{{trans('Projects.create')}}</a>
+                        <a href="{{$module_url}}/create" class="add-new btn btn-primary mt-50">{{trans('projects.create')}}</a>
                     </div>
 
                     <div class="table-responsive">
@@ -27,11 +27,11 @@
                             <thead>
                             <tr>
                                 <th >#</th>
-                                <th >{{trans('Projects.name')}}</th>
-                                <th >{{trans('Projects.category')}}</th>
-                                <th >{{trans('Projects.description')}}</th>
-                                <th >{{trans('Projects.show in home page')}}</th>
-                                <th >{{trans('Projects.show in home page order')}}</th>
+                                <th >{{trans('projects.name')}}</th>
+                                <th >{{trans('projects.category')}}</th>
+                                <th >{{trans('projects.description')}}</th>
+                                <th >{{trans('projects.show in home page')}}</th>
+                                <th >{{trans('projects.show in home page order')}}</th>
                                 <th >{{trans('app.actions')}}</th>
                             </tr>
                             </thead>

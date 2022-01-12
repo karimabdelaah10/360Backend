@@ -28,6 +28,7 @@ class AboutUsController extends Controller {
         $data['views'] = $this->views;
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [];
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['rows'] = $this->model->where('page' , ConfigsEnum::ABOUT_PAGE)->get();
         $data['row'] = $this->model;
 

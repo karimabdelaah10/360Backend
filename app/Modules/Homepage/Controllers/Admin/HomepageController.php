@@ -3,6 +3,8 @@
 namespace App\Modules\Homepage\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 
 class HomepageController extends Controller {
 
@@ -15,7 +17,8 @@ class HomepageController extends Controller {
     }
 
     public function getIndex() {
-        return view($this->views . 'index');
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
+        return view($this->views . 'index' , $data);
     }
 
 }

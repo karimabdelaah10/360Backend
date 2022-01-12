@@ -31,6 +31,7 @@ class ConfigController extends Controller
         $data['views'] = $this->views;
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [];
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['rows'] = $this->model
     ->where('page' , '!=',ConfigsEnum::ABOUT_PAGE)
     ->orWhere('title' , ConfigsEnum::ABOUT_US_COLOR_SCHEMA)

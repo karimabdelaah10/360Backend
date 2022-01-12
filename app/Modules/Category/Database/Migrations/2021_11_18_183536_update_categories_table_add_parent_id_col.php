@@ -15,6 +15,7 @@ class UpdateCategoriesTableAddParentIdCol extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             $table->string('parent_id')->nullable()->after('description');
+            $table->integer('menu_order')->default(0)->after('parent_id');
         });
     }
 

@@ -21,8 +21,8 @@
     <link href="/assets/Web/css/style.css?version={{rand(1,999)}}" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="/assets/Web/images/logo_gold.png" />
-    <link rel="apple-touch-icon" href="/assets/Web/images/logo_gold.png" />
+    <link rel="shortcut icon" href="/assets/Web/images/logo_gold.png"/>
+    <link rel="apple-touch-icon" href="/assets/Web/images/logo_gold.png"/>
     <!--/ Favicons -->
 </head>
 
@@ -50,27 +50,29 @@
 <script src="/assets/Web/js/plugins.js?version={{rand(1,999)}}"></script>
 <script src="/assets/Web/js/scripts.js?version={{rand(1,999)}}"></script>
 @stack('web_js')
-<script>
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
-    document.onkeydown = function(e) {
-        if(event.keyCode == 123) {
-            return false;
+@if(isset($allow_inspect) && !$allow_inspect->value)
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        document.onkeydown = function (e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
         }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-    }
-</script>
+    </script>
+@endif
 </body>
 </html>

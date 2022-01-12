@@ -5,6 +5,7 @@ namespace App\Modules\Config\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use App\Modules\Config\Enums\ConfigsEnum;
 use App\Modules\Config\Models\Config;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,7 @@ class ConfigController extends Controller {
         $data['module'] = $this->module;
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [];
         $data['rows'] = $this->model->all();

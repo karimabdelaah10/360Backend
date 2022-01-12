@@ -26,6 +26,7 @@ class ContactMessagesController extends Controller {
         ->pluck('value', 'title');
         $data['page_title'] = trans('app.contact us page');
         $page_title = [];
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
 
           if (!empty($data['rows']['address'])){
               $string = $data['rows']['address'];

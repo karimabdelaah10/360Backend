@@ -1,7 +1,8 @@
 @include('BaseApp::form.input',
         ['name'=>'name',
     'value'=> $row->name ?? null,
-    'type'=>'text',
+    'type'=>'textarea',
+    'id'=>'name',
     'attributes'=>['class'=>'form-control',
     'label'=>trans('projects.name'),
     'placeholder'=>trans('projects.name'),
@@ -93,13 +94,14 @@
 <div id="homepage_order" @if(!$row || !$row->homepage) style="display: none" @endif>
     @include('BaseApp::form.input',
         ['name'=>'homepage_order',
-    'value'=> $row->homepage_order ?? null,
-    'type'=>'text',
-    'attributes'=>['class'=>'form-control',
-    'id'=>'homepage_order',
-    'label'=>trans('projects.homepage_order'),
-    'placeholder'=>trans('projects.homepage_order'),
-    'required'=>1,
+        'value'=> $row->homepage_order ?? $row->count() +1 ,
+        'type'=>'number',
+        'attributes'=>['class'=>'form-control',
+       'max'=> $row->id ? $row->count() :$row->count() +1 ,
+        'min'=>1,
+        'id'=>'homepage_order_input',
+        'label'=>trans('projects.homepage_order'),
+        'placeholder'=>trans('projects.homepage_order'),
         ]])
 </div>
 @push('js')
@@ -107,9 +109,14 @@
         $('#homepage').click((e) => {
             if ($('#homepage_order').css('display') === 'none') {
                 $('#homepage_order').css('display', 'inline');
+                $('#homepage_order_input').attr('required', 1)
             } else {
                 $('#homepage_order').css('display', 'none');
+                $('#homepage_order_input').removeAttr('required')
             }
         });
+        // $(document).ready(function() {
+        //     $('#name').summernote();
+        // });
     </script>
 @endpush

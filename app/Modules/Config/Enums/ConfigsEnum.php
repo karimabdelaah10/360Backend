@@ -43,6 +43,7 @@ abstract class ConfigsEnum
         JOBS_COLOR_SCHEMA = 'jobs_color_schema',
         PROJECT_CATEGORY_COLOR_SCHEMA = 'project_category_color_schema',
         UNDER_CONSTRUCTION = 'under_construction',
+        ALLOW_INSPECT = 'allow_inspect',
 
         DARK = 'dark',
         LIGHT = 'light',

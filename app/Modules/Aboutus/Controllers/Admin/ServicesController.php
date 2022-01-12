@@ -5,7 +5,8 @@ namespace App\Modules\Aboutus\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Modules\Aboutus\Models\Service;
 use App\Modules\Aboutus\Requests\ServiceRequest;
-use Illuminate\Support\Facades\DB;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 
 class ServicesController extends Controller {
 
@@ -24,6 +25,7 @@ class ServicesController extends Controller {
         $data['views'] = $this->views;
         $data['row']=$this->model;
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.list') . " " . $this->title;
         $data['page_description'] = trans('services.page description');
         $data['rows'] = $this->model->getData()
@@ -40,6 +42,7 @@ class ServicesController extends Controller {
         $data['views'] = $this->views;
         $data['row']=$this->model;
         $data['row']->is_active=1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.add') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
         return view($this->views . 'create' ,$data);
@@ -60,6 +63,7 @@ class ServicesController extends Controller {
         $data['module_url'] = $this->module_url;
         $data['views'] = $this->views;
         $data['row']=$this->model->findOrFail($id);
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
         return view($this->views . 'edit' ,$data);

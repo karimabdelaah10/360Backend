@@ -15,6 +15,7 @@ return [
     'color' => 'Color Mode',
     'list project details' => 'List Project Details',
     'show in home page' => 'Show In Home Page',
+    'show in home page order' => 'Show In Home Page Order',
     'nextProject' => 'Next Project',
     'previousProject' => 'previous Project',
     'edit sections' => 'Edit Sections',

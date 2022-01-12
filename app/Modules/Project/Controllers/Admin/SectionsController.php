@@ -4,6 +4,8 @@ namespace App\Modules\Project\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Models\Category;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Project\Models\Component;
 use App\Modules\Project\Models\ComponentField;
 use App\Modules\Project\Models\ComponentTemplate;
@@ -135,6 +137,7 @@ class SectionsController extends Controller
             ->with('Components.ComponentTemplate.templateFields')
             ->findOrFail($id);
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['all_projects'] = Project::all()->pluck('name', 'id');
         $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();
         $data['componentsTemplate'] = ComponentTemplate::with('templateFields')->get();

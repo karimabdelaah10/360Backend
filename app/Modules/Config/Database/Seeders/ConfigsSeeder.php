@@ -206,6 +206,12 @@ forward, pivot",
                 'page' => ConfigsEnum::ALL_PAGE,
                 'value' => 1,
             ],
+            [
+                'title' => ConfigsEnum::ALLOW_INSPECT,
+                'type' => ConfigsEnum::BOOL,
+                'page' => ConfigsEnum::ALL_PAGE,
+                'value' => 1,
+            ],
 
         ];
         Config::insert($configs);
