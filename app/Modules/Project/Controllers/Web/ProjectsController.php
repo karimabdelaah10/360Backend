@@ -41,12 +41,23 @@ class ProjectsController extends Controller
 
     public function getSubCategoriesByCategoryId(Category $category)
     {
-        $data['rows'] = Category::ChildCategories($category->id)->whereHas('Projects')->get();
+        $categories = Category::ChildCategories($category->id)->whereHas('Projects')->get();
         $data['categories']=Category::HeaderCategories()->get();
-        $data['page_title']=$category->name. ' Sub Categories';
-        $data['parent'] = $category;
         $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
-        return view($this->views . 'sub_categories' , $data);
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['menu-layout'];
+        if (count($categories)){
+            $data['rows'] = $categories;
+            $data['page_title']=$category->name. ' Sub Categories';
+            $data['parent'] = $category;
+            $data['views'] = 'sub_categories';
+        }else{
+            $data['rows'] = $this->model->where('category_id' , $category->id)->orderBy('id' , 'desc')->get();
+            $data['page_title']=$category->name. 'Projects';
+            $data['parent'] = $category;
+            $data['views'] = 'category-projects';
+        }
+        return view($this->views . $data['views'] , $data);
     }
     public function getCategoryProjects($id = null)
     {

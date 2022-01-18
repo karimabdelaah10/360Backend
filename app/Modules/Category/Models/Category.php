@@ -49,6 +49,7 @@ class Category extends Model
         $query->whereDoesntHave('parent')
               ->where(function ($q) {
                 $q->whereHas('chlids');
+                $q->orWhereHas('Projects');
              })
             ->orderBy("menu_order","DESC");
         return $query;

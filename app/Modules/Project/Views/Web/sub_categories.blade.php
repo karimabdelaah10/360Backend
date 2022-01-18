@@ -5,111 +5,67 @@
 @section('content')
 
 
-    <!-- Section -->
-    <div class="section">
+    <!-- Page Settings -->
+    <div class="page-settings" data-layout="{{@$site_layout ?? 'dark'}}"
+         data-header-style="{{@$menu_layout ?? 'light'}}"
+         data-menu-layout="{{@$menu_layout ?? 'light'}}"></div>
+    <!--/ Page settings -->
 
-        <!-- Wrapper (Small) -->
-        <div class="wrapper-small">
+    <!-- Journal -->
+    <div class="pe-journal">
 
-            <!-- Column -->
-            <div class="c-col-12">
+        <!-- Background Text -->
+        <div class="j-back">{{$parent->name}}</div>
+        <!--/ Background Text -->
 
-                <!-- Text Wrapper -->
-                <div class="text-wrapper has-animation skew-up">
-                    {{--                    <div class="caption">OUR WORKS</div>--}}
-                    <h1 style="font-size: 92px" class="big-title">
-                        {{$parent->name}} <br>
-                    </h1>
+        <!-- Blog Posts -->
+        <div class="pe-blog-posts">
 
-                </div>
-                <!--/ Text Wrapper -->
+            <!-- Post Sizer and Gutter (Don't Touch) -->
+            <div class="pe-blog-sizer"></div>
+            <div class="pe-blog-gutter"></div>
+            <!-- Post Sizer and Gutter (Don't Touch) -->
 
+            <!-- Blog Page Title -->
+            <div class="pe-blog-stamp">
+                <div class="blog-page-title has-animation skew-up">{{$parent->name}}</div>
             </div>
-            <!--/ Column -->
+            <!-- Blog Page Title -->
+            <!-- Post (Sticky) -->
+            @forelse($rows as $row)
+                <div class="pe-post @if($loop->first) stickyxx @endif">
+                    <!-- Post URL --><a href="/category-projects/{{$row->id}}">
 
-        </div>
-        <!--/ Wrapper (Small) -->
+                        <!-- Post Image -->
+                        <div class="pe-post-featured">
+                            <img src="{{image($row->image , 'large')}}" alt="Project Image">
+                        </div>
+                        <!--/ Post Image -->
 
-    </div>
-    <!--/ Section -->
+                        <!-- Post -->
+                        <div class="post-meta">
 
-    <!-- Section -->
-    <div class="section">
+                            <!-- Post Category -->
+                            <div class="post-cat">{{@$category->name}}</div>
+                            <!--/ Post Category -->
 
-        <!-- Wrapper (Fullwidth) -->
-        <div class="wrapper-full">
-
-            <!-- Column -->
-            <div class="c-col-12 no-gap">
-
-                <!-- Portfolio Grid -->
-                <div class="portfolio-grid">
-
-                    <div class="pg-sizer"></div>
-
-                    <!-- Sub Category -->
-                    @forelse($rows as $row)
-                        <div data-scroll class="grid-project">
-
-                            <!-- Project URL --><a href="/category-projects/{{$row->id}}">
-
-                                <!-- Project Meta -->
-                                <div class="grid-project-meta">
-                                    <!-- Project Title-->
-                                    <div class="grid-project-title"
-                                         style="font-size: 2.5em !important; max-width: 600px !important; line-height: 30px !important;">
-                                        {{$row->name}}
-                                    </div>
-                                    <!--/ Project Title-->
-                                </div>
-                                <!--/ Project Meta-->
-
-                                <!-- Project Image-->
-                                <div class="grid-project-image">
-
-                                    <img src="{{image($row->image , 'large')}}" alt="Grid Project Image">
-
-                                </div>
-                                <!--/ Project Image-->
-                            </a>
+                            <!-- Post Title -->
+                            <div class="post-title">
+                                {{$row->name}}.
+                            </div>
+                            <!--/ Post Title -->
 
                         </div>
-                @empty
-                @endforelse
-                <!--/ Sub Category -->
+                        <!--/ Post Meta -->
 
+                    </a>
                 </div>
-                <!--/ Portfolio Grid -->
-
-            </div>
-            <!--/ Column -->
-
+        @empty
+        @endforelse
+        <!--/ Post (Sticky) -->
         </div>
-        <!--/ Wrapper -->
+        <!--/ Blog Posts -->
 
     </div>
-    <!--/ Section -->
-
-    <!-- Section -->
-    <div class="section">
-
-        <!-- Wrapper -->
-        <div class="wrapper-small">
-
-            <!-- Column -->
-            <div class="c-col-12 align-center">
-                <div class="caption has-animation skew-up">SEE SOMETHING MORE</div>
-                <h1 data-delay="0.2" class="big-title has-animation skew-up"><a href="/aboutus" class="underline">About
-                        Us</a></h1>
-
-                <span class="pe-empty-space" style="height: 100px"></span>
-            </div>
-            <!--/ Column -->
-
-        </div>
-        <!--/ Wrapper -->
-
-    </div>
-    <!--/ Section -->
-
+    <!--/ Journal -->
 @endsection

@@ -13,10 +13,11 @@ trait SubCategoryOrder
             if ($model->parent_id != null) {
                 $oldIndex = $model->category_order ?? $model->where('parent_id', $model->parent_id)->count();
                 $newIndex = request()->category_order > $model->where('parent_id', $model->parent_id)->count() ? $model->where('parent_id', $model->parent_id)->count() : request()->category_order;
-
-                DB::table($model->table)->where('id', $model->id)->update(['category_order' => $newIndex]);
-                if ($newIndex != $oldIndex) {
-                    self::reArrangeSubCategoryOrder($oldIndex, $newIndex, $model, 'category_order');
+                if ($newIndex != null){
+                    DB::table($model->table)->where('id', $model->id)->update(['category_order' => $newIndex]);
+                    if ($newIndex != $oldIndex) {
+                        self::reArrangeSubCategoryOrder($oldIndex, $newIndex, $model, 'category_order');
+                    }
                 }
             }
         });
@@ -38,6 +39,16 @@ trait SubCategoryOrder
                 ->where($col, '>', $oldIndex)
                 ->where('id', '!=', $model->id)
                 ->decrement($col);
+        }
+        $rows = DB::table($model->table)->where('parent_id', $model->parent_id)->get();
+        $i = 1;
+        if (count($rows)) {
+            foreach ($rows as $row) {
+                if ($row->$col != $i) {
+                    $row->update([$col => $i]);
+                }
+                $i++;
+            }
         }
     }
 }

@@ -34,6 +34,7 @@
 'id'=>'category-image',
 'placeholder'=>trans('categories.image'),
 ]])
+@if(!$row->id || $row->parent_id == null)
 @include('BaseApp::form.input',
        ['name'=>'menu_order',
        'value'=> $row->menu_order ?? $row->where('parent_id',null)->count() +1 ,
@@ -45,3 +46,4 @@
        'label'=>"Menu Order",
        'placeholder'=>"Menu Order",
        ]])
+@endif

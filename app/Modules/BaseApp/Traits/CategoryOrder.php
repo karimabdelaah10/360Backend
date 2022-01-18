@@ -13,9 +13,11 @@ trait CategoryOrder
             if ($model->parent_id == null) {
                 $oldIndex = $model->menu_order ?? $model->where('parent_id', null)->count();
                 $newIndex = request()->menu_order > $model->where('parent_id', null)->count() ? $model->count() : request()->menu_order;
-                DB::table($model->table)->where('id', $model->id)->update(['menu_order' => $newIndex]);
-                if ($newIndex != $oldIndex) {
-                    self::reArrangeCategoryOrder($oldIndex, $newIndex, $model, 'menu_order');
+                if ($newIndex != null) {
+                    DB::table($model->table)->where('id', $model->id)->update(['menu_order' => $newIndex]);
+                    if ($newIndex != $oldIndex) {
+                        self::reArrangeCategoryOrder($oldIndex, $newIndex, $model, 'menu_order');
+                    }
                 }
             }
         });
@@ -37,6 +39,16 @@ trait CategoryOrder
                 ->where($col, '>', $oldIndex)
                 ->where('id', '!=', $model->id)
                 ->decrement($col);
+        }
+        $rows = DB::table($model->table)->where('parent_id', null)->get();
+        $i = 1;
+        if (count($rows)) {
+            foreach ($rows as $row) {
+                if ($row->$col != $i) {
+                    $row->update([$col => $i]);
+                }
+                $i++;
+            }
         }
     }
 }

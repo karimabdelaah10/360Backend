@@ -15,15 +15,17 @@ trait ProjectInCategoryOrder
                 $newIndex = request()->category_order > $model->where('category_id', $model->category_id)->count() ?
                     $model->where('category_id', $model->category_id)->count() :
                     request()->category_order;
-                DB::table($model->table)->where('id', $model->id)->update(['category_order' => $newIndex]);
-                if ($newIndex != $oldIndex) {
-                    self::reArrangeIndex($oldIndex, $newIndex, $model, 'category_order');
+                if ($newIndex != null) {
+                    DB::table($model->table)->where('id', $model->id)->update(['category_order' => $newIndex]);
+                    if ($newIndex != $oldIndex) {
+                        self::reArrangeProjectInCategoryOrder($oldIndex, $newIndex, $model, 'category_order');
+                    }
                 }
             }
         });
     }
 
-    public static function reArrangeIndex($oldIndex, $newIndex, $model, $col)
+    public static function reArrangeProjectInCategoryOrder($oldIndex, $newIndex, $model, $col)
     {
         if ($oldIndex > $newIndex) {
             DB::table($model->table)
@@ -39,6 +41,16 @@ trait ProjectInCategoryOrder
                 ->where($col, '>', $oldIndex)
                 ->where('id', '!=', $model->id)
                 ->decrement($col);
+        }
+        $rows = DB::table($model->table)->where('category_id', $model->category_id)->get();
+        $i = 1;
+        if (count($rows)) {
+            foreach ($rows as $row) {
+                if ($row->$col != $i) {
+                    $row->update([$col => $i]);
+                }
+                $i++;
+            }
         }
     }
 }

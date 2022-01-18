@@ -5,121 +5,111 @@
 @section('content')
 
 
-    <!-- Page Settings -->
-    <div class="page-settings" data-layout="{{@$site_layout ?? 'dark'}}"
-         data-header-style="{{@$menu_layout ?? 'light'}}"
-         data-menu-layout="{{@$menu_layout ?? 'light'}}"></div>
-    <!--/ Page settings -->
+    <!-- Section -->
+    <div class="section">
 
-    <!-- Journal -->
-    <div class="pe-journal">
+        <!-- Wrapper (Small) -->
+        <div class="wrapper-small">
 
-        <!-- Background Text -->
-        <div class="j-back">Projects</div>
-        <!--/ Background Text -->
+            <!-- Column -->
+            <div class="c-col-12">
 
-        <!-- Blog Posts -->
-        <div class="pe-blog-posts">
+                <!-- Text Wrapper -->
+                <div class="text-wrapper has-animation skew-up">
+                    {{--                    <div class="caption">OUR WORKS</div>--}}
+                    <h1 style="font-size: 92px" class="big-title">
+                        Projects <br>
+                    </h1>
 
-            <!-- Post Sizer and Gutter (Don't Touch) -->
-            <div class="pe-blog-sizer"></div>
-            <div class="pe-blog-gutter"></div>
-            <!-- Post Sizer and Gutter (Don't Touch) -->
-
-            <!-- Blog Page Title -->
-            <div class="pe-blog-stamp">
-                <div class="blog-page-title has-animation skew-up">Projects</div>
-            </div>
-            <!-- Blog Page Title -->
-            <!-- Post (Sticky) -->
-            @forelse($rows as $row)
-                <div class="pe-post @if($loop->first) stickyxx @endif">
-                    <!-- Post URL --><a href="{{route('getProject', $row->id)}}">
-
-                        <!-- Post Image -->
-                        <div class="pe-post-featured">
-                            <img src="{{image($row->image , 'large')}}" alt="Project Image">
-                        </div>
-                        <!--/ Post Image -->
-
-                        <!-- Post -->
-                        <div class="post-meta">
-
-                            <!-- Post Category -->
-                            <div class="post-cat">{{@$category->name}}</div>
-                            <!--/ Post Category -->
-
-                            <!-- Post Title -->
-                            <div class="post-title">
-                                {{$row->name}}.
-                            </div>
-                            <!--/ Post Title -->
-
-                        </div>
-                        <!--/ Post Meta -->
-
-                    </a>
                 </div>
-        @empty
-        @endforelse
-        <!--/ Post (Sticky) -->
+                <!--/ Text Wrapper -->
+
+            </div>
+            <!--/ Column -->
+
         </div>
-        <!--/ Blog Posts -->
+        <!--/ Wrapper (Small) -->
 
     </div>
-    <!--/ Journal -->
+    <!--/ Section -->
 
+    <!-- Section -->
+    <div class="section">
 
+        <!-- Wrapper (Fullwidth) -->
+        <div class="wrapper-full">
 
-    {{--    <!-- Titles (Don't Touch) -->--}}
-    {{--    <div class="list-titles"></div>--}}
-    {{--    <!-- Titles (Don't Touch) -->--}}
+            <!-- Column -->
+            <div class="c-col-12 no-gap">
 
-    {{--    <!-- List Projects -->--}}
-    {{--    <div class="list-images">--}}
-    {{--        <div class="swiper-wrapper">--}}
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid">
 
-    {{--            @forelse($rows  as $element)--}}
-    {{--            <!-- Project -->--}}
-    {{--            <div class="list-image swiper-slide">--}}
+                    <div class="pg-sizer"></div>
 
-    {{--                <!-- Project URL -->--}}
-    {{--                <a href="/project/{{$element->id}}"></a>--}}
-    {{--                <!--/ Project URL -->--}}
+                    <!-- Sub Category -->
+                    @forelse($rows as $row)
+                        <div data-scroll class="grid-project">
 
-    {{--                <!-- Project Title -->--}}
-    {{--                <div class="list-p-title">{{@$element->name}}</div>--}}
-    {{--                <!--/ Project Title -->--}}
+                            <!-- Project URL --><a href="{{route('getProject', $row->id)}}">
 
-    {{--                <!-- Project Metas -->--}}
-    {{--                <div class="list-titles-meta">--}}
-    {{--                    <span>{{@$element->description}}</span>--}}
-    {{--                </div>--}}
-    {{--                <!--/ Project Metas -->--}}
+                                <!-- Project Meta -->
+                                <div class="grid-project-meta">
+                                    <!-- Project Title-->
+                                    <div class="grid-project-title"
+                                         style="font-size: 2.5em !important; max-width: 600px !important; line-height: 30px !important;">
+                                        {{$row->name}}
+                                    </div>
+                                    <!--/ Project Title-->
+                                </div>
+                                <!--/ Project Meta-->
 
-    {{--                <!-- Project image -->--}}
-    {{--                <div class="list-image-wrapper">--}}
-    {{--                    <img src="{{image($element->image , 'large')}}" alt="List Project Image">--}}
-    {{--                </div>--}}
-    {{--                <!--/ Project Image -->--}}
+                                <!-- Project Image-->
+                                <div class="grid-project-image">
 
-    {{--            </div>--}}
-    {{--            <!--/ Project -->--}}
-    {{--            @empty--}}
-    {{--            @endforelse--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-    {{--    <!--/ List Projects -->--}}
+                                    <img src="{{image($row->image , 'large')}}" alt="Grid Project Image">
 
-    {{--    <!-- Page Elements -->--}}
-    {{--    <div class="list-titles-fraction">--}}
-    {{--        <span class="lt-current"></span>--}}
-    {{--        <span class="lt-total"></span>--}}
-    {{--    </div>--}}
-    {{--    <div class="list-carousel-pagination">--}}
-    {{--        <div class="lc-next"><i class="icon-right-open-big"></i></div>--}}
-    {{--        <div class="lc-prev"><i class="icon-left-open-big"></i></div>--}}
-    {{--    </div>--}}
-    {{--    <!--/ Page Elements -->--}}
+                                </div>
+                                <!--/ Project Image-->
+                            </a>
+
+                        </div>
+                @empty
+                @endforelse
+                <!--/ Sub Category -->
+
+                </div>
+                <!--/ Portfolio Grid -->
+
+            </div>
+            <!--/ Column -->
+
+        </div>
+        <!--/ Wrapper -->
+
+    </div>
+    <!--/ Section -->
+
+    <!-- Section -->
+    <div class="section">
+
+        <!-- Wrapper -->
+        <div class="wrapper-small">
+
+            <!-- Column -->
+            <div class="c-col-12 align-center">
+                <div class="caption has-animation skew-up">SEE SOMETHING MORE</div>
+                <h1 data-delay="0.2" class="big-title has-animation skew-up"><a href="/aboutus" class="underline">About
+                        Us</a></h1>
+
+                <span class="pe-empty-space" style="height: 100px"></span>
+            </div>
+            <!--/ Column -->
+
+        </div>
+        <!--/ Wrapper -->
+
+    </div>
+    <!--/ Section -->
 
 @endsection

@@ -14,7 +14,7 @@ trait Order
                 foreach ($model->ordersCols as $col) {
                     $oldIndex = $model->$col ?? $model->count();
                     if (isset(\request()->$col)) {
-                        $newIndex =  request()->$col > $model->count() ? $model->count() : request()->$col;
+                        $newIndex = request()->$col > $model->count() ? $model->count() : request()->$col;
                         DB::table($model->table)->where('id', $model->id)->update([$col => $newIndex]);
                         if ($newIndex != $oldIndex) {
                             self::reArrangeOrder($oldIndex, $newIndex, $model, $col);
@@ -37,6 +37,16 @@ trait Order
                 ->where($col, '>', $oldIndex)
                 ->where('id', '!=', $model->id)
                 ->decrement($col);
+        }
+        $rows = DB::table($model->table)->get();
+        $i = 1;
+        if (count($rows)) {
+            foreach ($rows as $row) {
+                if ($row->$col != $i) {
+                    $row->update([$col => $i]);
+                }
+                $i++;
+            }
         }
     }
 }

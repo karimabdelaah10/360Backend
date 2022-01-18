@@ -1,7 +1,7 @@
 @include('BaseApp::form.input',
         ['name'=>'name',
     'value'=> $row->name ?? null,
-    'type'=>'textarea',
+    'type'=>'text',
     'id'=>'name',
     'attributes'=>['class'=>'form-control',
     'label'=>trans('projects.name'),

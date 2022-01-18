@@ -47,6 +47,14 @@
                                                             <i data-feather="eye" class="mr-50"></i>
                                                             <span>Edit Sub Category Order</span>
                                                         </a>
+                                                    <a class="dropdown-item" href="{{$module_url}}/edit/{{$element->id}}">
+                                                        <i data-feather="edit-2" class="mr-50"></i>
+                                                        <span>{{trans('app.edit')}}</span>
+                                                    </a>
+                                                    <a class="dropdown-item" href="{{$module_url}}/delete/{{$element->id}}">
+                                                        <i data-feather="trash" class="mr-50"></i>
+                                                        <span>{{trans('app.delete')}}</span>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>

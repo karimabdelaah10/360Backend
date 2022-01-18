@@ -68,7 +68,7 @@ class ProjectsController extends Controller
         $data['row']->is_active = 1;
         $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['all_projects'] = Project::all()->pluck('name', 'id');
-        $data['categories'] = Category::whereHas('parent')->pluck('name', 'id');
+        $data['categories'] = Category::pluck('name', 'id');
         $data['page_title'] = trans('app.add') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
 
@@ -98,7 +98,7 @@ class ProjectsController extends Controller
         $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();
         $data['componentsTemplate'] = ComponentTemplate::with('templateFields')->get();
         $data['all_projects'] = Project::all()->pluck('name', 'id');
-        $data['categories'] = Category::whereHas('parent')->pluck('name', 'id');
+        $data['categories'] = Category::pluck('name', 'id');
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
         $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
