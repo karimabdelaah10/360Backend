@@ -29,6 +29,7 @@ class JobsController extends Controller {
             ->pluck('value', 'title');;
         $data['row']->is_active = 1;
         $data['page_title'] = $this->title;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_description'] = trans('jobs.page description');
         $data['rows'] = $this->model->getData()->orderBy("id","DESC")->paginate(request('per_page'));
                 $data['categories']=Category::HeaderCategories()->get();

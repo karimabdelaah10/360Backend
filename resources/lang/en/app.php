@@ -56,5 +56,6 @@ return [
     'Projects'=>'Projects',
     'categories'=>'Categories',
     'Categories'=>'Categories',
-    'under_construction_mode'=>'Under Construction Mode'
+    'under_construction'=>'Under Construction Mode',
+    'allow_inspect'=>'Allow Inspect'
 ];

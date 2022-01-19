@@ -15,6 +15,7 @@ class UpdateProjectsTableAddHomepageOrderCol extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             $table->integer('homepage_order')->after('homepage')->nullable();
+            $table->integer('category_order')->after('homepage_order')->default(0);
         });
     }
 

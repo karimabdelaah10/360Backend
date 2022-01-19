@@ -35,16 +35,29 @@ class ProjectsController extends Controller
                 $data['categories']=Category::HeaderCategories()->get();
         $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
             ->pluck('value', 'title');
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         return view($this->views . 'index' , $data);
     }
 
     public function getSubCategoriesByCategoryId(Category $category)
     {
-        $data['rows'] = Category::ChildCategories($category->id)->whereHas('Projects')->get();
+        $categories = Category::ChildCategories($category->id)->whereHas('Projects')->get();
         $data['categories']=Category::HeaderCategories()->get();
-        $data['page_title']=$category->name. ' Sub Categories';
-        $data['parent'] = $category;
-        return view($this->views . 'sub_categories' , $data);
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['menu-layout'];
+        if (count($categories)){
+            $data['rows'] = $categories;
+            $data['page_title']=$category->name. ' Sub Categories';
+            $data['parent'] = $category;
+            $data['views'] = 'sub_categories';
+        }else{
+            $data['rows'] = $this->model->where('category_id' , $category->id)->orderBy('id' , 'desc')->get();
+            $data['page_title']=$category->name. 'Projects';
+            $data['parent'] = $category;
+            $data['views'] = 'category-projects';
+        }
+        return view($this->views . $data['views'] , $data);
     }
     public function getCategoryProjects($id = null)
     {
@@ -54,7 +67,7 @@ class ProjectsController extends Controller
             $data['rows'] =$this->model->where('category_id' , $id)->orderBy('id' , 'desc')->get();
         }else{
             $category_name = 'All';
-            $data['rows'] =$this->model->orderBy('id' , 'desc')->get();
+            $data['rows'] =$this->model->orderBy('category_order' , 'desc')->get();
         }
         $data['categories']=Category::HeaderCategories()->get();
         $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
@@ -62,6 +75,7 @@ class ProjectsController extends Controller
         $data['category_config'] = Config::where('page' , ConfigsEnum::PROJECT_CATEGORY_PAGE)
             ->pluck('value', 'title');
         $data['page_title']=$category_name. ' Projects';
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['site-layout'];
         $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['menu-layout'];
 
@@ -91,7 +105,7 @@ class ProjectsController extends Controller
 
         $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['row']->colorSchema]['site-layout'];
         $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['row']->colorSchema]['menu-layout'];
-
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         return view($this->views . 'project', $data);
     }
 

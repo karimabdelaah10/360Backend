@@ -3,13 +3,14 @@
 namespace App\Modules\Project\Models;
 
 use App\Modules\BaseApp\Traits\HasAttach;
+use App\Modules\BaseApp\Traits\Order;
+use App\Modules\BaseApp\Traits\ProjectInCategoryOrder;
 use App\Modules\Category\Models\Category;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use HasAttach;
+    use HasAttach, Order ,ProjectInCategoryOrder;
 
     protected static $attachFields = [
         'image' => [
@@ -19,10 +20,11 @@ class Project extends Model
     ];
 
     protected $fillable = ['name', 'sub_title', 'description', 'image',
-        'colorSchema', 'category_id', 'homepage', 'homepage_order',
+        'colorSchema', 'category_id', 'homepage',
         'next_project',
         'previous_project'
     ];
+    protected $ordersCols = ['homepage_order'];
 
     protected $with = ['PreviousProject', 'NextProject'];
 

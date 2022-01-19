@@ -37,7 +37,7 @@
     @include('BaseApp::form.switch',['name'=>$row->id,
     'value'=> $row->value ?? null,
          'attributes'=>['id'=>'is_verified','class'=>'form-control',
-         'label'=>trans('app.under_construction_mode'),
+         'label'=>trans('app.'.$row->title),
          'required'=>1]
          ])
     @endif

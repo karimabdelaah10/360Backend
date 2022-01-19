@@ -3,6 +3,8 @@
 namespace App\Modules\Users\Controllers;
 
 use App\Modules\Cars\Car;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Products\Models\Product;
 use App\Modules\Users\Adminproduct;
 use App\Modules\Users\Enums\UserEnum;
@@ -37,6 +39,7 @@ class AdminsController extends Controller
         $data['row']->is_active = 1;
         $data['page_title'] = trans('app.list') . ' ' . $this->title;
         $data['page_description'] = trans('admin.page description');
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['rows'] = $this->model->getData()->Admin()->latest()->paginate(request('per_page'));
 
         return view($this->views . '.index', $data);
@@ -50,6 +53,7 @@ class AdminsController extends Controller
         $data['breadcrumb'] = [$this->title => $this->module_url];
         $data['row'] = $this->model;
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         return view($this->views . '.create', $data);
     }
     public function postCreate(CreateUserRequest $request)
@@ -72,6 +76,7 @@ class AdminsController extends Controller
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
         $data['row'] = $this->model->Admin()->findOrFail($id);
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         return view($this->views . '.edit', $data);
     }
     public function postEdit(UpdateUserRequest $request, $id)
@@ -93,6 +98,7 @@ class AdminsController extends Controller
         $data['page_title'] = trans('app.view') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
         $data['row'] = $this->model->Admin()->findOrFail($id);
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         return view($this->views . '.view', $data);
     }
     public function getDelete($id)
@@ -119,6 +125,7 @@ class AdminsController extends Controller
         $data['row']->admin = User::findOrFail($id);
         $data['row']->products = Product::whereNotIn('id' , $ids)
             ->orderBy('id' ,'desc')->pluck('title' ,'id');
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
 
         return view($this->views . '.add-product', $data);
     }

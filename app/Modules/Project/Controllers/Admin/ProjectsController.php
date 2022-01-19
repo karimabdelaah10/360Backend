@@ -4,6 +4,8 @@ namespace App\Modules\Project\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Category\Models\Category;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Project\Models\ComponentTemplate;
 use App\Modules\Project\Models\Project;
 use App\Modules\Project\Requests\ProjectsRequest;
@@ -28,6 +30,7 @@ class ProjectsController extends Controller
         $data['views'] = $this->views;
         $data['row'] = $this->model;
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.list') . " " . $this->title;
         $data['page_description'] = trans('projects.page description');
         $data['rows'] = $this->model->getData()
@@ -51,6 +54,7 @@ class ProjectsController extends Controller
         $data['categories'] = Category::all()->pluck('name', 'id');
         $data['page_title'] = trans('app.view') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         return view($this->views . 'view', $data);
     }
 
@@ -62,8 +66,9 @@ class ProjectsController extends Controller
         $data['views'] = $this->views;
         $data['row'] = $this->model;
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['all_projects'] = Project::all()->pluck('name', 'id');
-        $data['categories'] = Category::whereHas('parent')->pluck('name', 'id');
+        $data['categories'] = Category::pluck('name', 'id');
         $data['page_title'] = trans('app.add') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
 
@@ -73,16 +78,8 @@ class ProjectsController extends Controller
     public function postCreate(ProjectsRequest $request)
     {
         $currentIndex = Project::count() + 1;
-        $newIndex = $request->homepage_order;
         $request['homepage'] = $request->homepage ? 1 : 0;
         if ($project = $this->model->create($request->all())) {
-            reArrangeIndex(
-                $currentIndex,
-                $newIndex,
-                $project->id,
-                $this->model,
-                'homepage_order'
-            );
             flash(trans('app.created successfully'))->success();
             return redirect($this->module_url . '/complete/' . $project->id);
         }
@@ -101,9 +98,10 @@ class ProjectsController extends Controller
         $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();
         $data['componentsTemplate'] = ComponentTemplate::with('templateFields')->get();
         $data['all_projects'] = Project::all()->pluck('name', 'id');
-        $data['categories'] = Category::whereHas('parent')->pluck('name', 'id');
+        $data['categories'] = Category::pluck('name', 'id');
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
 
         return view($this->views . 'edit', $data);
     }
@@ -113,16 +111,7 @@ class ProjectsController extends Controller
     {
         $request['homepage'] = $request->homepage ? 1 : 0;
         $row = $this->model->findOrFail($id);
-        $currentIndex = $row->homepage_order;
-        $newIndex = $request->homepage_order;
         if ($row->update($request->all())) {
-            reArrangeIndex(
-                $currentIndex,
-                $newIndex,
-                $row->id,
-                $this->model,
-                'homepage_order'
-            );
             flash(trans('app.update successfully'))->success();
             return back();
         }
@@ -146,6 +135,7 @@ class ProjectsController extends Controller
             ->with('Sections.Components.Fields')
             ->with('Sections.Components.ComponentTemplate.templateFields')
             ->findOrFail($id);
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['row']->is_active = 1;
         $data['all_projects'] = $this->model->all()->pluck('name', 'id');
         $data['wrappers_type'] = SectionsController::getSectionWrapperTypes();

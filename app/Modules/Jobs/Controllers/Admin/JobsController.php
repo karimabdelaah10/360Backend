@@ -3,6 +3,8 @@
 namespace App\Modules\Jobs\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Config\Enums\ConfigsEnum;
+use App\Modules\Config\Models\Config;
 use App\Modules\Jobs\Models\Job;
 use App\Modules\Jobs\Requests\JobsRequest;
 
@@ -23,6 +25,7 @@ class JobsController extends Controller {
         $data['views'] = $this->views;
         $data['row']=$this->model;
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.list') . " " . $this->title;
         $data['page_description'] = trans('jobs.page description');
         $data['rows'] = $this->model->getData()->orderBy("id","DESC")->paginate(request('per_page'));
@@ -36,6 +39,7 @@ class JobsController extends Controller {
         $data['views'] = $this->views;
         $data['row']=$this->model;
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.add') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
 
@@ -55,6 +59,7 @@ class JobsController extends Controller {
         $data['views'] = $this->views;
         $data['row']=$this->model->findOrFail($id);
         $data['row']->is_active = 1;
+        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['page_title'] = trans('app.edit') . " " . $this->title;
         $data['breadcrumb'] = [$this->title => $this->module_url];
 
