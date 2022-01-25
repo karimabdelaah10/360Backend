@@ -44,6 +44,8 @@ class ProjectsController extends Controller
         $categories = Category::ChildCategories($category->id)->whereHas('Projects')->get();
         $data['categories']=Category::HeaderCategories()->get();
         $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
+        $data['category_config'] = Config::where('page' , ConfigsEnum::PROJECT_CATEGORY_PAGE)
+            ->pluck('value', 'title');
         $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['site-layout'];
         $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['category_config'][ConfigsEnum::PROJECT_CATEGORY_COLOR_SCHEMA]]['menu-layout'];
         if (count($categories)){
