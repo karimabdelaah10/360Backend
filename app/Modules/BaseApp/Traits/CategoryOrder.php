@@ -40,12 +40,13 @@ trait CategoryOrder
                 ->where('id', '!=', $model->id)
                 ->decrement($col);
         }
-        $rows = DB::table($model->table)->where('parent_id', null)->get();
+        $rows = DB::table($model->table)->where('parent_id', '=', null)->orderBy($col, 'asc')->get();
         $i = 1;
         if (count($rows)) {
             foreach ($rows as $row) {
                 if ($row->$col != $i) {
-                    $row->update([$col => $i]);
+                    DB::table($model->table)->where('id', '=', $row->id)->update([$col => $i]);
+//                    $row->update([$col => $i]);
                 }
                 $i++;
             }

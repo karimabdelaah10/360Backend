@@ -204,7 +204,7 @@ forward, pivot",
                 'title' => ConfigsEnum::UNDER_CONSTRUCTION,
                 'type' => ConfigsEnum::BOOL,
                 'page' => ConfigsEnum::ALL_PAGE,
-                'value' => 1,
+                'value' => 0,
             ],
             [
                 'title' => ConfigsEnum::ALLOW_INSPECT,

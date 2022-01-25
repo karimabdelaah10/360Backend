@@ -37,10 +37,10 @@
 @if(!$row->id || $row->parent_id == null)
 @include('BaseApp::form.input',
        ['name'=>'menu_order',
-       'value'=> $row->menu_order ?? $row->where('parent_id',null)->count() +1 ,
+       'value'=> $row->menu_order ?? $row->where('parent_id','=',null)->count() +1 ,
        'type'=>'number',
        'attributes'=>['class'=>'form-control',
-       'max'=> $row->id ? $row->where('parent_id',null)->count() :$row->where('parent_id',null)->count() +1 ,
+       'max'=> $row->id ? $row->where('parent_id','=',null)->count() :$row->where('parent_id','=',null)->count() +1 ,
        'min'=>1,
        'id'=>'menu_order',
        'label'=>"Menu Order",

@@ -6,6 +6,7 @@ use App\Modules\Project\Models\ComponentTemplate;
 use App\Modules\Project\Models\ComponentTemplateField;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Exception;
 
 class ComponentsTemplateFieldsSeeder extends Seeder
 {
@@ -48,11 +49,11 @@ class ComponentsTemplateFieldsSeeder extends Seeder
 
             ],
 
-            [
-                'name' => 'nextProject',
-                'fields' => ['select']
-
-            ],
+//            [
+//                'name' => 'nextProject',
+//                'fields' => ['select']
+//
+//            ],
 
             [
                 'name' => 'one_image_l',
@@ -122,18 +123,19 @@ class ComponentsTemplateFieldsSeeder extends Seeder
         ];
 
         foreach ($componentsTemplateFields as $componentsTemplateField) {
-            $componentTemplateId = ComponentTemplate::where('name', $componentsTemplateField['name'])->get('id');
+            $componentTemplateId = ComponentTemplate::where('name', $componentsTemplateField['name'])->get();
             $i = 1;
 
-            foreach ($componentsTemplateField['fields'] as $field) {
-                $element = [
-                    'type' => $field,
-                    'name' => $field,
-                    'order' => $i++,
-                    'component_template_id' => $componentTemplateId[0]->id,
-                ];
-                ComponentTemplateField::create($element);
-            }//end foreach
+                foreach ($componentsTemplateField['fields'] as $field) {
+                    $element = [
+                        'type' => $field,
+                        'name' => $field,
+                        'order' => $i++,
+                        'component_template_id' => $componentTemplateId[0]->id,
+                    ];
+                    ComponentTemplateField::create($element);
+                }//end foreach
+
 
         }//end foreach
 

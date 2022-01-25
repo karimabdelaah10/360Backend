@@ -76,7 +76,7 @@ class ProjectsController extends Controller
     }
 
     public function postCreate(ProjectsRequest $request)
-    {
+    {-
         $currentIndex = Project::count() + 1;
         $request['homepage'] = $request->homepage ? 1 : 0;
         if ($project = $this->model->create($request->all())) {
