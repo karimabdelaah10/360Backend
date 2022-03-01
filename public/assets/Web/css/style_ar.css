@@ -3610,7 +3610,8 @@ h5.cyg_widget-title {
 }
 
 .layout-dark .grid-project-title {
-    color: #ededed
+    color: #ededed;
+    text-shadow: #222 2px 2px 1px;
 }
 
 
