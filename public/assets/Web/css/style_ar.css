@@ -6790,7 +6790,7 @@ h5.cyg_widget-title {
 .project-header.light .project-meta div {
 
     color: #ededed;
-
+    text-shadow: #222 1px 1px 1px;
 }
 
 .projects-nav {
