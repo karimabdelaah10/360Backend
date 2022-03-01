@@ -6,7 +6,7 @@
 
         {{--                <div class="caption">CLIENT SAYS:</div>--}}
 
-        <h1 class="thin has-animation lines-up " style="">
+        <h1 class="thin has-animation slide-top text-justify " style="">
             {{@$component->Fields[0]->value}}
         </h1>
 
