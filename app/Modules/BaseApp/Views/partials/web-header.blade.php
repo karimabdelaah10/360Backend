@@ -112,7 +112,7 @@
         <!--/ Menu Widget (Left) -->
 
         <!-- Menu Widget (Middle) -->
-        <div class="menu-widget-wrapper mww-2">
+        <div class="menu-widget-wrapper mww-2" style="bottom: -4%">
             <div class="scrolling-button">
                 <a href="mailto:{{@$about_us['email']}}">{{@$about_us['email']}}</a>
             </div>
