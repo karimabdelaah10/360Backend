@@ -33,7 +33,7 @@
             <!-- Blog Page Title -->
             <!-- Post (Sticky) -->
             @forelse($rows as $row)
-                <div class="pe-post @if($loop->first) stickyxx @endif">
+                <div class="pe-post @if($loop->first) sticky @endif">
                     <!-- Post URL --><a href="/category-projects/{{$row->id}}">
 
                         <!-- Post Image -->

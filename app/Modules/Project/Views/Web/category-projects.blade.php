@@ -57,7 +57,7 @@
                                 <div class="grid-project-meta">
                                     <!-- Project Title-->
                                     <div class="grid-project-title"
-                                         style="font-size: 2.5em !important; max-width: 600px !important; line-height: 50px !important;">
+                                         style="font-size: 2em !important;text-transform: none; max-width: 600px !important; line-height: 50px !important;">
                                         {{$row->name}}
                                     </div>
                                     <!--/ Project Title-->

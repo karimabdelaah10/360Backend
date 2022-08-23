@@ -44,7 +44,7 @@ class ConfigsSeeder extends Seeder
                 'title' => ConfigsEnum::EMAIL,
                 'type' => ConfigsEnum::EMAIL,
                 'page' => ConfigsEnum::CONTACT_PAGE,
-                'value' => 'hello@pethemes.com',
+                'value' => 'contact@360architects.net',
             ],
 
             [
