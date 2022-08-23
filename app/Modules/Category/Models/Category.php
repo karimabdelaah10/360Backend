@@ -51,7 +51,7 @@ class Category extends Model
                 $q->whereHas('chlids');
                 $q->orWhereHas('Projects');
              })
-            ->orderBy("menu_order","DESC");
+            ->orderBy("menu_order","asc");
         return $query;
     }
 
