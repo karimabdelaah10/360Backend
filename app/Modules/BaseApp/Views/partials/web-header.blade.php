@@ -51,7 +51,7 @@
                 <li class="menu-item has-children">
                     <a href="#" class="menu-item-lable">Projects</a>
                     <!-- Sub Menu -->
-                    <ul class="sub-menu">
+                    <ul class="sub-menu" style="z-index: 1000">
                         <li class="menu-item menu-item-active">
                             <a href="/category-projects/">All</a>
                         </li>
