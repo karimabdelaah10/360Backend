@@ -49,7 +49,7 @@ Vue.component('paragraph_l', require('./components/paragraph_l.vue').default);
 Vue.component('paragraph_r', require('./components/paragraph_r.vue').default);
 Vue.component('slider', require('./components/slider.vue').default);
 Vue.component('title_l_pragraph_r', require('./components/title_l_pragraph_r.vue').default);
-Vue.component('next-project', require('./components/NextProject').default);
+Vue.component('next-project', require('./components/nextProject').default);
 
 
 /**

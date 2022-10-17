@@ -32,7 +32,7 @@
 
 <script>
 export default {
-    name: "next-project"
+    name: "nextProject"
 }
 </script>
 

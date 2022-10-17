@@ -35,10 +35,6 @@ mix.styles([
 ], 'public/assets/Admin/css/auth.css');
 
 
-
-
-
-
 mix.js('resources/js/app.js', 'public/assets/Admin/js/vendors.js')
     .vue()
     .sass('resources/sass/app.scss', 'public/assets/Admin/css/en_vendors.css');
@@ -52,3 +48,19 @@ mix.js([
         'resources/js/libs/app-todo.min.js'
     ],
     'public/assets/Admin/js/scripts.js');
+
+
+mix.styles([
+    'public/assets/Web/css/entypo.css',
+    'public/assets/Web/css/style.css',
+    'public/assets/Admin/css/plugins.css',
+], 'public/assets/Web/css/style2.css');
+
+mix.js([
+    'public/assets/Web/js/jquery.min.js',
+    'public/assets/Web/js/jquery-ui.js',
+    'public/assets/Web/js/jquery.smoothState.js',
+    'public/assets/Web/js/plugins.js',
+    'public/assets/Web/js/page-transitions.js',
+    'public/assets/Web/js/scripts.js',
+], 'public/assets/Web/js/scripts2.js');
