@@ -51,9 +51,9 @@ mix.js([
 
 
 mix.styles([
+    'public/assets/Admin/css/plugins.css',
     'public/assets/Web/css/entypo.css',
     'public/assets/Web/css/style.css',
-    'public/assets/Admin/css/plugins.css',
 ], 'public/assets/Web/css/style2.css');
 
 mix.js([
