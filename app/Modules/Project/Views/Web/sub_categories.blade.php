@@ -4,7 +4,6 @@
 @endsection
 @section('content')
 
-
     <!-- Page Settings -->
     <div class="page-settings" data-layout="{{@$site_layout ?? 'dark'}}"
          data-header-style="{{@$menu_layout ?? 'light'}}"
@@ -33,7 +32,11 @@
             <!-- Blog Page Title -->
             <!-- Post (Sticky) -->
             @forelse($rows as $row)
-                <div class="pe-post @if($loop->first) sticky @endif">
+                <div class="pe-post
+                @if($loop->first)
+                sticky
+@endif"
+                >
                     <!-- Post URL --><a href="/category-projects/{{$row->id}}">
 
                         <!-- Post Image -->
@@ -60,9 +63,9 @@
 
                     </a>
                 </div>
-        @empty
-        @endforelse
-        <!--/ Post (Sticky) -->
+            @empty
+            @endforelse
+            <!--/ Post (Sticky) -->
         </div>
         <!--/ Blog Posts -->
 

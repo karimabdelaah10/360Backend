@@ -27,7 +27,7 @@
             </div>
             <!--/ Project Image -->
 
-            <div class="" style="position: relative;left: 6.5%;bottom: 18.5%;">
+            <div class="project-top">
 
             {{--                <!-- Project Category -->--}}
             {{--                <div data-delay=".2" class="project-work has-animation skew-down">--}}
@@ -36,7 +36,7 @@
             {{--                <!-- Project Category -->--}}
 
             <!-- Project Title -->
-                <div class="project-title has-animation skew-up" style="font-size:3em ">
+                <div class="project-title has-animation skew-up">
                     {{$row->name}}
                 </div>
                 <!-- Project Title -->

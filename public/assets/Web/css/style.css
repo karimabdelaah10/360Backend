@@ -6388,8 +6388,8 @@ h5.cyg_widget-title {
 
 
 .sticky .post-meta {
-    position: absolute;
-    bottom: 30px;
+    /*position: absolute;*/
+    /*bottom: 30px;*/
 
 }
 
@@ -8261,11 +8261,17 @@ section:after {
     }
 
     h1.big-title {
-        font-size: 55px;
+        font-size: 30px !important;
         line-height: 70px;
-        margin-bottom: 35px;
+        margin-bottom: 0px;
     }
 
+    .section {
+        width: 100%;
+        margin-bottom: 0px;
+        position: relative;
+
+    }
     .menu {
         position: absolute;
         top: 50%;
@@ -8656,7 +8662,7 @@ section:after {
     }
 
     .page-content {
-        margin-top: 170px;
+        margin-top: 110px;
     }
 
     br {
@@ -8734,7 +8740,7 @@ section:after {
     }
 
     .project-header {
-        height: auto;
+        height: 27vh;
         margin-bottom: 50px
     }
 
@@ -8768,7 +8774,7 @@ section:after {
 
 
     .project-title {
-        font-size: 55px;
+        font-size: 30px !important;
         line-height: 70px;
     }
 
@@ -8853,13 +8859,13 @@ section:after {
     }
 
     .blog-page-title {
-        font-size: 70px;
+        font-size: 30px;
         line-height: 85px;
     }
 
     .pe-post.sticky {
         margin-bottom: 50px;
-        margin-top: 100px;
+        margin-top: 0px;
     }
 
     .pe-post {
@@ -8910,7 +8916,7 @@ section:after {
 
 
     .pe-blog-stamp {
-        top: 15vh;
+        top: 2vh;
         width: 100%;
         margin-bottom: 0;
     }

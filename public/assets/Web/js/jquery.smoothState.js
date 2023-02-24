@@ -331,8 +331,7 @@
           $page = $('#' + e.state.id),
           page = $page.data('smoothState'),
           diffUrl = (page.href !== url && !utility.isHash(url, page.href)),
-          diffState = (e.state !== page.cache[page.href].state);
-
+          diffState = (e.state !== (page.cache[page.href] ? page.cache[page.href].stat : null));
         if(diffUrl || diffState) {
           if (diffState) {
             page.clear(page.href);
@@ -488,7 +487,7 @@
               if (options.scroll) {
                 repositionWindow();
               }
-              
+
               bindPrefetchHandlers($container);
 
             });
@@ -734,18 +733,18 @@
         setRateLimitRepeatTime = function () {
           rateLimitRepeatTime = parseInt(Date.now()) + parseInt(options.repeatDelay);
         },
-        
+
         /**
          * Binds prefetch events
          * @param   {object}    event
          */
         bindPrefetchHandlers = function ($element) {
-            		
+
           if (options.anchors && options.prefetch) {
             $element.find(options.anchors).not(options.prefetchBlacklist).on(options.prefetchOn, null, hoverAnchor);
           }
         },
-		
+
         /**
          * Binds all events and inits functionality
          * @param   {object}    event
