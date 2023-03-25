@@ -54,7 +54,7 @@
 <script src="/assets/Web/js/scripts.js?version={{rand(1,999)}}"></script>
 <script src="/assets/Web/js/jquery.smoothState.js?version={{rand(1,999)}}"></script>
 <script src="/assets/Web/js/page-transitions.js?version={{rand(1,999)}}"></script>
-@if(isset($allow_inspect))
+@if(isset($allow_inspect) && $allow_inspect == 1)
     <script>
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
