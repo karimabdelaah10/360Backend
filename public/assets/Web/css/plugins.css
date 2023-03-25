@@ -296,6 +296,7 @@
 .icon-spotify-circled:before { content: "\f328"; } /* '\f328' */
 .icon-qq:before { content: "\f32a"; } /* '\f32a' */
 .icon-instagrem:before { content: "\f32d"; } /* '\f32d' */
+.icon-whatsapp:before { content: "\uf232"; } /* '\uf232' */
 .icon-dropbox:before { content: "\f330"; } /* '\f330' */
 .icon-evernote:before { content: "\f333"; } /* '\f333' */
 .icon-flattr:before { content: "\f336"; } /* '\f336' */

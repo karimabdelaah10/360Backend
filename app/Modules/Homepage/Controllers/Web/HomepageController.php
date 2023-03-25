@@ -20,30 +20,42 @@ class HomepageController extends Controller
 
     public function getIndex()
     {
-        $data['categories'] = Category::HeaderCategories()->get();
-        $data['about_us'] = Config::where('page', ConfigsEnum::CONTACT_PAGE)
+        $configs = Config::query()->where('page', ConfigsEnum::CONTACT_PAGE)
+            ->orWhere('title', ConfigsEnum::ALLOW_INSPECT)
+            ->orWhere('title', ConfigsEnum::HOME_PAGE_COLOR_SCHEMA)
+            ->orWhere('title', ConfigsEnum::KEYWORDS)
+            ->orWhere('title', ConfigsEnum::DESCRIPTION)
             ->pluck('value', 'title');
+
+        $data['allow_inspect'] = $configs[ConfigsEnum::ALLOW_INSPECT];
+        unset($configs[ConfigsEnum::ALLOW_INSPECT]);
+        $data['color'] = $configs[ConfigsEnum::HOME_PAGE_COLOR_SCHEMA];
+        unset($configs[ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]);
+        $data['keywords'] = $configs[ConfigsEnum::KEYWORDS];
+        unset($configs[ConfigsEnum::KEYWORDS]);
+         $data['description'] = $configs[ConfigsEnum::DESCRIPTION];
+        unset($configs[ConfigsEnum::DESCRIPTION]);
+
+        $data['about_us'] = $configs;
+        $data['categories'] = Category::HeaderCategories()->get();
         $data['rows'] = Project::HomePageProjects()
             ->orderBy('homepage_order', 'asc')
             ->get();
         if (!count($data['rows'])) {
             return redirect(route('getAboutUS'));
         }
-        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
-        $data['color'] = Config::where('page', ConfigsEnum::HOME_PAGE)->pluck('value', 'title');;
-        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['color'][ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]]['site-layout'];
-        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['color'][ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]]['menu-layout'];
-
+        $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['color']]['site-layout'];
+        $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['color']]['menu-layout'];
         return view($this->views . 'index', $data);
     }
 
     public function getUnderConstruction()
     {
         $underConstruction = Config::where('title', ConfigsEnum::UNDER_CONSTRUCTION)->first();
-        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
+        $data['allow_inspect'] = Config::where('title', ConfigsEnum::ALLOW_INSPECT)->first();
         if ($underConstruction && !$underConstruction->value) {
             return redirect(route('homepage'));
         }
-        return view('under_construction' , $data);
+        return view('under_construction', $data);
     }
 }

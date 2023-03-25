@@ -30,6 +30,10 @@ return [
 
     'vision_description'=>'Vision Description',
     'youtube_video_embed_id'=>'Youtube Video Embed Id ',
+    'whatsapp_mobile'=>'Whatsapp Mobile',
+    'whatsapp_message'=>'Whatsapp Message',
+    'keywords'=>'Website Keywords',
+    'description'=>'Website Description',
 
     ''=>''
 ];

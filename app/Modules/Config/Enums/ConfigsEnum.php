@@ -17,9 +17,10 @@ abstract class ConfigsEnum
 
         CONTACT_PAGE_TITLE = 'contact_us_page_title',
         CONTACT_PAGE_DESCRIPTION = 'contact_us_page_description',
-
         ABOUT_PAGE_TITLE = 'about_us_page_title',
         ABOUT_PAGE_DESCRIPTION = 'about_us_page_description',
+        KEYWORDS = 'keywords',
+        DESCRIPTION = 'description',
 
         JOBS_PAGE_TITLE = 'jobs_page_title',
 

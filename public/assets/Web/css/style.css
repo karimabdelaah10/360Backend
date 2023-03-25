@@ -4961,6 +4961,28 @@ h5.cyg_widget-title {
     transform-origin: top;
 }
 
+.contact-url{
+    position: absolute;
+    z-index: 2;
+    right: 20%;
+    top: 45%;
+    -webkit-transform: translateX(-50%) rotate(45deg) translateY(-50%);
+    -ms-transform: translateX(-50%) rotate(45deg) translateY(-50%);
+    transform: translateX(-50%) rotate(45deg) translateY(-50%);
+    color: rgba(24, 25, 25, 0.52);
+    width: 130px;
+    height: 130px;
+    pointer-events: all;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.contact-url-icon{
+    -webkit-transform: rotate(-45deg) translateY(30%) translateX(6%);
+    -ms-transform:  rotate(-45deg) translateY(30%) translateX(6%);
+   }
 .project-url .bsb-link {
     position: absolute;
     top: 50%;
