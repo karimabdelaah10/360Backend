@@ -1,19 +1,19 @@
 <!-- Loading Text -->
-{{--<div class="loading-text">Loading</div>--}}
+<div class="loading-text">Loading</div>
 <!-- Loading Text -->
 
 <!-- Lines (Don't Touch) -->
-{{--<div class="lines"></div>--}}
+<div class="lines"></div>
 <!-- /Lines -->
 
 <!-- Page Loader -->
-{{--<div class="cygni-loader">--}}
-{{--    <div class="counter" data-count="99">00</div>--}}
-{{--</div>--}}
+<div class="cygni-loader">
+    <div class="counter" data-count="99">00</div>
+</div>
 <!-- /Page Loader -->
 
 <!-- Overlays (Don't Touch) -->
-{{--<div class="overlays"></div>--}}
+<div class="overlays"></div>
 <!-- /Overlays -->
 
 
