@@ -3,19 +3,7 @@
 
 <head>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="{{$description ?? ''}}.">
-    <meta name="keywords" content="{{$keywords ?? ''}}">
-
-    <meta property="og:site_name" content="{{appName()}} | @yield('page-title')">
-    <meta property="og:title" content="{{appName()}} | @yield('page-title')" />
-    <meta property="og:description" content="{{$description ?? ''}}" />
-    <meta property="og:image" itemprop="image" content="{{url('/assets/Web/images/logo_gold.png')}}">
-    <meta property="og:type" content="website" />
-
-    <!-- Page Title -->
-    <title>{{appName()}} | @yield('page-title')</title>
-    <!--/ Page Title -->
+    @include('BaseApp::partials.web-meta-tags')
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,600,700&display=swap" rel="stylesheet">
 
     <link href="/assets/Web/css/plugins.css?version={{rand(1,999)}}" rel="stylesheet">

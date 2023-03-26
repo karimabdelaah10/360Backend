@@ -2,16 +2,7 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-
-    <!-- Page Title -->
-    <title>{{appName()}} | @yield('page-title')</title>
-    <!--/ Page Title -->
-
-    <meta name="author" content="Pe Themes">
-    <meta name="description" content="Interactive Portfolio Showcase Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('BaseApp::partials.web-meta-tags')
 
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,600,700&display=swap" rel="stylesheet">
 
@@ -50,7 +41,7 @@
 <script src="/assets/Web/js/plugins.js?version={{rand(1,999)}}"></script>
 <script src="/assets/Web/js/scripts.js?version={{rand(1,999)}}"></script>
 @stack('web_js')
-@if(isset($allow_inspect) && !$allow_inspect->value)
+@if(isset($allow_inspect) && $allow_inspect ==1)
     <script>
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
