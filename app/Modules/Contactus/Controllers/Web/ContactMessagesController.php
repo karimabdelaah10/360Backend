@@ -20,23 +20,33 @@ class ContactMessagesController extends Controller {
     }
 
     public function getIndex() {
+        $configs = Config::query()->where('page', ConfigsEnum::CONTACT_PAGE)
+            ->orWhere('title', ConfigsEnum::ALLOW_INSPECT)
+            ->orWhere('title', ConfigsEnum::HOME_PAGE_COLOR_SCHEMA)
+            ->orWhere('title', ConfigsEnum::KEYWORDS)
+            ->orWhere('title', ConfigsEnum::DESCRIPTION)
+            ->pluck('value', 'title');
+
+        $data['allow_inspect'] = $configs[ConfigsEnum::ALLOW_INSPECT];
+        unset($configs[ConfigsEnum::ALLOW_INSPECT]);
+        $data['color'] = $configs[ConfigsEnum::HOME_PAGE_COLOR_SCHEMA];
+        unset($configs[ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]);
+        $data['keywords'] = $configs[ConfigsEnum::KEYWORDS];
+        unset($configs[ConfigsEnum::KEYWORDS]);
+        $data['description'] = $configs[ConfigsEnum::DESCRIPTION];
+        unset($configs[ConfigsEnum::DESCRIPTION]);
+
+        $data['about_us'] = $configs;
+        $data['rows'] = $configs;
         $data['row']=$this->model;
         $data['row']->is_active = 1;
-        $data['rows'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
-        ->pluck('value', 'title');
         $data['page_title'] = trans('app.contact us page');
-        $page_title = [];
-        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
-
           if (!empty($data['rows']['address'])){
               $string = $data['rows']['address'];
               $adress = explode(',', $string, );
               $data['row']['address'] = $adress;
           }
-
         $data['categories']=Category::HeaderCategories()->get();
-        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
-            ->pluck('value', 'title');
         $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['about_us'][ConfigsEnum::CONTACT_US_COLOR_SCHEMA]]['site-layout'];
         $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['about_us'][ConfigsEnum::CONTACT_US_COLOR_SCHEMA]]['menu-layout'];
 

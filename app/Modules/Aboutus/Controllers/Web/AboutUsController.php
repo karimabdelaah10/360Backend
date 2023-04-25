@@ -20,13 +20,28 @@ class AboutUsController extends Controller {
     }
 
     public function getIndex() {
-        $data['rows'] = Config::where('page' , ConfigsEnum::ABOUT_PAGE)
+        $configs = Config::query()->where('page', ConfigsEnum::CONTACT_PAGE)
+            ->orWhere('title', ConfigsEnum::ALLOW_INSPECT)
+            ->orWhere('title', ConfigsEnum::HOME_PAGE_COLOR_SCHEMA)
+            ->orWhere('title', ConfigsEnum::KEYWORDS)
+            ->orWhere('title', ConfigsEnum::DESCRIPTION)
             ->pluck('value', 'title');
-        $data['about_us'] = Config::where('page' , ConfigsEnum::CONTACT_PAGE)
+
+        $data['allow_inspect'] = $configs[ConfigsEnum::ALLOW_INSPECT];
+        unset($configs[ConfigsEnum::ALLOW_INSPECT]);
+        $data['color'] = $configs[ConfigsEnum::HOME_PAGE_COLOR_SCHEMA];
+        unset($configs[ConfigsEnum::HOME_PAGE_COLOR_SCHEMA]);
+        $data['keywords'] = $configs[ConfigsEnum::KEYWORDS];
+        unset($configs[ConfigsEnum::KEYWORDS]);
+        $data['description'] = $configs[ConfigsEnum::DESCRIPTION];
+        unset($configs[ConfigsEnum::DESCRIPTION]);
+
+
+        $data['about_us'] = $configs;
+        $data['rows'] = Config::where('page' , ConfigsEnum::ABOUT_PAGE)
             ->pluck('value', 'title');
         $data['page_title'] = trans('app.about us page');
         $data['services'] = Service::all();
-        $data['allow_inspect'] =Config::where('title',ConfigsEnum::ALLOW_INSPECT)->first();
         $data['categories']=Category::HeaderCategories()->get();
         $data['site_layout'] = ConfigsEnum::getColorSchema()[$data['rows'][ConfigsEnum::ABOUT_US_COLOR_SCHEMA]]['site-layout'];
         $data['menu_layout'] = ConfigsEnum::getColorSchema()[$data['rows'][ConfigsEnum::ABOUT_US_COLOR_SCHEMA]]['menu-layout'];
